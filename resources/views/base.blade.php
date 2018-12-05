@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  @yield('css')
+  <style type="text/css">
+  .carousel .indicators .indicator-item{
+    width: 12px;
+    height: 12px;
+    background-color: rgba(36, 34, 34, 0.55);
+
+  }
+  .carousel .indicators .indicator-item.active{
+    background-color: black;
+  }
+   .input-field label {
+     color: #000;
+   }
+   .drop-usuario {
+  display: none;
+  min-width: 150px; /* Changed this to accomodate content width */
+  max-height: auto;
+  margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+  overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+  opacity: 0;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: width, height;
+}
+       .datepicker-date-display, .datepicker-table td.is-selected {
+        background-color:black;
+       }
+       .active,.dropdown-content li > a, .dropdown-content li > span,.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done{
+        color: black;
+        border-bottom-color: black;
+       }
+
+       input:not([type]), input[type="text"]:not(.browser-default):focus:not([readonly]), input[type="password"]:not(.browser-default):focus:not([readonly]), input[type="email"]:not(.browser-default):focus:not([readonly]), input[type="url"]:not(.browser-default):focus:not([readonly]), input[type="time"]:not(.browser-default):focus:not([readonly]), input[type="date"]:not(.browser-default):focus:not([readonly]), input[type="datetime"]:not(.browser-default):focus:not([readonly]), input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), input[type="tel"]:not(.browser-default):focus:not([readonly]), input[type="number"]:not(.browser-default):focus:not([readonly]), input[type="search"]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea{
+        color: black;
+        box-shadow:0 1px 0 0 black;
+        border-bottom-color:black;
+
+       }
+       input:not([type]):focus:not([readonly]) + label, input[type="text"]:not(.browser-default):focus:not([readonly]) + label, input[type="password"]:not(.browser-default):focus:not([readonly]) + label, input[type="email"]:not(.browser-default):focus:not([readonly]) + label, input[type="url"]:not(.browser-default):focus:not([readonly]) + label, input[type="time"]:not(.browser-default):focus:not([readonly]) + label, input[type="date"]:not(.browser-default):focus:not([readonly]) + label, input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label, input[type="datetime-local"]:not(.browser-default):focus:not([readonly]) + label, input[type="tel"]:not(.browser-default):focus:not([readonly]) + label, input[type="number"]:not(.browser-default):focus:not([readonly]) + label, input[type="search"]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea.validate + label,.input-field .prefix.active{
+        color: black;
+       }
+       [type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after{
+        background-color: black;
+       }
+       [type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::before, [type="radio"].with-gap:checked + span::after{
+        border: 2px solid black;
+       }
+  </style>
+
+  <title>Sublimade Fashion</title>
+</head>
+<body>
+  @section('nav')
+
+  <nav class="grey darken-4 ">
+    <div class="nav-wrapper">
+      <a href="{{url('/')}}"  class="brand-logo" >Sublimade</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+      <ul class="right hide-on-med-and-down">
+
+        <li><a href="{{url('/inisio.sesion')}}">Iniciar Sesion</a></li>
+        <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
+      </ul>
+    </div>
+  </nav>
+<!------------------------------------ DROPDOWN USUARIO ----------------------------------------->
+<ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
+    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>carro</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>opciones</a></li>
+        <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">close</i>sesion</a></li>
+  </ul>
+
+<!------------------------------------ SIDEVAR----------------------------------------->
+<div class="sidenav grey lighten-5" id="mobile-demo" id="mobile-de">
+
+  <nav>
+    <div class="nav-wrapper grey darken-4">
+      <a href="#!"  class="brand-logo" >Sublimade</a>
+      <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <ul class="collapsible collapsible-accordion">
+    <br>
+    <li>
+      <div class="collapsible-header">CATALOGO</div>
+        <ul class="collapsible-body">
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+        </ul>
+    </li>
+    <br>
+    <li class="divider" tabindex="-1"></li>
+    <br>
+    <li><a href="#">NOVEDADES</a></li>
+    <br>
+    <li class="divider" tabindex="-1"></li>
+    <br>
+    <li><a href="#">PARA HOMBRE</a></li>
+    <li><a href="#">PARA MUJER</a></li>
+    <br>
+    <li class="divider" tabindex="-1"></li>
+    <br>
+    <li><a href="#">COTIZACIONES</a></li>
+    <li><a href="#">DISEÑOS</a></li>
+    <br>
+    <li class="divider" tabindex="-1"></li>
+  </ul>
+</div>
+  @show
+<!------------------------------------------------------------------------------------->
+  @yield('slider')
+
+  <div class="container">
+  @yield('content')
+  </div>
+  @yield('catalogo')
+<!-------------------------------------CONTACTOS------------------------------------------------>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large grey darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-twitter" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-instagram" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-facebook-f" style="font-size: 2rem;"></i></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-whatsapp" style="font-size: 2rem;"></i></a></li>
+  </ul>
+</div>
+<!------------------------------------------------------------------------------------->
+
+        <footer class="page-footer grey darken-2">
+          <div class="container ">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            ¢í 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize/materialize.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  @yield('js')
+<script>
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+
+    $('.collapsible').collapsible();
+    $('.fixed-action-btn').floatingActionButton();
+    $('.dropdown-trigger').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      hover: true, // Activate on hover
+      coverTrigger: false, // Displays dropdown below the button
+      alignment: 'right' // Displays dropdown with edge aligned to the left of button
+    });
+
+  });
+              
+</script>
+
+</body>
+</html>
