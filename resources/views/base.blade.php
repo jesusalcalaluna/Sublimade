@@ -69,7 +69,7 @@
 
   <nav class="grey darken-4 ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}"  class="brand-logo" >Sublimade</a>
+      <a href="{{url('/')}}"  class="" >Sublimade</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
@@ -92,7 +92,7 @@
 
   <nav>
     <div class="nav-wrapper grey darken-4">
-      <a href="#!"  class="brand-logo" >Sublimade</a>
+      <a href="#!"  class="" >Sublimade</a>
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>

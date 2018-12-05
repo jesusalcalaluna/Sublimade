@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('inicio');
 });
-Route::get('/inisio.sesion', function () {
+Route::get('/inicio.sesion', function () {
     return view('inicio-sesion');
 });
 Route::get('/registro.usuario', function () {
