@@ -1,0 +1,16 @@
+INICIO
+-planteamiento
+-descripcion
+-metodologia
+-requerimientos
+-alcances y limitaciones
+-estudio de factivilidad
+
+DIAGRAMAS
+
+-casos de uso
+-secuencia
+-colaboracion
+-clases
+-de estados
+-(no recuerdo si hay mas)
