@@ -33,7 +33,7 @@ Route::get('/catalogo', function () {
 
 
 //-----------------------Jorge
-
+Route::get('detallesProducto', 'pruebas.Jorge.consultasController@detalles');
 
 //-----------------------Favela
 Route::get('/personalizar', function(){
