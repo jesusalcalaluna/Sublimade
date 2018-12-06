@@ -20,14 +20,18 @@
             autoProcessQueue: false,
             autoDiscover: false,
             init: function () {
-                var myDropzone=this;
+                var subirDisenos=this;
 
                 $("#btn1").click(function(e){
                     e.preventDefault();
                     e.stopPropagation();
-                    myDropzone.processQueue();
+                    subirDisenos.processQueue();
+                });
+                subirDisenos.on("complete", function(file) {
+                    subirDisenos.removeFile(file);
                 });
             }
         }
+
     </script>
     @endsection
