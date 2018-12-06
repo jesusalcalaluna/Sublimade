@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+
+  <!----------------------------------------LINKS ICONS - FONTS----------------------------------------->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+  <!---------------------------------------------LINKS CSS LOCAL----------------------------------------->
+  <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href={{url('/css/dropzone/dropzone.css')}}>
-  <!-- Compiled and minified CSS -->
+
+  <!---------------------------------------------- CDN CSS ------------------------------------>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
   @yield('css')
   <style type="text/css">
   .carousel .indicators .indicator-item{
@@ -20,6 +31,7 @@
     background-color: rgba(36, 34, 34, 0.55);
 
   }
+
   .carousel .indicators .indicator-item.active{
     background-color: black;
   }
@@ -183,6 +195,11 @@
   <script src="{{url('/js/dropzone/dropzone.js')}}"></script>
   @yield('js')
 <script>
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
 
   $(document).ready(function(){
     $('.sidenav').sidenav();
