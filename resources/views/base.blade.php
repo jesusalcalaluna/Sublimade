@@ -69,7 +69,7 @@
 
   <nav class="grey darken-4 ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}"  class="" >Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
@@ -92,7 +92,7 @@
 
   <nav>
     <div class="nav-wrapper grey darken-4">
-      <a href="#!"  class="" >Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
@@ -103,13 +103,13 @@
         <ul class="collapsible-body">
           <li><a href="#">NOVEDADES</a></li>
           <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
         </ul>
     </li>
     <br>
+      <li class="divider" tabindex="-1"></li>
+      <br>
+      <li><a href="{{url('/catalogo')}}">Catálogo</a></li>
+      <br>
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">NOVEDADES</a></li>
@@ -144,7 +144,7 @@
   <ul>
     <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-twitter" style="font-size: 2rem;"></i></a></li>
     <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-instagram" style="font-size: 2rem;"></i></a></li>
-    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-facebook-f" style="font-size: 2rem;"></i></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-facebook-f" style="font-size: 2rem;"></i></a></li>
     <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-whatsapp" style="font-size: 2rem;"></i></a></li>
   </ul>
 </div>

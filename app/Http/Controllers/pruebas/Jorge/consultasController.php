@@ -10,7 +10,7 @@ class consultasController extends Controller
 {
     function viewProducto(){
         $productos = Producto::all();
-        return view('productos')->with('productos', $productos);
+        return view('catalogo')->with('productos', $productos);
     }
     function detalles(Request $r){
         $id = $r->input('id');
@@ -19,10 +19,10 @@ class consultasController extends Controller
             ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria'"))
             ->where('productos.id_producto','=',$id)
             ->get();
-        return view('detallesProducto')->with('producto',$producto);
+        return view('jorgeViews.detallesProducto')->with('producto',$producto);
     }
     function carrito(){
-        return view('carrito');
+        return view('jorgeViews.carrito');
     }
 
 
