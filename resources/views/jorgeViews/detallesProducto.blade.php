@@ -1,15 +1,10 @@
-@extends('plantilla')
-@section('contenido')
-        <div class="container">
+@extends('base')
+@section('content')
+
         <div class="row card z-depth-3">
             <div class="col s6" style="margin-top: 150px;">
                 <hr>
-
-
-                    <img class="materialboxed responsive-img" width="650" src="images/universo-espacio-interestelar-2903.jpg">
-
-
-
+                    <img class="materialboxed responsive-img z-depth-4" width="650" src="images/universo-espacio-interestelar-2903.jpg">
                 <hr>
             </div>
             <div class="col s4" style="color: black;">
@@ -38,25 +33,28 @@
                             </label><br><br>
                         <p class="range-field" style="font-size: 20px;">
                             Cantidad:
-                            <input class="input" id="display" placeholder="Ingrese la cantidad">
+                            <input class="input" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad">
                         </p>
                             <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
-                        </p>
+                        <br>
+                        <br>
                     </form>
                     @endforeach
             </div>
         </div>
-        </div>
 
 
-        <script type="text/javascript">
-            // Or with jQuery
-            $(document).ready(function(){
-                $('.materialboxed').materialbox();
-            });
-            $(document).ready(function(){
-                $('.tooltip').tooltip();
-            });
+    @endsection
 
-        </script>
+@section('js')
+    <script>
+        // Or with jQuery
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
+        $(document).ready(function(){
+            $('.tooltip').tooltip();
+        });
+
+    </script>
     @endsection

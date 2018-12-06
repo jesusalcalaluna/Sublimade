@@ -22,9 +22,8 @@ Route::get('/registro.usuario', function () {
 });
 
 //-----------------------Tienda
-Route::get('/catalogo', function () {
-    return view('catalogo');
-});
+Route::get('/catalogo', 'consultasController@viewProducto');
+
 
 //-----------------------Aguirre
 
@@ -33,7 +32,8 @@ Route::get('/catalogo', function () {
 
 
 //-----------------------Jorge
-Route::get('detallesProducto', 'pruebas.Jorge.consultasController@detalles');
+Route::post('detalles','consultasController@detalles');
+Route::post('carrito', 'consultasController@detalles');
 
 //-----------------------Favela
 Route::get('/personalizar', function(){
