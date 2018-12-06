@@ -74,7 +74,7 @@
 
       <ul class="right hide-on-med-and-down">
 
-        <li><a href="{{url('/inisio.sesion')}}">Iniciar Sesion</a></li>
+        <li><a href="{{url('/inicio.sesion')}}">Iniciar Sesion</a></li>
         <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
       </ul>
     </div>
