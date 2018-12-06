@@ -26,8 +26,6 @@ Route::get('/catalogo', function () {
     return view('catalogo');
 });
 
-
-
 //-----------------------Aguirre
 
 
@@ -38,3 +36,6 @@ Route::get('/catalogo', function () {
 
 
 //-----------------------Favela
+Route::get('/personalizar', function(){
+   return view('index');
+});
