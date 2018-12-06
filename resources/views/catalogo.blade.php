@@ -15,9 +15,9 @@
 </div>
 
 <div class="row">
-    <div class="col m10">
+    <div class="col m10 s10">
         @foreach($productos as $producto)
-            <div class="col m3">
+            <div class="col m3 s3">
                 <div class="card z-depth-3" style="color: black;">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg">
@@ -41,7 +41,7 @@
         @endforeach
     </div>
     <!--filtro-->
-    <div class="col m2">
+    <div class="col m2 s2">
         <div class="section center">
             <h5>FILTRO</h5>
         </div>
