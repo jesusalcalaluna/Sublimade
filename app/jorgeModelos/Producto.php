@@ -11,9 +11,9 @@ class Producto extends Model
     public $timestamps = false;
 
     function diseno(){
-        return $this->hasOne('App\Diseno', 'id_diseno');
+        return $this->hasOne('App\Diseno', 'id_diseno','id_producto');
     }
     function tipo_producto(){
-        return $this->hasOne('App\Tipo_producto', 'id_tipo_producto');
+        return $this->hasOne('App\Tipo_producto', 'id_tipo_producto','id_producto');
     }
 }

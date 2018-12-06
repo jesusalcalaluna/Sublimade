@@ -11,6 +11,6 @@ class Categoria extends Model
     protected $primaryKey = 'categoria';
 
     function diseno(){
-        return $this->belongsTo('App\Diseno');
+        return $this->belongsTo('App\Diseno','id_diseno','categoria');
     }
 }

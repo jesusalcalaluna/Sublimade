@@ -10,10 +10,14 @@ class Diseno extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_diseno';
 
-    function producto(){
-        return $this->belongsTo('App\Producto');
+    function categorias(){
+        $this->hasOne(Categoria::class,'categoria','id_diseno');
     }
-    function categoria(){
-        return $this->hasOne('App\Categoria', 'categoria');
+    function productos(){
+        $this->belongsTo(Producto::class, 'id_producto','id_diseno');
+    }
+
+    function diesnosclientes(){
+        $this->belongsToMany(Clientes::class,'disenos_clientes','id_diseno','id_cliente');
     }
 }
