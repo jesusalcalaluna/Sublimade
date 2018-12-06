@@ -22,7 +22,7 @@ Route::get('/registro.usuario', function () {
 });
 
 //-----------------------Tienda
-Route::get('/catalogo', 'consultasController@viewProducto');
+Route::get('/catalogo','consultasController@viewProducto');
 
 
 //-----------------------Aguirre
@@ -36,6 +36,9 @@ Route::post('detalles','consultasController@detalles');
 Route::post('carrito', 'consultasController@carrito');
 
 //-----------------------Favela
-Route::get('/personalizar', function(){
-   return view('index');
-});
+Route::get('/disenos','FavelaController@registrardisenos');
+//Route::get('/storage',function (){
+//    return storage_path();
+//});
+Route::post('/ingresardiseno','FavelaController@ingresardiseno');
+
