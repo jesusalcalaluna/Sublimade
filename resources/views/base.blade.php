@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href={{url('/css/dropzone/dropzone.css')}}>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   @yield('css')
@@ -122,7 +123,7 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="#">DISEÑOS</a></li>
+    <li><a href="/disenos">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
   </ul>
@@ -178,8 +179,8 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/materialize/materialize.js"></script>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{url('/js/dropzone/dropzone.js')}}"></script>
   @yield('js')
 <script>
 
