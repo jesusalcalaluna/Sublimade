@@ -23,6 +23,7 @@ class consultasController extends Controller
     }
     function carrito(Request $r){
         $id = $r->input('id');
+        $talla = $r->get('tallas');
         $cantidad = $r->input('cantidad');
         $producto = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
@@ -30,7 +31,7 @@ class consultasController extends Controller
             ->where('productos.id_producto','=',$id)
             ->get();
 
-        return view('jorgeViews.carrito')->with('producto', $producto)->with('cantidad', $cantidad);
+        return view('jorgeViews.carrito')->with('producto', $producto)->with('cantidad', $cantidad)->with('talla', $talla);
     }
 
 

@@ -20,20 +20,20 @@
                         <p style="font-size: 20px">Tallas</p>
                         <p>
                             <label>
-                                <input name="tallas" type="radio"/>
+                                <input name="tallas" type="radio" value="Chica"/>
                                 <span>Chica</span>
                             </label>
                             <label>
-                                <input name="tallas" type="radio" />
+                                <input name="tallas" type="radio" value="Mediana"/>
                                 <span>Mediana</span>
                             </label>
                             <label>
-                                <input name="tallas" type="radio" />
+                                <input name="tallas" type="radio" value="Grande"/>
                                 <span>Grande</span>
                             </label><br><br>
                         <p class="range-field" style="font-size: 20px;">
                             Cantidad:
-                            <input class="input" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad">
+                            <input class="input validate" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad">
                             <input name="id" class="hide" type="text" value="{{$item->id_producto}}">
                         </p>
                             <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
@@ -57,14 +57,16 @@
             $('.tooltip').tooltip();
         });
         function validar(){
-            console.log();
-            if ($('#cantidad').val() == "") {
-                alert('Vacio');
-                return false;
-            }else{
-                alert('lleno');
+            $('.btn').click(function(){
+                if ($('.input').val() == "") {
+                    alert('Vacio');
+                    return false;
+                }else{
+                    alert('lleno');
 
-            }
+                }
+            })
+
         }
 
     </script>

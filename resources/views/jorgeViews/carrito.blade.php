@@ -10,14 +10,14 @@
         </div>
         <div class="col m4 s4" align="center">
             <p style="font-size: 20px"><strong>Detalles</strong></p>
-                Cantidad: {{$cantidad[0]}}<br>
-                Talla: Chica <br>
-                Tipo de producto: playera <br>
-                Precio: MXN$126
+                Cantidad: {{$cantidad}}<br>
+                Talla:  {{$talla}}<br>
+                Tipo de producto: {{$producto[0]->tipo}}<br>
+                Precio: MXN${{$producto[0]->costo}}
         </div>
         <div class="col m3 s3" align="center">
             <p style="font-size: 20px"><strong>Total</strong></p>
-            <strong>MXN$126</strong>
+            <strong>MXN${{$cantidad*$producto[0]->costo}}</strong>
         </div>
     </div>
     <div class="row">
