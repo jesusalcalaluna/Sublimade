@@ -33,7 +33,7 @@ Route::get('/catalogo', 'consultasController@viewProducto');
 
 //-----------------------Jorge
 Route::post('detalles','consultasController@detalles');
-Route::post('carrito', 'consultasController@detalles');
+Route::post('carrito', 'consultasController@carrito');
 
 //-----------------------Favela
 Route::get('/personalizar', function(){
