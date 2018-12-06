@@ -10,16 +10,31 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//---------------------- Principal
 Route::get('/', function () {
-    return view('inicio');
+    return view('inicio.inicio');
 });
 Route::get('/inicio.sesion', function () {
-    return view('inicio-sesion');
+    return view('inicio.inicio-sesion');
 });
 Route::get('/registro.usuario', function () {
-    return view('registro-usuario');
+    return view('inicio.registro-usuario');
 });
+
+//-----------------------Tienda
 Route::get('/catalogo', function () {
     return view('catalogo');
 });
+
+
+
+//-----------------------Aguirre
+
+
+//-----------------------Alcala
+
+
+//-----------------------Jorge
+
+
+//-----------------------Favela
