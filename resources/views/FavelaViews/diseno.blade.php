@@ -8,6 +8,7 @@
                 <div class="fallback">S
                     <input type="file" name="file">
                 </div>
+                <input type="text" name="algo" placeholder="escribe algo">
                 <button id="btn1" class="btn btn-primary" type="submit">Ingresar</button>
             </form>
         </div>

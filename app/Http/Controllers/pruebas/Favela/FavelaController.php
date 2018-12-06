@@ -15,6 +15,7 @@ class FavelaController extends Controller
         $nombrearchivo=substr(uniqid(),1,5).$archivo->getClientOriginalName();
 
         $archivo->move($ruta,$nombrearchivo);
+        dd($request->input('algo'));
     }
 }
 //identificar qué tipo de usuario es y guardar el diseño en distintas carpetas
