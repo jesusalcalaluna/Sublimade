@@ -41,4 +41,4 @@ Route::get('/disenos','FavelaController@registrardisenos');
 //    return storage_path();
 //});
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
-
+Route::post('/prueba','FavelaController@ingresardiseno');
