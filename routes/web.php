@@ -12,7 +12,7 @@
 */
 //---------------------- Principal
 Route::get('/', function () {
-    return view('inicio.inicio');
+    return 'hola';
 });
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
@@ -37,8 +37,4 @@ Route::post('carrito', 'consultasController@carrito');
 
 //-----------------------Favela
 Route::get('/disenos','FavelaController@registrardisenos');
-//Route::get('/storage',function (){
-//    return storage_path();
-//});
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
-Route::post('/prueba','FavelaController@ingresardiseno');
