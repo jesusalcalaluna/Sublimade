@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Carrito;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,6 +32,10 @@ class consultasController extends Controller
             ->where('productos.id_producto','=',$id)
             ->get();
 
+        $carrito = new Carrito();
+        $carrito->id_carrito =  '4';
+        $carrito->save();
+        $carrito->producto_carrito();
         return view('jorgeViews.carrito')->with('producto', $producto)->with('cantidad', $cantidad)->with('talla', $talla);
     }
 

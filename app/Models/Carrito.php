@@ -10,6 +10,6 @@ class Carrito extends Model
         protected $primarykey='id_carrito';
          public $timestamps=false;
     public function Producto_carrito(){
-   	return $this->belongsToMany(Poducto::class, "carrito_has_productos", "carritos_id_carrito", "productos_id_producto");
+   	return $this->belongsToMany('App\Producto', "carritos_has_productos", "id_carrito", "id_producto");
    }
 }
