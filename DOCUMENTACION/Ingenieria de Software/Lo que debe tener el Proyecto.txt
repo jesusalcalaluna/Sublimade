@@ -9,8 +9,8 @@ INICIO
 DIAGRAMAS
 
 -casos de uso
--secuencia
+-secuencia-->alcala diosito el gezucristo
 -colaboracion
--clases
+-clases----->alcala diosito el gezucristo
 -de estados
 -(no recuerdo si hay mas)
