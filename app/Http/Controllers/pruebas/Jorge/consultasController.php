@@ -26,19 +26,16 @@ class consultasController extends Controller
         $id = $r->input('id');
         $talla = $r->get('tallas');
         $cantidad = $r->input('cantidad');
-//        $producto = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-//            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-//            ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
-//            ->where('productos.id_producto','=',$id)
-//            ->get();
+        $costo_unitario = dd(Producto::all()->where('id','=',$id)->get('costo_unitario'));
 
         $carrito = new Carrito();
-        $carrito->producto_carrito()->id_carrito = '4';
+        //$carrito->producto_carrito()->id_carrito = ;
         $carrito->producto_carrito()->id_producto = $id;
         $carrito->producto_carrito()->cantidad = $cantidad;
         $carrito->producto_carrito()->total = $talla;
-        $carrito->producto_carrito()->save($carrito);
-        $carrito->sub_total =  $carrito->producto_carrito()->where('id_carrito','=',$id)->sum("carritos_has_productos.cantidad");
+        $carrito->producto_carrito()->attach(4, ['id_producto'=>$id, 'cantidad'=>$cantidad, 'total'=>$cantidad]);
+
+
         $carrito->producto_carrito()->save($carrito);
         $producto = dd(DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')

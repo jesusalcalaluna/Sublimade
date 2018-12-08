@@ -12,7 +12,7 @@
 */
 //---------------------- Principal
 Route::get('/', function () {
-    return view('inicio.inicio');
+    return view('inicio.Inicio');
 });
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
