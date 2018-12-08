@@ -37,4 +37,7 @@ Route::post('carrito', 'consultasController@carrito');
 
 //-----------------------Favela
 Route::get('/disenos','FavelaController@registrardisenos');
+Route::get('/php',function (){
+    return view('phpinfo');
+});
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');

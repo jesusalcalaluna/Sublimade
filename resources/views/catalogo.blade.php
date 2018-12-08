@@ -40,60 +40,89 @@
             </div>
         @endforeach
     </div>
-    <!--filtro-->
+<!----------------------------------------------------FILTROS----------------------------------------------->
     <div class="col m2 s2">
         <div class="section center">
             <h5>FILTRO</h5>
         </div>
         <div class="divider"></div>
+<!----------------------------------------------------sexo----------------------------------------------->
         <div class="section">
             <h5>Sexo</h5>
             <p>
                 <form action="#">
             <p>
                 <label>
-                    <input name="group1" type="radio" checked />
+                    <input name="todo" type="radio" checked />
                     <span>Todo</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="group1" type="radio" />
+                    <input name="mujer" type="radio" />
                     <span>Mujer</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="group1" type="radio"  />
+                    <input name="hombre" type="radio"  />
                     <span>Hombre</span>
                 </label>
             </p>
             </form>
             </p>
         </div>
+        <div class="divider"></div>
+<!--------------------------------------------------productos----------------------------------------------->
+        <div class="section">
+            <h5>Productos</h5>
+            <p>
+                <form action="#">
+            <p>
+                <label>
+                    <input name="todo" type="radio" checked />
+                    <span>Todo</span>
+                </label>
+            </p>
+            @foreach($tipo_producto as $tipo_producto)
+            <p>
+                <label>
+                    <input name="{{$tipo_producto->nombre}}" type="radio" />
+                    <span>{{$tipo_producto->nombre}}</span>
+                </label>
+            </p>
+            @endforeach
+            </form>
+            </p>
+        </div>
+        <div class="divider"></div>
+<!--------------------------------------------------productos----------------------------------------------->
+        <div class="section">
+            <h5>Categoria</h5>
+            <p>
+                <form action="#">
+            <p>
+                <label>
+                    <input name="todo" type="radio" checked />
+                    <span>Todo</span>
+                </label>
+            </p>
+            @foreach($categorias as $categoria)
+            <p>
+                <label>
+                    <input name="{{$categoria->nombre}}" type="radio" />
+                    <span>{{$categoria->nombre}}</span>
+                </label>
+            </p>
+            @endforeach
+            </form>
+            </p>
+        </div>
+    </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @endsection
     @section('js')
     <script type="text/javascript">
 
-  // Or with jQuery
     </script>
     @endsection
