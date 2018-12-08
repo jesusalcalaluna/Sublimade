@@ -3,6 +3,16 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema sublimade_fashion_db
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `sublimade_fashion_db` ;
+
+-- -----------------------------------------------------
+-- Schema sublimade_fashion_db
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `sublimade_fashion_db` DEFAULT CHARACTER SET latin1 ;
 -- -----------------------------------------------------
 -- Schema sublimade_fashion_db
 -- -----------------------------------------------------
@@ -461,20 +471,6 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`salidas` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-USE `sublimade_fashion_db` ;
-
--- -----------------------------------------------------
--- Placeholder table for view `sublimade_fashion_db`.`usuario_pass`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`usuario_pass` (`nom_usuario` INT, `pass` INT);
-
--- -----------------------------------------------------
--- View `sublimade_fashion_db`.`usuario_pass`
--- -----------------------------------------------------
-DROP VIEW IF EXISTS `sublimade_fashion_db`.`usuario_pass` ;
-DROP TABLE IF EXISTS `sublimade_fashion_db`.`usuario_pass`;
-USE `sublimade_fashion_db`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `sublimade_fashion_db`.`usuario_pass` AS select `sublimade_fashion_db`.`usuarios`.`nom_usuario` AS `nom_usuario`,`sublimade_fashion_db`.`usuarios`.`pass` AS `pass` from `sublimade_fashion_db`.`usuarios`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
