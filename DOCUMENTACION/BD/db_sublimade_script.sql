@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`personas` (
   `tel_celular` VARCHAR(24) NOT NULL,
   `direccion` VARCHAR(60) NOT NULL,
   `cp` INT NULL DEFAULT NULL,
-  `f_nacimiento` DATETIME NULL DEFAULT NULL,
+  `f_nacimiento` DATE NULL DEFAULT NULL,
   `sexo` CHAR(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
   INDEX `nombre` (`nombre` ASC),
@@ -481,5 +481,24 @@ create trigger subtotal after insert on carritos_has_productos for each row
 update carritos set carritos.sub_total = 
 (select sum(carritos_has_productos.total) as 'subtotal' from carritos_has_productos where carritos_has_productos.id_carrito = new.id_carrito)
 where carritos.id_carrito = new.id_carrito; 
+/*drop trigger subtotal;*/
 
-drop trigger subtotal;
+
+
+
+
+
+/*INSERTS*/
+
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('', 'Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Eduardo', 'Favela', '8721234', '8711314766', 'col Sol de Oriente', '27083', '1999-01-28', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Maria', 'Luna Sanchez', '7336549', '8711898438', 'col Las arboledas', '27084', '1975-12-21', 'Femenino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
+
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
+
