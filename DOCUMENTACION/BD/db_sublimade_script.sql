@@ -279,7 +279,6 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`carritos_has_productos` (
   `cantidad` SMALLINT NULL,
   `total` DOUBLE NULL,
   `talla` CHAR(10) NULL,
-  PRIMARY KEY (`id_carrito`, `id_producto`),
   INDEX `fk_carritos_has_productos_productos1_idx` (`id_producto` ASC),
   INDEX `fk_carritos_has_productos_carritos1_idx` (`id_carrito` ASC),
   CONSTRAINT `fk_carritos_has_productos_carritos1`
@@ -475,3 +474,12 @@ DEFAULT CHARACTER SET = latin1;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+/*TRIGGERS*/
+/*Trigger para obtener el subtotal*/
+create trigger subtotal after insert on carritos_has_productos for each row
+update carritos set carritos.sub_total = 
+(select sum(carritos_has_productos.total) as 'subtotal' from carritos_has_productos where carritos_has_productos.id_carrito = new.id_carrito)
+where carritos.id_carrito = new.id_carrito; 
+
+drop trigger subtotal;
