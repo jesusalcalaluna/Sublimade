@@ -502,3 +502,13 @@ INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `
 INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
 INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
 
+INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('deportes');
+INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('peliculas');
+INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('animales');
+INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('caricaturas');
+
+INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('deportes', 'Fnatic','camiseta-fnatic-tela-deportiva-D_NQ_NP_684258-MLA26285941771_112017-F.jpg');
+INSERT INTO `sublimade_fashion_db`.`disenos` (`categoria`, `nombre`,`diseno`) VALUES ('deportes', 'Nadadores','playera-sublimada-nadador.jpg');
+INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('peliculas', 'Ojos de DeadPool ','playeras-de-deadpool-D_NQ_NP_205601-MLM20369962569_082015-F.jpg');
+INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('deportes', 'G2 Esports','G2-Player-Jersey-2017-Front-Updated_1024x1024.png');
+INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('deportes', 'it is cycological','e108520b-5f26-4627-8472-7b6f8fb2e2ae.jpg');
