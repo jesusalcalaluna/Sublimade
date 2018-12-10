@@ -26,7 +26,7 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-class Diseno extends Controller
+class ControllerUsuario extends Controller
 {
     //
 }

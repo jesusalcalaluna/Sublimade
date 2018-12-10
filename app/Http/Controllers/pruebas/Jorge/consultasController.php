@@ -12,6 +12,7 @@ class consultasController extends Controller
 {
     function viewProducto(){
         $productos = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')->get();
+        
         return view('catalogo')->with('productos', $productos);
     }
     function detalles(Request $r){

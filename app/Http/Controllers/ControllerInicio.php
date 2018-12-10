@@ -26,7 +26,7 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-class Carro extends Controller
+class ControllerInicio extends Controller
 {
     //
 }

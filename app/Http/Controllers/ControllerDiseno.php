@@ -26,9 +26,7 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-class inicio extends Controller
+class ControllerDiseno extends Controller
 {
-    function actualizar (request $request){
-    	
-    }
+    //
 }

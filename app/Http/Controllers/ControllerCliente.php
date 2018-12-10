@@ -26,7 +26,7 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-class Categoria extends Controller
+class ControllerCliente extends Controller
 {
     //
 }

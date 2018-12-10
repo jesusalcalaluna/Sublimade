@@ -26,7 +26,7 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-class Tipo_producto extends Controller
+class ControllerTipo_Producto extends Controller
 {
     //
 }
