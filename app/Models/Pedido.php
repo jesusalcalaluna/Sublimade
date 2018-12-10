@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
      protected $table='pedidos';
-        protected $primarykey='reg_pedido';
+        protected $primaryKey='reg_pedido';
          public $timestamps=false;
 }

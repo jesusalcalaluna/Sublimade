@@ -17,7 +17,7 @@
         </div>
         <div class="col m3 s3" align="center">
             <p style="font-size: 20px"><strong>Total</strong></p>
-            <strong>MXN${{$cantidad*$item->costo}}</strong>
+            <strong>MXN${{$item->total}}</strong>
         </div>
     </div>
     @endforeach
