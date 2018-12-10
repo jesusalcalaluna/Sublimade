@@ -4,10 +4,7 @@
 @endsection
 @section('Contenido')
 
-        @foreach ($project as $item)
-
-                       <image src="{{$item->nombre_archivo}}"></image>
-        @endforeach
+                       <image src="{{$imagen2}}"></image>
 
 @endsection
 @section('javascript')
