@@ -31,7 +31,19 @@ use Carbon\Carbon;
 
 class Persona extends Controller
 {
-    function registrarpersona(){
+    function registrarpersona(request $request){
+    	$persona = new Persona();
+    	$persona->nombre = $request->nombre;
+    	$persona->apellido = $request->apellido;
+    	$persona->tel_casa = $request->tel_casa;
+    	$persona->tel_celular = $request->tel_celular;
+    	$persona->direccion = $request->direccion;
+    	$persona->cp = $request->cp;
+    	$persona->f_nacimiento = $request->f_nacimiento;
+    	$persona->sexo = $request->sexo;
+    	save($persona);
+
+    	
 
     }
 }

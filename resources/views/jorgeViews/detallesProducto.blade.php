@@ -4,7 +4,9 @@
         <div class="row card z-depth-3">
             <div class="col s6 m6" style="margin-top: 150px;">
                 <hr>
-                    <img class="materialboxed responsive-img z-depth-4" width="650" src="images/universo-espacio-interestelar-2903.jpg">
+                @foreach($producto as $item)
+                    <img class="materialboxed responsive-img z-depth-4" width="650" src="storage/disenos/{{$item->diseno}}">
+                @endforeach
                 <hr>
             </div>
             <div class="col s4 m6" style="color: black;">

@@ -1,5 +1,10 @@
     @extends('base')
     @section('css')
+    <style type="text/css">
+    img.grande{
+      width: 200px; height: 200px;
+    }
+    </style>
     @endsection
     @section('nav')
     @parent
@@ -20,7 +25,7 @@
             <div class="col m3 s3">
                 <div class="card z-depth-3" style="color: black;">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg">
+                        <img class="activator " src="storage/disenos/{{$producto->diseno}}">
                     </div>
                     <div class="card-content">
                         <span class="card-title grey-text text-darken-4">{{$producto->nombre}}</span>
