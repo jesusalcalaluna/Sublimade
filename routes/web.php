@@ -36,7 +36,7 @@ Route::post('detalles','ControllerProducto@detalles');
 
 
 //-----------------------Alcala
-
+Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Jorge
 
