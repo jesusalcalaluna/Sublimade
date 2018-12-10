@@ -510,14 +510,14 @@ INSERT INTO `sublimade_fashion_db`.`disenos` (`id_diseno`,  `categoria`, `nombre
 INSERT INTO `sublimade_fashion_db`.`disenos` (`id_diseno`,  `categoria`, `nombre`,`diseno`) VALUES ('4','deportes', 'G2 Esports','G2-Player-Jersey-2017-Front-Updated_1024x1024.png');
 INSERT INTO `sublimade_fashion_db`.`disenos` (`id_diseno`,  `categoria`, `nombre`,`diseno`) VALUES ('5','deportes', 'it is cycological','e108520b-5f26-4627-8472-7b6f8fb2e2ae.jpg');
 
-INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('1', 'Plallera');
+INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('1', 'Playera');
 INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('2', 'Sudadera');
-INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('3', 'Jersy');
+INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('3', 'Jersey');
 
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('1', 'Fnatic', '200', '1', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('2', 'Nadadores', '234', '2', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('3', 'Ojos de DeadPool', '233', '3', '1', 'Hombre');
-INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '4', '3', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 eSports', '534', '4', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '5', '3', 'Hombre');
 
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('1');
