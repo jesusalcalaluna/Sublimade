@@ -482,11 +482,9 @@ update carritos set carritos.sub_total =
 where carritos.id_carrito = new.id_carrito; 
 /*drop trigger subtotal;*/
 
-
-
-
-
-
+/*Trigger para crear una persona antes de un usuario*/
+# create trigger usuario before insert on usuarios for each row
+#   insert
 /*INSERTS*/
 
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('1','Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
