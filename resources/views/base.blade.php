@@ -184,7 +184,7 @@
           <div class="footer-copyright">
             <div class="container">
             ¢í 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a class="grey-text text-lighten-4 right" href="{{url('/inicio.mod')}}">Inicio</a>
             </div>
           </div>
         </footer>

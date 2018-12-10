@@ -482,11 +482,9 @@ update carritos set carritos.sub_total =
 where carritos.id_carrito = new.id_carrito; 
 /*drop trigger subtotal;*/
 
-
-
-
-
-
+/*Trigger para crear una persona antes de un usuario*/
+# create trigger usuario before insert on usuarios for each row
+#   insert
 /*INSERTS*/
 
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('1','Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
@@ -521,3 +519,9 @@ INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('3', 'Ojos de DeadPool', '233', '3', '1', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '4', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '5', '3', 'Hombre');
+
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('1');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('2');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('3');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('4');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('5');

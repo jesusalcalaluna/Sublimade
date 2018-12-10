@@ -17,6 +17,12 @@ Route::get('/', function () {
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
 });
+Route::post('/inicio.mod','inicio@actualizar');
+Route::get('/inicio.mod', function () {
+    return view('inicio.modificar-inicio');
+});
+//-----------------------Usuarios
+Route::get('/registro.usuario','Usuario@registro');
 Route::get('/registro.usuario', function () {
     return view('inicio.registro-usuario');
 });
@@ -37,7 +43,5 @@ Route::post('carrito', 'consultasController@carrito');
 
 //-----------------------Favela
 Route::get('/disenos','FavelaController@registrardisenos');
-Route::get('/php',function (){
-    return view('phpinfo');
-});
+Route::get('/verdisenos','FavelaController@verdisenos');
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
