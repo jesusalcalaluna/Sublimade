@@ -57,9 +57,7 @@ class consultasController extends Controller
 
         return view('jorgeViews.carrito')->with('producto', $producto)->with('cantidad', $cantidad)->with('talla', $talla);
     }
-    function generar_subtotal(){
 
-    }
 
 
 }

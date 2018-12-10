@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
         protected $table='personas';
-        protected $primarykey='id_persona';
+        protected $primaryKey='id_persona';
          public $timestamps=false;
 
     public function Usuario(){
