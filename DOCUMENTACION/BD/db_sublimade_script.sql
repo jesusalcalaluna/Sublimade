@@ -521,3 +521,9 @@ INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('3', 'Ojos de DeadPool', '233', '3', '1', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '4', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '5', '3', 'Hombre');
+
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('1');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('2');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('3');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('4');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('5');

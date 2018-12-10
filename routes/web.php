@@ -17,6 +17,12 @@ Route::get('/', function () {
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
 });
+Route::post('/inicio.mod','inicio@actualizar');
+Route::get('/inicio.mod', function () {
+    return view('inicio.modificar-inicio');
+});
+//-----------------------Usuarios
+Route::get('/registro.usuario','Usuario@registro');
 Route::get('/registro.usuario', function () {
     return view('inicio.registro-usuario');
 });

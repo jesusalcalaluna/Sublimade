@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 //--------Modelos
 use App\Models\Carrito;
 use App\Models\Categoria;
@@ -27,11 +26,9 @@ use App\Models\User;
 use App\Models\Usuario;
 //------------------
 
-use Carbon\Carbon;
-
-class Persona extends Controller
+class inicio extends Controller
 {
-    function registrarpersona(){
-
+    function actualizar (request $request){
+    	
     }
 }
