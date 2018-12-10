@@ -248,7 +248,6 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`productos` (
   `costo_unitario` DOUBLE NOT NULL DEFAULT '0',
   `id_diseno` INT(11) NOT NULL,
   `id_tipo_producto` INT(11) NOT NULL,
-  `tamano` VARCHAR(45) NULL DEFAULT NULL,
   `sexo` CHAR(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id_producto`),
   INDEX `producto_diseno` (`id_diseno` ASC),
@@ -490,11 +489,11 @@ where carritos.id_carrito = new.id_carrito;
 
 /*INSERTS*/
 
-INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('', 'Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
-INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Eduardo', 'Favela', '8721234', '8711314766', 'col Sol de Oriente', '27083', '1999-01-28', 'Masculino');
-INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Maria', 'Luna Sanchez', '7336549', '8711898438', 'col Las arboledas', '27084', '1975-12-21', 'Femenino');
-INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
-INSERT INTO `sublimade_fashion_db`.`personas` (`nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('1','Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('2','Eduardo', 'Favela', '8721234', '8711314766', 'col Sol de Oriente', '27083', '1999-01-28', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('3','Maria', 'Luna Sanchez', '7336549', '8711898438', 'col Las arboledas', '27084', '1975-12-21', 'Femenino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('4','Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
+INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('5','Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
 
 INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
 INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
@@ -512,3 +511,13 @@ INSERT INTO `sublimade_fashion_db`.`disenos` (`categoria`, `nombre`,`diseno`) VA
 INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('peliculas', 'Ojos de DeadPool ','playeras-de-deadpool-D_NQ_NP_205601-MLM20369962569_082015-F.jpg');
 INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('deportes', 'G2 Esports','G2-Player-Jersey-2017-Front-Updated_1024x1024.png');
 INSERT INTO `sublimade_fashion_db`.`disenos` ( `categoria`, `nombre`,`diseno`) VALUES ('deportes', 'it is cycological','e108520b-5f26-4627-8472-7b6f8fb2e2ae.jpg');
+
+INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('1', 'Plallera');
+INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('2', 'Sudadera');
+INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre`) VALUES ('3', 'Jersy');
+
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('1', 'Fnatic', '200', '2', '3', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('2', 'Nadadores', '234', '3', '3', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('3', 'Ojos de DeadPool', '233', '4', '1', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '5', '3', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '6', '3', 'Hombre');
