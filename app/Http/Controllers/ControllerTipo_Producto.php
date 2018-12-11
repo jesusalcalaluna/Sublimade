@@ -28,5 +28,8 @@ use App\Models\Usuario;
 
 class ControllerTipo_Producto extends Controller
 {
-    //
+    function GetTipos_producto(){
+    	$tipos_producto=Tipos_producto::all();
+    	return $tipos_producto;
+    }
 }
