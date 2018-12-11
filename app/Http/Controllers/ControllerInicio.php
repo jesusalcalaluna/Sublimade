@@ -28,5 +28,16 @@ use App\Models\Usuario;
 
 class ControllerInicio extends Controller
 {
-    //
+    function twitter(){
+        return redirect('http://www.twitter.com');
+    }
+    function instagram(){
+        return redirect('http://www.instagram.com');
+    }
+    function facebook(){
+        return redirect('http://www.facebook.com');
+    }
+    function whatsapp(){
+        return redirect('http://web.whatsapp.com');
+    }
 }

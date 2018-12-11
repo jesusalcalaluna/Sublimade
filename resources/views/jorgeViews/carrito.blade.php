@@ -6,7 +6,7 @@
         <br>
         <div class="col m4 s4" align="center">
             <p style="font-size: 20px"><strong>{{$item->nombre}}</strong></p>
-            <img class="responsive-img" width="150" src="images/universo-espacio-interestelar-2903.jpg" alt="">
+            <img class="responsive-img" width="150" src="storage/disenos/{{$item->diseno}}" alt="">
         </div>
         <div class="col m4 s4" align="center">
             <p style="font-size: 20px"><strong>Detalles</strong></p>
@@ -33,7 +33,9 @@
 
                         <a href="/catalogo" class="btn grey darken-2 z-depth-3">Seguir comprando</a>
                         <div class="file-path-wrapper">
-                            <form action="">
+                            <form action="finalizarCompra" method="post">
+                                {{csrf_field()}}
+                                <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
                                 <button class="btn green darken-2 z-depth-3">Finalizar compra</button>
                             </form>
 

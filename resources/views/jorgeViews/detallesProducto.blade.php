@@ -22,7 +22,7 @@
                         <p style="font-size: 20px">Tallas</p>
                         <p>
                             <label>
-                                <input name="tallas" type="radio" value="Chica"/>
+                                <input name="tallas" type="radio" value="Chica" checked/>
                                 <span>Chica</span>
                             </label>
                             <label>
@@ -35,7 +35,7 @@
                             </label><br><br>
                         <p class="range-field" style="font-size: 20px;">
                             Cantidad:
-                            <input class="input validate" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad">
+                            <input class="input validate" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad" value="1">
                             <input name="id" class="hide" type="text" value="{{$item->id_producto}}">
                         </p>
                             <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
@@ -58,18 +58,5 @@
         $(document).ready(function(){
             $('.tooltip').tooltip();
         });
-        function validar(){
-            $('.btn').click(function(){
-                if ($('.input').val() == "") {
-                    alert('Vacio');
-                    return false;
-                }else{
-                    alert('lleno');
-
-                }
-            })
-
-        }
-
     </script>
     @endsection

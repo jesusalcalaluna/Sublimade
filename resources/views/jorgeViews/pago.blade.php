@@ -1,8 +1,8 @@
-@extends('plantilla')
+@extends('base')
 @section('contenido')
     <div class="container">
         <div class="row">
-            <div class="col-md-7 offset-2">
+            <div class="col m7 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
                     <p class="card-title">Ya casi!</p>
                     <p class="card-content">Estás a un paso de terminar con tu compra.</p>
@@ -38,10 +38,14 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '{{$precio}}', currency: 'MXN' }
+                                amount: {
+                                    total: '{{$pedido->subtotal}}',
+                                    currency: 'MXN'
+                                }
                             }
                         ]
-                    }
+                    },
+                    description: 'Id de pedido: '+'{{$pedido->item}}'
                 });
             },
             // Wait for the payment to be authorized by the customer
