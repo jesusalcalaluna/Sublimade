@@ -34,6 +34,9 @@ Route::get('/registro.usuario', function () {
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
 Route::post('detalles','ControllerProducto@detalles');
+Route::post('carrito', 'consultasController@carrito');
+Route::post('finalizarCompra','consultasController@finalizarcompra');
+Route::post('generarPedido','consultasController@generarPedido');
 
 
 //-----------------------Aguirre
@@ -44,9 +47,7 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Jorge
 
-Route::post('carrito', 'consultasController@carrito');
-Route::post('finalizarCompra','consultasController@finalizarcompra');
-Route::post('generarPedido','consultasController@generarPedido');
+
 
 //-----------------------Favela
 Route::get('/disenos','FavelaController@registrardisenos');

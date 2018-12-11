@@ -1,6 +1,6 @@
 @extends('base')
-@section('contenido')
-    <div class="container">
+@section('content')
+
         <div class="row">
             <div class="col m7 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
@@ -14,7 +14,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    @endsection
+
+        @section('js')
     <script>
         paypal.Button.render({
             // Set your environment
@@ -39,13 +41,13 @@
                         transactions: [
                             {
                                 amount: {
-                                    total: '{{$pedido->subtotal}}',
+                                    total: '{{$subtotal}}',
                                     currency: 'MXN'
                                 }
                             }
                         ]
                     },
-                    description: 'Id de pedido: '+'{{$pedido->item}}'
+                    description: 'Id de cliente: 4'
                 });
             },
             // Wait for the payment to be authorized by the customer
@@ -57,4 +59,5 @@
             }
         }, '#paypal-button-container');
     </script>
+            @endsection
     @endsection

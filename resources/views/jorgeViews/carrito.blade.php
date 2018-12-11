@@ -36,7 +36,7 @@
                             <form action="finalizarCompra" method="post">
                                 {{csrf_field()}}
                                 <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
-                                <button class="btn green darken-2 z-depth-3">Finalizar compra</button>
+                                <button class="btn green darken-2 z-depth-3" type="submit">Finalizar compra</button>
                             </form>
 
                         </div>

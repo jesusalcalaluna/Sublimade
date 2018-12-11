@@ -37,8 +37,7 @@ class consultasController extends Controller
     }
     function finalizarcompra(Request $r){
         $subtotal = $r->input('subtotal');
-
-        return view('pago')->with('subtotal',$subtotal);
+        return view('catalogo')->with('subtotal',$subtotal);
     }
     function generarPedido(){
         return view('');
