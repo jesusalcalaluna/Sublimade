@@ -46,3 +46,8 @@ Route::post('carrito', 'consultasController@carrito');
 Route::get('/disenos','FavelaController@registrardisenos');
 Route::get('/verdisenos','FavelaController@verdisenos');
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
+
+
+
+//generar key en dropbox
+//
