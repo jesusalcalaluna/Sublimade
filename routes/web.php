@@ -50,9 +50,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 
 //-----------------------Favela
-Route::get('/disenos','FavelaController@registrardisenos');
-Route::get('/verdisenos','FavelaController@verdisenos');
-Route::post('/ingresardiseno','FavelaController@ingresardiseno');
 
 
 
