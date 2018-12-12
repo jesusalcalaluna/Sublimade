@@ -94,6 +94,7 @@
                     <span>Todo</span>
                 </label>
             </p>
+
         <!--foreach($tipo_producto as $tipo_producto)
             <p>
                 <label>
@@ -102,6 +103,7 @@
                 </label>
             </p>
             endforeach!-->
+
             </form>
             </p>
         </div>
