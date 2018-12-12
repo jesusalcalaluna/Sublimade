@@ -30,6 +30,7 @@ Route::post('/destacado4','Controller@destacado4');
 Route::get('/inicio.mod', function () {
     return view('inicio.modificar-inicio');
 });
+
 Route::get('twitter', 'consultasControllerInicio@twitter');
 Route::get('instagram', 'consultasControllerInicio@instagram');
 Route::get('facebook', 'consultasControllerInicio@facebook');
