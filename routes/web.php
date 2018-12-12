@@ -48,10 +48,6 @@ Route::get('instagram', 'ControllerInicio@instagram');
 Route::get('facebook', 'ControllerInicio@facebook');
 Route::get('whatsapp', 'ControllerInicio@whatsapp');
 
-Route::get('twitter', 'consultasControllerInicio@twitter');
-Route::get('instagram', 'consultasControllerInicio@instagram');
-Route::get('facebook', 'consultasControllerInicio@facebook');
-Route::get('whatsapp', 'consultasControllerInicio@whatsapp');
 
 //-----------------------Usuarios
 
