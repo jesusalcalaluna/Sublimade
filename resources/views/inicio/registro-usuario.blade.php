@@ -65,13 +65,13 @@
         </div>
         <div class="input-field col s3">
         	<label>
-                <input name="group1" type="radio" name="sexo" />
+                <input  type="radio" name="sexo" value="Masculino" />
                 <span>Masculino</span>
             </label>
         </div>
         <div class="input-field col s2">
         	<label>
-                <input name="group1" type="radio" name="sexo" />
+                <input  type="radio" name="sexo" />
                 <span>Femenino</span>
             </label>
         </div>

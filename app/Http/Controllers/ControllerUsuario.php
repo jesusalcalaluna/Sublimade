@@ -24,7 +24,7 @@ use App\Salida;
 use App\Tipos_producto;
 use App\User;
 use App\Usuario;
-
+use Hash;
 use DB;
 use Session;
 Use Redirect;
@@ -46,7 +46,7 @@ class ControllerUsuario extends Controller
 
   if($password!=null)
     {
-        Session::put('nombre' ,$password->e_mail);
+      Session::put('nombre' ,$password->e_mail);
       if($users->tipo_usuario=='1')
       {
 
@@ -71,6 +71,8 @@ class ControllerUsuario extends Controller
     }
    
      public function register(Request $r){
+      
+
          $persona= new Persona;
        //  $persona->id_persona= $request->input("id_usuario");
          $persona->nombre= $r->input("nombre");
@@ -82,19 +84,30 @@ class ControllerUsuario extends Controller
          $persona->f_nacimiento=$r->input("nacimiento");
          $persona->sexo=$r->input("sexo");
          $resul= $persona->save();
+  
          $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->select('personas.id_persona')
          ->first();
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass=$r->input("contrasena");
+         $Usuario->pass= encrypt($r->input("contrasena"));
           $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          
          $resul= $Usuario->save();
+        
+         $cliente= new Cliente;
+         $cliente->id_persona= $id->id_persona;
+         $cliente->save();
+         $carrito= new Carrito;
+         $carrito->id_carrito= $id->id_persona;
+         $carrito->sub_total='0';
+         $carrito->save();
+
       Alert::error('Usuario Registrado ');
       return redirect('/inicio.sesion');
+
 
     }
 public function cerrar(){
