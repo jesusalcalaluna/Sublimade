@@ -14,26 +14,45 @@
 Route::get('/', function () {
     return view('inicio.Inicio');
 });
+
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
 });
+Route::post('/inicio.sesion','ControllerUsuario@iniciarsession');
+
 Route::post('/inicio.mod','inicio@actualizar');
 Route::get('/inicio.mod', function () {
     return view('inicio.modificar-inicio');
 });
 //-----------------------Usuarios
-Route::get('/registro.usuario','Usuario@registro');
+
 Route::get('/registro.usuario', function () {
     return view('inicio.registro-usuario');
 });
+Route::post('/registro.usuario','ControllerUsuario@register');
+
+Route::get('/cerrar','ControllerUsuario@cerrar');
+
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
 Route::post('detalles','ControllerProducto@detalles');
 
 
-//-----------------------Aguirre
+//-----------------------restringirrutas
 
+ Route::group(['middleware' => 'usuarioAdmin'], function () {
+
+
+
+});
+
+
+Route::group(['middleware' => 'usuarioStandard'], function () {
+
+
+
+});
 
 //-----------------------Alcala
 Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
