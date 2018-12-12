@@ -4,7 +4,6 @@
 @endsection
 @section('Contenido')
 
-                       <image src="{{$imagen2}}"></image>
 
 @endsection
 @section('javascript')

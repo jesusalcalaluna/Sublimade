@@ -1,11 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Usuario;
+//use Barryvdh\DomPDF\PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Http\Request;
-
 class FavelaController extends Controller
 {
+
+    function viewAdministrador()
+    {
+        $users=Usuario::all();
+        $html=view("index",compact("users"));
+        $pdf=new Dompdf();
+        $options=new Options('dpi','180');
+        $pdf->loadHTML($html);
+        $pdf->setOptions($options);
+        $pdf->render();
+        return $pdf->stream();
+    }
+
+
+
+
     function registrardisenos(){
         return view('FavelaViews.diseno');
     }

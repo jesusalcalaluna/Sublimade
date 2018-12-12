@@ -62,3 +62,8 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 Route::get('/disenos','FavelaController@registrardisenos');
 Route::get('/verdisenos','FavelaController@verdisenos');
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
+
+
+
+//generar key en dropbox
+//
