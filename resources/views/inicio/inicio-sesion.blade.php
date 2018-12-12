@@ -12,24 +12,26 @@
         <div class="card-content black-text">
           <i class="large material-icons center">account_circle</i>
           <span class="card-title">Ingresar</span>
-
+        
           <br>
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="post" action="{{url('inicio.sesion')}}">
+      {{csrf_field()}}
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" name="usuario">
           <label for="email">Nombre de usuario</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" name="contrasena">
           <label for="password">Contraseña</label>
         </div>
       </div>
+      <button type="submit"  title="" class="btn black">iniciar sesion</button>
     </form>
-    <a href="#" title="" class="btn black">iniciar sesion</a>
+    
   </div>
 
         </div>
@@ -45,5 +47,7 @@
     @endsection
     @section('js')
     <script type="text/javascript">
+                       
+
     </script>
     @endsection
