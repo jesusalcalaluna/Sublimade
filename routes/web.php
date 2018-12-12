@@ -21,9 +21,15 @@ Route::get('/inicio.sesion', function () {
 
 Route::post('/inicio.sesion','ControllerUsuario@iniciarsession');
 
-Route::post('/inicio.mod','inicio@actualizar');
 
 
+//--------------------Incio administrador
+Route::get('/admin', function () {
+    return view('admin.modificar-inicio');
+});
+Route::get('/pedidospen','ControllerPedido@getpedidopendiente');
+Route::get('/pedidospro','ControllerPedido@getpedidoenproceso');
+Route::get('/pedidosfin','ControllerPedido@getpedidofinalizado');
 
 Route::post('/slider1','Controller@slider1');
 Route::post('/slider2','Controller@slider2');
@@ -34,9 +40,8 @@ Route::post('/destacado2','Controller@destacado2');
 Route::post('/destacado3','Controller@destacado3');
 Route::post('/destacado4','Controller@destacado4');
 
-Route::get('/inicio.mod', function () {
-    return view('inicio.modificar-inicio');
-});
+//----------------------------------------
+
 
 Route::get('twitter', 'ControllerInicio@twitter');
 Route::get('instagram', 'ControllerInicio@instagram');

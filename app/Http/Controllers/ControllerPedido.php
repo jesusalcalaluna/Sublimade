@@ -28,5 +28,16 @@ use App\Usuario;
 
 class ControllerPedido extends Controller
 {
-    //
+    function getpedidopendiente(){
+    	$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
+    	return view('admin.pedidos')->with('pedidos', $pedidos);
+    }
+    function getpedidoenproceso(){
+    	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
+    	return view('admin.pedidos')->with('pedidos', $pedidos);
+    }
+    function getpedidofinalizado(){
+    	$pedidos= Pedido::where('estado','=','FINALIZADO')->get();
+    	return view('admin.pedidos')->with('pedidos', $pedidos);
+    }
 }
