@@ -44,9 +44,13 @@ class ControllerUsuario extends Controller
     ->first();
 
 
+
   if($password!=null)
     {
       Session::put('nombre' ,$password->e_mail);
+
+        Session::put('id',$password->id_persona);
+        Session::get('id');
       if($users->tipo_usuario=='1')
       {
 
@@ -88,6 +92,8 @@ class ControllerUsuario extends Controller
          $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->select('personas.id_persona')
          ->first();
+
+         //Session::put('id',$id->id_persona);
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
@@ -112,7 +118,7 @@ class ControllerUsuario extends Controller
     }
 public function cerrar(){
    Session::flush();
-   return back();
+   return redirect('/');
 }
 
 }

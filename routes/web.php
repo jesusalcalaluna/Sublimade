@@ -61,23 +61,18 @@ Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');
 Route::post('finalizarCompra','ControllerCarro@finalizarcompra');
 Route::post('generarPedido','ControllerCarro@generarPedido');
-
+Route::get('carrito','ControllerCarro@carritoVacio');
+Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 
 //-----------------------restringirrutas
 
  Route::group(['middleware' => 'usuarioAdmin'], function () {
 
-
-
 });
-
 
 Route::group(['middleware' => 'usuarioStandard'], function () {
 
-
-
 });
-
 //-----------------------Alcala
 Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 

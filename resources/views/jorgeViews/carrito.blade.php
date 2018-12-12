@@ -1,47 +1,66 @@
 @extends('base')
 @section('content')
     <h4 align="center"><strong>Productos en el carrito</strong></h4>
-    @foreach($producto as $item)
-    <div class="row card z-depth-3" style="padding-bottom: 30px; margin-top: 10px">
-        <br>
-        <div class="col m4 s4" align="center">
-            <p style="font-size: 20px"><strong>{{$item->nombre}}</strong></p>
-            <img class="responsive-img" width="150" src="storage/disenos/{{$item->diseno}}" alt="">
-        </div>
-        <div class="col m4 s4" align="center">
-            <p style="font-size: 20px"><strong>Detalles</strong></p>
-                Cantidad: {{$item->cantidad}}<br>
-                Talla:  {{$item->talla}}<br>
-                Tipo de producto: {{$item->tipo}}<br>
-                Precio: MXN${{$item->costo}}
-        </div>
-        <div class="col m3 s3" align="center">
-            <p style="font-size: 20px"><strong>Total</strong></p>
-            <strong>MXN${{$item->total}}</strong>
-        </div>
-    </div>
-    @endforeach
+    <hr>
+    @if(count($producto) == 0)
+
+        <h5 align="center">Aún no tienes productos en el carrito</h5>
+        @else
+
+        @foreach($producto as $item)
+            <div class="row card z-depth-3" style="padding-bottom: 30px; margin-top: 10px">
+                <br>
+                <div class="col m4 s4" align="center">
+                    <p style="font-size: 20px"><strong>{{$item->nombre}}</strong></p>
+                    <img class="responsive-img" width="150" src="storage/disenos/{{$item->diseno}}" alt="">
+                </div>
+                <div class="col m4 s4" align="center">
+                    <p style="font-size: 20px"><strong>Detalles</strong></p>
+                    Cantidad: {{$item->cantidad}}<br>
+                    Talla:  {{$item->talla}}<br>
+                    Tipo de producto: {{$item->tipo}}<br>
+                    Precio: MXN${{$item->costo}}
+                </div>
+                <div class="col m3 s3" align="center">
+                    <p style="font-size: 20px"><strong>Total</strong></p>
+                    <strong>MXN${{$item->total}}</strong>
+                    <form action="eliminarProducto" method="post">
+                        {{csrf_field()}}
+
+                        <input id="id_prod" name="id_prod" class="hide" type="text" value="{{$item->id_producto}}">
+                        <input id="id_carr" name="id_carr" class="hide" type="text" value="{{$item->id_carrito}}"><br><br>
+                        <button type="submit" class="btn red">Eliminar del carrito</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+        @endif
+
     <div class="row">
         <div class="col m6 m6 offset-m8 offset-s8">
-            <h4><strong>Subtotal: MXN${{$item->subtotal}}</strong></h4>
+            @if(count($producto)==0)
+
+            @else
+                <h4><strong>Subtotal: MXN${{$item->subtotal}}</strong></h4>
+                @endif
         </div>
     </div>
     <div class="row">
         <div class="col m5 s5 offset-m8 offset-s8">
-            <form action="">
                     <div class="file-field input-field">
-
                         <a href="/catalogo" class="btn grey darken-2 z-depth-3">Seguir comprando</a>
                         <div class="file-path-wrapper">
                             <form action="finalizarCompra" method="post">
                                 {{csrf_field()}}
-                                <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
-                                <button class="btn green darken-2 z-depth-3" type="submit">Finalizar compra</button>
-                            </form>
+                                @if(count($producto)==0)
 
+                                    @else
+                                    <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
+                                    <button class="btn green darken-2 z-depth-3" type="submit">Finalizar compra</button>
+                                @endif
+                            </form>
                         </div>
                     </div>
-            </form>
         </div>
     </div>
 
