@@ -24,6 +24,8 @@ use App\Salida;
 use App\Tipos_producto;
 use App\User;
 use App\Usuario;
+use Illuminate\Support\Facades\DB;
+
 //------------------
 
 class ControllerCarro extends Controller
@@ -34,7 +36,6 @@ class ControllerCarro extends Controller
         $cantidad = $r->input('cantidad');
         $costo_unitario = DB::table('productos')->select('productos.costo_unitario')->where('productos.id_producto','=',$id)->get();
         $total = $cantidad*$costo_unitario[0]->costo_unitario;
-
 
         $carrito_pivot = Carrito::find(4)->first();
         $carrito_pivot->sub_total = 0;
