@@ -1,4 +1,5 @@
     @extends('base')
+
     @section('css')
     <style type="text/css">
       .carousel{
@@ -21,10 +22,44 @@
     @section('slider')
 
         <div class="carousel carousel-slider">
-            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider1.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider2.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider3.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider4.png')}}"></a>
+        </div>
+        <div class="row">
+          <div class="col s3">
+    <form action="/slider1" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form> 
+          </div>
+          <div class="col s3">
+    <form action="/slider2" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
+          </div>
+          <div class="col s3">
+    <form action="/slider3" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
+          </div>
+          <div class="col s3">
+    <form action="/slider4" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
+          </div>
         </div>
 
 <br>
@@ -43,43 +78,78 @@
         <div class="col s3 ">
                 <div class="card hoverable">
                   <div class="card-image">
-                    <a><img src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg"></a>
-                    <span class="card-title">Card Title</span>
+                    <a><img src="{{url('storage/Inicio/destacado1.png')}}"></a>
                   </div>
                 </div>
+    <form action="/destacado1" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
         </div>
 
         <div class="col s3 ">
             <div class="card hoverable">
                 <div class="card-image">
-                 <a><img src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg"></a>
-                  <span class="card-title">Card Title</span>
+                 <a><img src="{{url('storage/Inicio/destacado2.png')}}"></a>
                 </div>
             </div>
+    <form action="/destacado2" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
         </div>
 
         <div class="col s3 ">
             <div class="card hoverable">
                 <div class="card-image">
-                 <a><img src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg"></a>
-                  <span class="card-title">Card Title</span>
+                 <a><img src="{{url('storage/Inicio/destacado3.png')}}"></a>
                 </div>
             </div>
+    <form action="/destacado3" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
         </div>
 
         <div class="col s3 ">
             <div class="card hoverable">
                 <div class="card-image">
-                 <a><img src="images/b2e710b796a3d96a1482b705198941642c88f124.jpg"></a>
-                  <span class="card-title">Card Title</span>
+                 <a><img src="{{url('storage/Inicio/destacado4.png')}}"></a>
                 </div>
             </div>
+    <form action="/destacado4" class="dropzone" id="my-dropzone">
+        {{csrf_field()}}
+        <div class="fallback">
+            <input type="file" name="archivo">
+        </div>
+    </form>
         </div>
       </div>
     </div>
     @endsection
     @section('js')
 <script type="text/javascript">
+    Dropzone.options.myDropzone={
+        uploadMultiple: false,
+        //autoProcessQueue: false,
+        //autoDiscover: false,
+        paramName:"archivo",
+        init: function () {
+            var myDropzone=this;
+
+            //$("#btn1").click(function(e){
+            //  e.preventDefault();
+            //  e.stopPropagation();
+            //  myDropzone.processQueue();
+            //});
+        }
+    }
   $(document).ready(function(){
     $('.carousel').carousel({
     
@@ -87,7 +157,7 @@
     });
     setInterval(function() {
     $('.carousel').carousel('next');
-    }, 5000);
+    }, 10000);
     
   });
 </script>

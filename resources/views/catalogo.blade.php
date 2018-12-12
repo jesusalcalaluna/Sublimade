@@ -27,8 +27,10 @@
         @foreach($productos as $producto)
             <div class="col m3 s3">
                 <div class="card z-depth-3" style="color: black;">
-                    <div class="card-image waves-effect waves-block waves-light grande center">
-                        <img class="activator grande" src="storage/disenos/{{$producto->diseno}}">
+                    <div class="card-image waves-effect waves-block waves-light grande">
+                            <img class="activator grande" src="storage/disenos/{{$producto->diseno}}" align="center">
+
+
                     </div>
                     <div class="card-content">
                         <span class="card-title grey-text text-darken-4">{{$producto->nombre}}</span>
@@ -92,14 +94,14 @@
                     <span>Todo</span>
                 </label>
             </p>
-            {{--@foreach($tipo_producto as $tipo_producto)--}}
-            {{--<p>--}}
-                {{--<label>--}}
-                    {{--<input name="{{$tipo_producto->nombre}}" type="radio" />--}}
-                    {{--<span>{{$tipo_producto->nombre}}</span>--}}
-                {{--</label>--}}
-            {{--</p>--}}
-            {{--@endforeach--}}
+            @foreach($tipo_producto as $tipo_producto)
+            <p>
+                <label>
+                    <input name="{{$tipo_producto->nombre}}" type="radio" />
+                    <span>{{$tipo_producto->nombre}}</span>
+                </label>
+            </p>
+            @endforeach
             </form>
             </p>
         </div>

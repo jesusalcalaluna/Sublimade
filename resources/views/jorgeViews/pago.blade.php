@@ -1,8 +1,8 @@
-@extends('plantilla')
-@section('contenido')
-    <div class="container">
+@extends('base')
+@section('content')
+
         <div class="row">
-            <div class="col-md-7 offset-2">
+            <div class="col m7 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
                     <p class="card-title">Ya casi!</p>
                     <p class="card-content">Estás a un paso de terminar con tu compra.</p>
@@ -14,7 +14,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    @endsection
+
+        @section('js')
     <script>
         paypal.Button.render({
             // Set your environment
@@ -38,10 +40,14 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '{{$precio}}', currency: 'MXN' }
+                                amount: {
+                                    total: '{{$subtotal}}',
+                                    currency: 'MXN'
+                                }
                             }
                         ]
-                    }
+                    },
+                    description: 'Id de cliente: 4'
                 });
             },
             // Wait for the payment to be authorized by the customer
@@ -53,4 +59,5 @@
             }
         }, '#paypal-button-container');
     </script>
+            @endsection
     @endsection

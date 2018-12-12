@@ -24,10 +24,12 @@ use App\Salida;
 use App\Tipos_producto;
 use App\User;
 use App\Usuario;
+
 use DB;
 use Session;
 Use Redirect;
 use Alert;
+
 
 //------------------
 

@@ -161,10 +161,10 @@
     <i class="large material-icons">add</i>
   </a>
   <ul>
-    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-twitter" style="font-size: 2rem;"></i></a></li>
-    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-instagram" style="font-size: 2rem;"></i></a></li>
-    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-facebook-f" style="font-size: 2rem;"></i></a></li>
-    <li><a class="btn-floating btn-large grey darken-4"><i class="fab fa-whatsapp" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4" href='twitter'><i class="fab fa-twitter" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4" href="instagram"><i class="fab fa-instagram" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4" href="facebook"><i class="fab fa-facebook-f" style="font-size: 2rem;"></i></a></li>
+    <li><a class="btn-floating btn-large grey darken-4" href="whatsapp"><i class="fab fa-whatsapp" style="font-size: 2rem;"></i></a></li>
   </ul>
 </div>
 <!------------------------------------------------------------------------------------->

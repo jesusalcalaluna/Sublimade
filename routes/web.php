@@ -18,12 +18,30 @@ Route::get('/', function () {
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
 });
+
 Route::post('/inicio.sesion','ControllerUsuario@iniciarsession');
 
 Route::post('/inicio.mod','inicio@actualizar');
+
+
+
+Route::post('/slider1','Controller@slider1');
+Route::post('/slider2','Controller@slider2');
+Route::post('/slider3','Controller@slider3');
+Route::post('/slider4','Controller@slider4');
+Route::post('/destacado1','Controller@destacado1');
+Route::post('/destacado2','Controller@destacado2');
+Route::post('/destacado3','Controller@destacado3');
+Route::post('/destacado4','Controller@destacado4');
+
 Route::get('/inicio.mod', function () {
     return view('inicio.modificar-inicio');
 });
+
+Route::get('twitter', 'consultasControllerInicio@twitter');
+Route::get('instagram', 'consultasControllerInicio@instagram');
+Route::get('facebook', 'consultasControllerInicio@facebook');
+Route::get('whatsapp', 'consultasControllerInicio@whatsapp');
 //-----------------------Usuarios
 
 Route::get('/registro.usuario', function () {
@@ -37,6 +55,9 @@ Route::get('/cerrar','ControllerUsuario@cerrar');
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
 Route::post('detalles','ControllerProducto@detalles');
+Route::post('carrito', 'consultasController@carrito');
+Route::post('finalizarCompra','consultasController@finalizarcompra');
+Route::post('generarPedido','consultasController@generarPedido');
 
 
 //-----------------------restringirrutas
@@ -59,9 +80,14 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Jorge
 
-Route::post('carrito', 'consultasController@carrito');
+
 
 //-----------------------Favela
 Route::get('/disenos','FavelaController@registrardisenos');
 Route::get('/verdisenos','FavelaController@verdisenos');
 Route::post('/ingresardiseno','FavelaController@ingresardiseno');
+
+
+
+//generar key en dropbox
+//
