@@ -42,11 +42,11 @@ class ControllerUsuario extends Controller
     ->first();
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
-Session::put('nombre' ,$password->e_mail);
+
 
   if($password!=null)
     {
-
+      Session::put('nombre' ,$password->e_mail);
       if($users->tipo_usuario=='1')
       {
 
@@ -93,6 +93,10 @@ Session::put('nombre' ,$password->e_mail);
          $Usuario->tipo_usuario="0";
          
          $resul= $Usuario->save();
+        
+         $cliente= new Cliente;
+         $cliente->id_persona= $id->id_persona;
+         $cliente->save();
       Alert::error('Usuario Registrado ');
       return redirect('/inicio.sesion');
 

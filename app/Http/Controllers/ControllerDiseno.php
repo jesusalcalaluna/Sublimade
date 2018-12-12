@@ -28,5 +28,5 @@ use App\Usuario;
 
 class ControllerDiseno extends Controller
 {
-    //
+ 
 }
