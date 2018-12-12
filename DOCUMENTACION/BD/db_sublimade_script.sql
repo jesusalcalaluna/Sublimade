@@ -54,11 +54,11 @@ DROP TABLE IF EXISTS `sublimade_fashion_db`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`usuarios` (
   `id_persona` INT(11) NOT NULL,
-  `e-mail` VARCHAR(45) NOT NULL,
+  `e_mail` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NOT NULL,
   `tipo_usuario` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
-  UNIQUE INDEX `nom_usuario_UNIQUE` (`e-mail` ASC),
+  UNIQUE INDEX `nom_usuario_UNIQUE` (`e_mail` ASC),
   INDEX `fk_usuarios_personas1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_usuarios_personas1`
     FOREIGN KEY (`id_persona`)
@@ -525,3 +525,11 @@ INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('2');
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('3');
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('4');
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('5');
+
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', now(), now(), 'sninguno', 'PENDIENTE', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('2', '1', now(), now(), 'nada', 'EN ESPERA', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('3', '1', now(), now(), 'si se puede antes mejor', 'FINALIZADO', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('4', '2', now(),now(), 'espero este a tiempo', 'FINALIZADO', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('5', '3', now(), now(), 'bien', 'PENDIENTE', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('6', '4', now(), now(), 'r', 'PENDIENTE', '2018-12-30');
+
