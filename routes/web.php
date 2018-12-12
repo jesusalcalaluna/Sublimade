@@ -17,7 +17,16 @@ Route::get('/', function () {
 Route::get('/inicio.sesion', function () {
     return view('inicio.inicio-sesion');
 });
-Route::post('/inicio.mod','inicio@actualizar');
+
+
+Route::post('/slider1','Controller@slider1');
+Route::post('/slider2','Controller@slider2');
+Route::post('/slider3','Controller@slider3');
+Route::post('/slider4','Controller@slider4');
+Route::post('/destacado1','Controller@destacado1');
+Route::post('/destacado2','Controller@destacado2');
+Route::post('/destacado3','Controller@destacado3');
+Route::post('/destacado4','Controller@destacado4');
 Route::get('/inicio.mod', function () {
     return view('inicio.modificar-inicio');
 });
