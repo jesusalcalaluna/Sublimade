@@ -42,7 +42,7 @@ class ControllerUsuario extends Controller
     ->first();
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
-
+Session::put('nombre' ,$password->e_mail);
 
   if($password!=null)
     {
