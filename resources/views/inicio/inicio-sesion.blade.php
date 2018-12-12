@@ -29,15 +29,16 @@
           <label for="password">Contraseña</label>
         </div>
       </div>
-      <button type="submit"  title="" class="btn black">iniciar sesion</button>
+      <button type="submit"  title="" class="btn grey darken-4">iniciar sesion</button>
     </form>
     
   </div>
 
         </div>
         <div class="card-action">
-          <a href="">¿Olvidaste tu contraseña?</a>
-          <a href="{{url('/registro.usuario')}}" class="btn grey">Registrate</a>
+          {{--<a href="" style="color: black">¿Olvidaste tu contraseña?</a>--}}
+            No tienes una cuenta?
+          <a href="{{url('/registro.usuario')}}" class="btn grey darken-4">Registrate</a>
           
         </div>
       </div>

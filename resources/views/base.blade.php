@@ -27,6 +27,12 @@
 
   @yield('css')
   <style type="text/css">
+      body{
+          background-image: url('storage/Inicio/background.jpg');
+          background-size: 500px;
+          background-attachment: scroll;
+          background-repeat: repeat;
+      }
   .carousel .indicators .indicator-item{
     width: 12px;
     height: 12px;
@@ -88,6 +94,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
+          <li><a style="font-size: 20px" href="{{url('/catalogo')}}">Catálogo</a></li>
       @if (Session::has('tipo'))
       <li><a>{{Session::get('nombre')}}</a></li>
       @endif
@@ -121,15 +128,11 @@
     <br>
     <li>
       <div class="collapsible-header">CATALOGO</div>
-        <ul class="collapsible-body">
-          <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
-        </ul>
     </li>
     <br>
       <li class="divider" tabindex="-1"></li>
       <br>
-      <li><a href="{{url('/catalogo')}}">Catálogo</a></li>
+
       <br>
     <li class="divider" tabindex="-1"></li>
     <br>
@@ -159,7 +162,7 @@
 <!-------------------------------------CONTACTOS------------------------------------------------>
 
 <div class="fixed-action-btn">
-  <a class="btn-floating btn-large grey darken-4">
+  <a class="btn-floating pulse btn-large grey darken-4">
     <i class="large material-icons">add</i>
   </a>
   <ul>
@@ -185,7 +188,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            ¢í 2014 Copyright Text
+                © 2018 Sublimade
             <a class="grey-text text-lighten-4 right" href="{{url('/inicio.mod')}}">Inicio</a>
             </div>
           </div>
