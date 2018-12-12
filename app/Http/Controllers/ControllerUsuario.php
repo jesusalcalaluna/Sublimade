@@ -64,8 +64,8 @@ class ControllerUsuario extends Controller
       }  
       }else{
        
-        Alert::error('usuario o contrseña incorrecta');
-       return back();        
+        Alert::error('Usuario o contraseña incorrecta');
+       return back();
       } 
 
     }
