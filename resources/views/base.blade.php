@@ -89,12 +89,14 @@
 
       <ul class="right hide-on-med-and-down">
       @if (Session::has('tipo'))
-      <li><a>Perengano</a></li>
+      <li><a>{{Session::get('nombre')}}</a></li>
       @endif
       @if(Session()->get('tipo')==null)
         <li><a href="{{url('/inicio.sesion')}}">Iniciar Sesion</a></li>
          @endif
+      @if (Session::has('tipo'))
         <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
+      @endif
       </ul>
     </div>
   </nav>
@@ -141,7 +143,7 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="/disenos">DISEÑOS</a></li>
+    <li><a href="{{url('/disenos')}}}">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
   </ul>
