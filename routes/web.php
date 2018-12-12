@@ -60,6 +60,7 @@ Route::get('/cerrar','ControllerUsuario@cerrar');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
+
 Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');
 Route::post('finalizarCompra','ControllerCarro@finalizarcompra');
