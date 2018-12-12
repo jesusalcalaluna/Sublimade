@@ -527,7 +527,7 @@ INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('4');
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('5');
 
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', now(), now(), 'sninguno', 'PENDIENTE', '2018-12-30');
-INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('2', '1', now(), now(), 'nada', 'EN ESPERA', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('2', '1', now(), now(), 'nada', 'EN PROCESO', '2018-12-30');
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('3', '1', now(), now(), 'si se puede antes mejor', 'FINALIZADO', '2018-12-30');
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('4', '2', now(),now(), 'espero este a tiempo', 'FINALIZADO', '2018-12-30');
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('5', '3', now(), now(), 'bien', 'PENDIENTE', '2018-12-30');

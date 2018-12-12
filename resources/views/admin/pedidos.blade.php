@@ -11,6 +11,12 @@
     @endsection
 
     @section('content')
+    <div class="center">
+      <h4>PEDIDOS</h4>
+    <div class="divider">
+
+    </div>
+  </div>
     <table class="table">
       <thead>
         <tr>
