@@ -46,7 +46,7 @@ class ControllerUsuario extends Controller
 
   if($password!=null)
     {
-
+        Session::put('nombre' ,$password->e_mail);
       if($users->tipo_usuario=='1')
       {
 
@@ -64,8 +64,8 @@ class ControllerUsuario extends Controller
       }  
       }else{
        
-        Alert::error('usuario o contrseña incorrecta');
-       return back();        
+        Alert::error('Usuario o contraseña incorrecta');
+       return back();
       } 
 
     }

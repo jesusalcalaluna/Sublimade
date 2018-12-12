@@ -34,8 +34,10 @@ class ControllerProducto extends Controller
 {
     function viewProducto(){
         $productos = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')->get();
+        $tipos_productos = Tipos_producto::all();
+        $categorias = Categoria::all();
         
-        return view('catalogo')->with('productos', $productos);
+        return view('catalogo')->with('productos', $productos)->with('tipos_productos', $tipos_productos)->with('categorias', $categorias);
     }
     function detalles(Request $r){
         $id = $r->input('id');

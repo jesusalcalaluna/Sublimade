@@ -493,11 +493,11 @@ INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('4','Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('5','Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
 
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
 
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('deportes');
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('peliculas');

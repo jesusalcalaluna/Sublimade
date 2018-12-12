@@ -27,9 +27,8 @@
         @foreach($productos as $producto)
             <div class="col m3 s3">
                 <div class="card z-depth-3" style="color: black;">
-                    <div class="card-image waves-effect waves-block waves-light grande">
+                    <div class="card-image grande">
                             <img class="activator grande" src="storage/disenos/{{$producto->diseno}}" align="center">
-
 
                     </div>
                     <div class="card-content">
@@ -63,19 +62,19 @@
                 <form action="#">
             <p>
                 <label>
-                    <input name="todo" type="radio" checked />
+                    <input name="sexo" value="all" type="radio" checked />
                     <span>Todo</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="mujer" type="radio" />
+                    <input name="sexo" value="mujer" type="radio" />
                     <span>Mujer</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="hombre" type="radio"  />
+                    <input name="sexo" value="hombre" type="radio"  />
                     <span>Hombre</span>
                 </label>
             </p>
@@ -90,18 +89,18 @@
                 <form action="#">
             <p>
                 <label>
-                    <input name="todo" type="radio" checked />
+                    <input name="tipo_producto" value="all" type="radio" checked />
                     <span>Todo</span>
                 </label>
             </p>
-            {{--@foreach($tipo_producto as $tipo_producto)--}}
-            {{--<p>--}}
-                {{--<label>--}}
-                    {{--<input name="{{$tipo_producto->nombre}}" type="radio" />--}}
-                    {{--<span>{{$tipo_producto->nombre}}</span>--}}
-                {{--</label>--}}
-            {{--</p>--}}
-            {{--@endforeach--}}
+            @foreach($tipos_productos as $tipo_producto)
+            <p>
+                <label>
+                    <input name="tipo_producto" value="{{$tipo_producto->nombre}}" type="radio" />
+                    <span>{{$tipo_producto->nombre}}</span>
+                </label>
+            </p>
+            @endforeach
             </form>
             </p>
         </div>
@@ -110,21 +109,22 @@
         <div class="section">
             <h5>Categoria</h5>
             <p>
-                <form action="#">
+                <form action="/filtro">
             <p>
                 <label>
-                    <input name="todo" type="radio" checked />
+                    <input name="categoria" value="all" type="radio" checked />
                     <span>Todo</span>
                 </label>
             </p>
-            {{--@foreach($categorias as $categoria)--}}
-            {{--<p>--}}
-                {{--<label>--}}
-                    {{--<input name="{{$categoria->nombre}}" type="radio" />--}}
-                    {{--<span>{{$categoria->nombre}}</span>--}}
-                {{--</label>--}}
-            {{--</p>--}}
-            {{--@endforeach--}}
+            
+            @foreach($categorias as $item)
+            <p>
+                <label>
+                    <input name="categoria" value="{{$item->categoria}}" type="radio" />
+                    <span>{{$item->categoria}}</span>
+                </label>
+            </p>
+            @endforeach
             </form>
             </p>
         </div>
@@ -133,6 +133,35 @@
     @endsection
     @section('js')
     <script type="text/javascript">
+        $(document).ready(function(){
+
+        $("#peticion").click(function(){
+            $('#alumnos').empty();
+
+            var nombre=$('#nombre').val();
+            var edad=$('#edad').val();
+            var sexo=$('#sexo').val();
+            $.ajax({
+                url:'/persona',
+                data:{alumno:{nombre: nombre,edad:edad,sexo:sexo}},
+                type:'POST',
+                dataType:'json',
+
+                success:function(response){
+
+                    var li="";
+                    var lista=$("#alumnos");
+                    $.each(response, function(i, v){
+
+                       li+='<tr><td>'+v.nombre+'<td><td>'+v.edad+'<td><td>'+v.sexo+'<td></tr>';
+
+                    });
+                    lista.append(li);
+                }
+            });        
+        });
+
+    });
 
     </script>
     @endsection

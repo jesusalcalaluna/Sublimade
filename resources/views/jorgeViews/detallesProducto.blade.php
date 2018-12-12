@@ -2,7 +2,7 @@
 @section('content')
 
         <div class="row card z-depth-3">
-            <div class="col s6 m6" style="margin-top: 150px;">
+            <div class="col s6 m6" style="margin-top: 50px;">
                 <hr>
                 @foreach($producto as $item)
                     <img class="materialboxed responsive-img z-depth-4" width="650" src="storage/disenos/{{$item->diseno}}">
@@ -16,7 +16,7 @@
                     <p style="color: #dd0007; font-size: 20px">
                         <strong>Precio: MXN${{$item->costo}}</strong><br>
                     </p>
-                    <p style="font-size: 20px;">Tipo de producto: {{$item->tipo}} <br><br>Categoria: {{$item->categoria}}<br><br>Género: {{$item->sexo}}</p>
+                    <p style="font-size: 20px;">Tipo de producto: {{$item->tipo}} <br><br>Categoría: {{$item->categoria}}<br><br>Género: {{$item->sexo}}</p>
                     <form action="carrito" method="post">
                         {{csrf_field()}}
                         <p style="font-size: 20px">Tallas</p>
@@ -38,7 +38,11 @@
                             <input class="input validate" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad" value="1">
                             <input name="id" class="hide" type="text" value="{{$item->id_producto}}">
                         </p>
+                        @if(Session::has('tipo'))
                             <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
+                            @else
+                            <p style="font-size: 18px"><strong>Inicia sesión para poder comprar nuestros productos!</strong></p>
+                        @endif
                         <br>
                         <br>
                     </form>
