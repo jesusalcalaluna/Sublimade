@@ -94,14 +94,14 @@
                     <span>Todo</span>
                 </label>
             </p>
-            @foreach($tipo_producto as $tipo_producto)
+        <!--foreach($tipo_producto as $tipo_producto)
             <p>
                 <label>
-                    <input name="{{$tipo_producto->nombre}}" type="radio" />
-                    <span>{{$tipo_producto->nombre}}</span>
+                    <input name="" type="radio" />
+                    <span><}</span>
                 </label>
             </p>
-            @endforeach
+            endforeach!-->
             </form>
             </p>
         </div>
