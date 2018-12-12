@@ -20,6 +20,8 @@
 
   <!---------------------------------------------- CDN CSS ------------------------------------>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <!---------------------------------------------- Sweetalert ------------------------------------>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
 
 
 
@@ -86,8 +88,12 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
-
+      @if (Session::has('tipo'))
+      <li><a>Perengano</a></li>
+      @endif
+      @if(Session()->get('tipo')==null)
         <li><a href="{{url('/inicio.sesion')}}">Iniciar Sesion</a></li>
+         @endif
         <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
       </ul>
     </div>
@@ -97,7 +103,7 @@
     <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>carro</a></li>
     <li class="divider" tabindex="-1"></li>
     <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>opciones</a></li>
-        <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">close</i>sesion</a></li>
+        <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>sesion</a></li>
   </ul>
 
 <!------------------------------------ SIDEVAR----------------------------------------->
@@ -173,7 +179,7 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="redire">Link 1</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
@@ -193,6 +199,11 @@
     <script src="js/materialize/materialize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="{{url('/js/dropzone/dropzone.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js,npm/sweetalert2@7.32.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/dist/sweetalert2.all.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
   @yield('js')
 <script>
     $.ajaxSetup({
@@ -217,6 +228,8 @@
   });
               
 </script>
+    @include('sweet::alert')
+
 
 </body>
 </html>
