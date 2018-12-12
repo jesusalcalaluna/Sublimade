@@ -72,9 +72,16 @@ class ControllerUsuario extends Controller
    
      public function register(Request $r){
       
+       $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("email"))
+      ->first();
+        $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
+         ->first();
 
-         $persona= new Persona;
-       //  $persona->id_persona= $request->input("id_usuario");
+       
+       if($usua==null){
+       
+        $persona= new Persona;
+        //  $persona->id_persona= $request->input("id_usuario");
          $persona->nombre= $r->input("nombre");
          $persona->apellido=$r->input("apellido");
          $persona->direccion=$r->input("direccion");
@@ -88,13 +95,13 @@ class ControllerUsuario extends Controller
          $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->select('personas.id_persona')
          ->first();
+         
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
          $Usuario->pass= encrypt($r->input("contrasena"));
-          $Usuario->e_mail=$r->input("email");
+        $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
-         
          $resul= $Usuario->save();
         
          $cliente= new Cliente;
@@ -105,15 +112,20 @@ class ControllerUsuario extends Controller
          $carrito->sub_total='0';
          $carrito->save();
 
-      Alert::error('Usuario Registrado ');
-      return redirect('/inicio.sesion');
+         Alert::error('Usuario Registrado ');
+         return redirect('/inicio.sesion');
 
+        
 
-    }
-public function cerrar(){
-   Session::flush();
-   return back();
-}
+      }else{
+         Alert::error('Este Correo Ya Existe');
+         return back();
+      }
+      }
+        public function cerrar(){
+         Session::flush();
+           return back();
+      }
 
 }
 

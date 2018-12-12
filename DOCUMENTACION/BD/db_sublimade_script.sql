@@ -54,11 +54,11 @@ DROP TABLE IF EXISTS `sublimade_fashion_db`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`usuarios` (
   `id_persona` INT(11) NOT NULL,
-  `e_mail` VARCHAR(45) NOT NULL,
+  `e-mail` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NOT NULL,
   `tipo_usuario` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
-  UNIQUE INDEX `nom_usuario_UNIQUE` (`e_mail` ASC),
+  UNIQUE INDEX `nom_usuario_UNIQUE` (`e-mail` ASC),
   INDEX `fk_usuarios_personas1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_usuarios_personas1`
     FOREIGN KEY (`id_persona`)
@@ -469,6 +469,19 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`salidas` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
+ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
+CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
+
+
+create table reporte_venta_producto
+(
+	id int auto_increment,
+	id_tipo_producto int null,
+	cantidad int null,
+	ultimo_vendido datetime null,
+	constraint reporte_venta_producto_pk
+		primary key (id)
+);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -483,8 +496,103 @@ where carritos.id_carrito = new.id_carrito;
 /*drop trigger subtotal;*/
 
 /*Trigger para crear una persona antes de un usuario*/
-# create trigger usuario before insert on usuarios for each row
-#   insert
+drop trigger if exists reporte_ventas_producto;
+delimiter //
+  create trigger reporte_ventas_producto after insert on detalles_pedido for each row
+  begin if 
+ (select count(reporte_venta_producto.id_tipo_producto)
+from reporte_venta_producto
+where reporte_venta_producto.id_tipo_producto=(select tipos_producto.nombre as 'tipo_producto'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona
+group by tipos_producto.id_tipo_producto))>0
+  then
+  update reporte_venta_producto
+  
+  set reporte_venta_producto.id_tipo_producto=
+   (select tipo_producto from(
+   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona) as ventas2
+group by ventas2.idtipo) as tipo_producto),
+
+reporte_venta_producto.cantidad=(select cantidad from(
+   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona)as ventas1
+group by ventas1.idtipo)as cantidad),
+
+reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
+  select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona)as ventas
+group by ventas.idtipo)as ultima)
+  where reporte_venta_producto.id_tipo_producto=(select tipos_producto.nombre as 'tipo_producto'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona
+group by tipos_producto.id_tipo_producto);
+/*-----------------------*/
+  else
+   insert reporte_venta_producto 
+   set reporte_venta_producto.id_tipo_producto=
+   (select tipo_producto from(
+   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona) as ventas2
+group by ventas2.idtipo) as tipo_producto),
+
+reporte_venta_producto.cantidad=(select cantidad from(
+   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona)as ventas1
+group by ventas1.idtipo)as cantidad),
+
+reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
+  select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
+from (select detail.cantidad as 'cantidad', tipos_producto.nombre as 'tipo_producto', now() as 'ultima_venta', tipos_producto.id_tipo_producto as 'idtipo'
+from tipos_producto 
+inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
+inner join detalles_pedido as detail on detail.id_producto=product.id_producto
+inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
+inner join clientes as clien on clien.id_cliente=pedid.id_cliente
+inner join personas on personas.id_persona=clien.id_persona)as ventas
+group by ventas.idtipo)as ultima);
+END if;
+END;//
+delimiter ;
 /*INSERTS*/
 
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('1','Jeuss', 'Alcala Luna', '7336549', '8711179568', 'col Las arboledas', '27084', '1997-01-14', 'Masculino');
@@ -493,11 +601,11 @@ INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('4','Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('5','Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
 
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, e_mail, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
 
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('deportes');
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('peliculas');
@@ -517,8 +625,9 @@ INSERT INTO `sublimade_fashion_db`.`tipos_producto` (`id_tipo_producto`, `nombre
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('1', 'Fnatic', '200', '1', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('2', 'Nadadores', '234', '2', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('3', 'Ojos de DeadPool', '233', '3', '1', 'Hombre');
-INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 eSports', '534', '4', '3', 'Hombre');
+INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '4', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '5', '3', 'Hombre');
+
 
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('1');
 INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('2');
@@ -533,3 +642,11 @@ INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('5', '3', now(), now(), 'bien', 'PENDIENTE', '2018-12-30');
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('6', '4', now(), now(), 'r', 'PENDIENTE', '2018-12-30');
 
+INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('1', '1');
+INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('2', '2');
+INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('3', '3');
+INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('4', '4');
+INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('5', '5');
+
+
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', '2018-12-12', '2018-12-15', 'ninguno', 'pendiente', '2018-12-15');
