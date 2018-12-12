@@ -42,11 +42,11 @@ class ControllerUsuario extends Controller
     ->first();
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
-Session::put('nombre' ,$password->e_mail);
+
 
   if($password!=null)
     {
-
+        Session::put('nombre' ,$password->e_mail);
       if($users->tipo_usuario=='1')
       {
 
@@ -64,8 +64,8 @@ Session::put('nombre' ,$password->e_mail);
       }  
       }else{
        
-        Alert::error('usuario o contrseña incorrecta');
-       return back();        
+        Alert::error('Usuario o contraseña incorrecta');
+       return back();
       } 
 
     }

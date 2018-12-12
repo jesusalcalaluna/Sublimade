@@ -42,8 +42,8 @@
    }
    .drop-usuario {
   display: none;
-  min-width: 150px; /* Changed this to accomodate content width */
-  max-height: auto;
+  min-width: 250px; /* Changed this to accomodate content width */
+  max-height: 500px;
   margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
   overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
   opacity: 0;
@@ -102,10 +102,10 @@
   </nav>
 <!------------------------------------ DROPDOWN USUARIO ----------------------------------------->
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
-    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>carro</a></li>
+    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
     <li class="divider" tabindex="-1"></li>
-    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>opciones</a></li>
-        <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>sesion</a></li>
+    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>Opciones</a></li>
+        <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>Cerrar sesión</a></li>
   </ul>
 
 <!------------------------------------ SIDEVAR----------------------------------------->
@@ -175,17 +175,11 @@
           <div class="container ">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Encuentranos en nuestra sucursal!</h5>
+                <p class="grey-text text-lighten-4">Avenida los azules, colonia Nueva Luz, lote 245, Torreón Coahuila, México.</p>
               </div>
               <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="redire">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+                <p style="font-size: 20px" class="white-text">También encuentranos en nuestras redes sociales y consulta nuestras promociones!</p>
               </div>
             </div>
           </div>

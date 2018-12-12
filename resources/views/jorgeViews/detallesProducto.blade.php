@@ -38,7 +38,11 @@
                             <input class="input validate" type="number" name="cantidad" min="1" placeholder="Ingrese la cantidad" value="1">
                             <input name="id" class="hide" type="text" value="{{$item->id_producto}}">
                         </p>
+                        @if(Session::has('tipo'))
                             <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
+                            @else
+                            <p style="font-size: 18px"><strong>Inicia sesión para poder comprar nuestros productos!</strong></p>
+                        @endif
                         <br>
                         <br>
                     </form>
