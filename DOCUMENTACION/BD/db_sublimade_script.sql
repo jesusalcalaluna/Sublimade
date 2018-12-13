@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `sublimade_fashion_db`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`usuarios` (
   `id_persona` INT(11) NOT NULL,
-  `e-mail` VARCHAR(45) NOT NULL,
+  `e_mail` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NOT NULL,
   `tipo_usuario` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
@@ -479,7 +479,6 @@ create table reporte_venta_producto
 		primary key (id)
 );
 
-
 ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
 CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
 
@@ -510,7 +509,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona
-group by tipos_producto.id_tipo_producto limit 1))>0
+group by tipos_producto.id_tipo_producto))>0
   then
   update reporte_venta_producto
   
@@ -524,7 +523,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona) as ventas2
-group by ventas2.idtipo limit 1) as tipo_producto),
+group by ventas2.idtipo) as tipo_producto),
 
 reporte_venta_producto.cantidad=(select cantidad from(
    select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -535,7 +534,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas1
-group by ventas1.idtipo limit 1)as cantidad),
+group by ventas1.idtipo)as cantidad),
 
 reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -554,8 +553,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona
-group by tipos_producto.id_tipo_producto
-limit 1);
+group by tipos_producto.id_tipo_producto);
 /*-----------------------*/
   else
    insert reporte_venta_producto 
@@ -569,7 +567,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona) as ventas2
-group by ventas2.idtipo limit 1) as tipo_producto),
+group by ventas2.idtipo) as tipo_producto),
 
 reporte_venta_producto.cantidad=(select cantidad from(
    select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -580,7 +578,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas1
-group by ventas1.idtipo limit 1)as cantidad),
+group by ventas1.idtipo)as cantidad),
 
 reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -591,7 +589,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas
-group by ventas.idtipo limit 1)as ultima);
+group by ventas.idtipo)as ultima);
 END if;
 END;//
 delimiter ;
@@ -603,11 +601,11 @@ INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('4','Jorge', 'Argumaniz', '2343414', '8714516842', 'col La joya', '27081', '1999-06-04', 'Masculino');
 INSERT INTO `sublimade_fashion_db`.`personas` (`id_persona`, `nombre`, `apellido`, `tel_casa`, `tel_celular`, `direccion`, `cp`, `f_nacimiento`, `sexo`) VALUES ('5','Abraham', 'Aguirre', '4566343', '8713265686', 'col Matamoros', '27070', '1999-02-06', 'Masculino');
 
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
-INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e-mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e_mail`, `pass`, `tipo_usuario`) VALUES ('1', 'jesusalcalaluna@yahoo.com.mx', '12345', '1');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e_mail`, `pass`, `tipo_usuario`) VALUES ('2', 'eduardo@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e_mail`, `pass`, `tipo_usuario`) VALUES ('3', 'maria@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e_mail`, `pass`, `tipo_usuario`) VALUES ('4', 'jorge@gmail.com', '12345', '0');
+INSERT INTO `sublimade_fashion_db`.`usuarios` (`id_persona`, `e_mail`, `pass`, `tipo_usuario`) VALUES ('5', 'aguirre@gmail.com', '12345', '1');
 
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('deportes');
 INSERT INTO `sublimade_fashion_db`.`categorias` (`categoria`) VALUES ('peliculas');
