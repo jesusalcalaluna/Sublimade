@@ -48,4 +48,5 @@ class ControllerProducto extends Controller
             ->get();
         return view('jorgeViews.detallesProducto')->with('producto',$producto); 
     }
+
 }

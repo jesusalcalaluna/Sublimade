@@ -628,10 +628,25 @@ INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('4', 'G2 Esports', '534', '4', '3', 'Hombre');
 INSERT INTO `sublimade_fashion_db`.`productos` (`id_producto`, `nombre`, `costo_unitario`, `id_diseno`, `id_tipo_producto`, `sexo`) VALUES ('5', 'it is cycological', '123', '5', '3', 'Hombre');
 
+
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('1');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('2');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('3');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('4');
+INSERT INTO `sublimade_fashion_db`.`carritos` (`id_carrito`) VALUES ('5');
+
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', now(), now(), 'sninguno', 'PENDIENTE', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('2', '1', now(), now(), 'nada', 'EN PROCESO', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('3', '1', now(), now(), 'si se puede antes mejor', 'FINALIZADO', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('4', '2', now(),now(), 'espero este a tiempo', 'FINALIZADO', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('5', '3', now(), now(), 'bien', 'PENDIENTE', '2018-12-30');
+INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('6', '4', now(), now(), 'r', 'PENDIENTE', '2018-12-30');
+
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('1', '1');
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('2', '2');
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('3', '3');
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('4', '4');
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('5', '5');
+
 
 INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', '2018-12-12', '2018-12-15', 'ninguno', 'pendiente', '2018-12-15');
