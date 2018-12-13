@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Http\Request;
 use Image;
-use Input;
 
 class Controller extends BaseController
 {
@@ -59,8 +58,4 @@ class Controller extends BaseController
         $archivo->move($ruta,'destacado4.png');
     }
 
-    function actualizar(){
-        $num=1;
-        return $num;
-    }
 }
