@@ -106,11 +106,11 @@ class ControllerUsuario extends Controller
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= encrypt($r->input("contrasena"));
+         $Usuario->pass= $r->input("contrasena");
         $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          $resul= $Usuario->save();
-        
+         
          $cliente= new Cliente;
          $cliente->id_persona= $id->id_persona;
          $cliente->save();
