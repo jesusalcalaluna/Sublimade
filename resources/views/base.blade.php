@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <!---------------------------------------------- Sweetalert ------------------------------------>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
+    <!--------------------------------------------- PayPal --------------------------------------------->
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
 
@@ -148,7 +150,7 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="{{url('/disenos')}}}">DISEÑOS</a></li>
+    <li><a href="#">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
   </ul>

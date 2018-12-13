@@ -64,8 +64,8 @@ Route::get('/catalogo','ControllerProducto@viewProducto');
 
 Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');
-Route::post('finalizarCompra','ControllerCarro@finalizarcompra');
-Route::post('generarPedido','ControllerCarro@generarPedido');
+Route::post('finalizarCompra','ControllerCarro@finalizarCompra');
+Route::get('generarPedido','ControllerPedido@generarPedido');
 Route::get('carrito','ControllerCarro@carritoVacio');
 Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 
@@ -88,7 +88,9 @@ Route::get('filtro','ControllerProducto@filtro');
 
 //-----------------------Favela
 
-
+Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 
 //generar key en dropbox
 //

@@ -122,7 +122,8 @@ class ControllerUsuario extends Controller
          Alert::error('Usuario Registrado ');
          return redirect('/inicio.sesion');
 
-         }else{
+       }
+       else{
          Alert::error('Este Correo Ya Existe');
          return back();
         }
