@@ -27,9 +27,10 @@
             <a class="carousel-item"><img src="{{url('storage/Inicio/slider3.png')}}"></a>
             <a class="carousel-item"><img src="{{url('storage/Inicio/slider4.png')}}"></a>
         </div>
+        <br>
         <div class="row">
           <div class="col s3">
-    <form action="/slider1" class="dropzone" id="my-dropzone">
+    <form action="/slider1" class="dropzone" id="my-dropzone-z">
         {{csrf_field()}}
         <div class="fallback">
             <input type="file" name="archivo">
@@ -102,7 +103,6 @@
         </div>
     </form>
         </div>
-
         <div class="col s3 ">
             <div class="card hoverable">
                 <div class="card-image">
@@ -135,21 +135,6 @@
     @endsection
     @section('js')
 <script type="text/javascript">
-    Dropzone.options.myDropzone={
-        uploadMultiple: false,
-        //autoProcessQueue: false,
-        //autoDiscover: false,
-        paramName:"archivo",
-        init: function () {
-            var myDropzone=this;
-
-            //$("#btn1").click(function(e){
-            //  e.preventDefault();
-            //  e.stopPropagation();
-            //  myDropzone.processQueue();
-            //});
-        }
-    }
   $(document).ready(function(){
     $('.carousel').carousel({
     
@@ -160,5 +145,32 @@
     }, 10000);
     
   });
+
+  Dropzone.options.myDropzoneZ={
+      uploadMultiple: true,
+      autoProcessQueue: true,
+      autoDiscover: false,
+      paramName:"archivo",
+      init: function () {
+          var myDropzoneZ=this;
+          myDropzoneZ.on("complete", function() {
+              $.ajax({
+                  url:"/actualizarini",
+                  // en data se envían los datos
+                  data:{},
+                  type:"get",
+                  dataType:'int',
+                  success:function (response) {
+                      var nombres = $("#disenos");
+                      nombres.empty();
+                  }
+              })
+          })
+      }
+  }
+
+
+
+
 </script>
     @endsection
