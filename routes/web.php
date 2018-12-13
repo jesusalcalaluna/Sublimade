@@ -91,6 +91,7 @@ Route::get('filtro','ControllerProducto@filtro');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
+Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 
 
 Route::get('/actualizarini','Controller@actualizar');
