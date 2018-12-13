@@ -63,6 +63,7 @@ Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
+Route::post('/catalogo','ControllerProducto@filtro');
 
 Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');
@@ -94,6 +95,7 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
+Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 
 
 Route::get('/actualizarini','Controller@actualizar');

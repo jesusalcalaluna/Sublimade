@@ -153,10 +153,12 @@ class ControllerUsuario extends Controller
   }
 
 	function modificarInfoView(){
-        return view('modDatosUsuario');
+        $usuario = Persona::find(Session::get('id'));
+
+        return view('modDatosUsuario')->with('usuario',$usuario);
     }
-    function acualizarInfo(Request $request){
-        $usuario=Cliente::find(Session::get('id'));
+    function actualizarInfo(Request $request){
+        $usuario=Persona::find(Session::get('id'));
         $nombre = $request->nombre;
         $apellido = $request->apellido;
         $tel_casa =  $request->input('telefono-casa');
@@ -183,6 +185,7 @@ class ControllerUsuario extends Controller
             $usuario->cp = $cp;
         }
         $usuario->save();
+        return back();
 
     }
 

@@ -30,8 +30,25 @@ class ControllerDiseno extends Controller
 {
  function  getdisenos(){
      $disenos=Diseno::all();
+     $categorias=Categoria::all();
 //     dd($disenos);
-     return view('admin.verdisenos',compact('disenos'));
+     return view('admin.verdisenos')->with('disenos',$disenos)->with('categorias',$categorias);
+ }
+ function cargardiseno(Request $request){
+     $archivo=$request->file('file');
+     $ruta=public_path().'/storage/disenos/';
+     $nombrearchivo=$request->get('nombre_diseno');
+//     dd($request->file('file'));
+
+     $archivo->move($ruta,$nombrearchivo);
+
+     $diseno=new Diseno();
+     $diseno->categoria=$request->get('cate');
+     $diseno->nombre=$nombrearchivo;
+     $diseno->diseno=$nombrearchivo;
+     $diseno->save();
+//     return back();
+//     return Response::json('success', 200);
  }
  function getnombresdisenos(){
      $disenos=Diseno::all();

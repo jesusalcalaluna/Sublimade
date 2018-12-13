@@ -8,7 +8,7 @@
 @show
 @section('slider')
     <div class="row" style="margin-top: 50px;">
-        <div class="col m6 offset-m1 center">
+        <div class="col m6 center">
             <table class="table">
                 <thead>
                 <tr>
@@ -30,8 +30,37 @@
                 </tbody>
             </table>
         </div>
-        <div class="col s2 offset-s1 input-field">
+        <div class="col s4 offset-s1 input-field">
             <input type="text" id="autocompletado" class="validate" name="diseno">
+            <br> <br>
+            <h4 style="text-align:center; color: #3d4852;">Registrar diseño</h4>
+            <hr style="width: 350px; border-color: #171a1d;">
+            <br><br>
+            <form class="dropzone" action="cargardiseno" method="post" id="my-dropzone">
+                {{csrf_field()}}
+                    <input placeholder="Nombre del diseño" name="nombre_diseno" id="disen" type="text" class="validate">
+                <br> <br>
+                <div>
+                    <select name="cate">
+                        <option value="" disabled selected>Escoge una categoría</option>
+                        @foreach($categorias as $categoria)
+                            <option value="{{$categoria->categoria}}">{{$categoria->categoria}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <br><br>
+                <div class="center-block" style="width: 200px; border-color: #171a1d">
+                    <h5 class="dz-message" style="text-align:center; color: #3d4852;">Inserta aquí tu diseño</h5>
+                    <div class="fallback">
+                        <input type="file" name="file">
+                    </div>
+                </div>
+                <br><br>
+                <button class="btn waves-effect waves-light center-align" type="submit" name="btn1" id="enviardis"> Enviar diseño
+                    <i class="medium material-icons right-align">send</i>
+                </button>
+            </form>
         </div>
         <div class="col s1 input-field">
             <button class="btn waves-effect waves-light" type="submit" name="action" id="recarga">
@@ -47,6 +76,7 @@
 @section('js')
     <script>
         $(document).ready(function(){
+            $('select').formSelect();
             var options = {
                 url: "vernombres",
 
@@ -95,7 +125,6 @@
             };
             $("#autocompletado").easyAutocomplete(options);
 
-
             $("#recarga").click(function () {
 
                 $.ajax({
@@ -119,5 +148,24 @@
                 })
             })
         });
+
+        Dropzone.options.myDropzone={
+            uploadMultiple: false,
+            autoProcessQueue: false,
+            autoDiscover: false,
+            init: function () {
+                var myDropzone=this;
+
+                $("#enviardis").click(function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                });
+                myDropzone.on("complete", function (file) {
+                    myDropzone.removeFile(file);
+                    // $("#disen").val("");
+                });
+            }
+        }
     </script>
 @endsection
