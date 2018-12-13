@@ -66,7 +66,7 @@
 <br>
 <div class="divider"></div>
 <div class="center">
-  <h2>Destacados</h2>
+    <strong><h2 style="font-size: 60px; font-family: 'Calisto MT';">Destacados</h2></strong>
 </div>
 <div class="divider"></div>
 <br>
