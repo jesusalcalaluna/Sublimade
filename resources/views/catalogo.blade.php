@@ -23,7 +23,7 @@
 </div>
 
 <div class="row">
-    <div class="col m10 s10">
+    <div class="col m10 s10 catalogo">
         @foreach($productos as $producto)
             <div class="col m3 s3">
                 <div class="card z-depth-3" style="color: black;">
@@ -59,7 +59,6 @@
         <div class="section">
             <h5>Sexo</h5>
             <p>
-             <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="sexo" value="all" type="radio" checked />
@@ -78,7 +77,7 @@
                     <span>Hombre</span>
                 </label>
             </p>
-            </form>
+            
             </p>
         </div>
         <div class="divider"></div>
@@ -86,7 +85,6 @@
         <div class="section">
             <h5>Productos</h5>
             <p>
-            <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="tipo_producto" value="all" type="radio" checked />
@@ -101,7 +99,6 @@
                 </label>
             </p>
             @endforeach
-            </form>
             </p>
         </div>
         <div class="divider"></div>
@@ -109,7 +106,6 @@
         <div class="section">
             <h5>Categoria</h5>
             <p>
-                <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="categoria" value="all" type="radio" checked />
@@ -125,7 +121,6 @@
                 </label>
             </p>
             @endforeach
-            </form>
             </p>
         </div>
     </div>
@@ -134,25 +129,25 @@
     @section('js')
     <script type="text/javascript">
         $(document).ready(function(){
-        $("#peticion").click(function(){
-            $('#alumnos').empty();
+        $('input:radio').click(function(){
+            $('.catalogo').empty();
 
-            var nombre=$('#nombre').val();
-            var edad=$('#edad').val();
-            var sexo=$('#sexo').val();
+            var sex=$('input:radio[name=sexo]:checked').val();
+            var producto=$('input:radio[name=tipo_producto]:checked').val();
+            var category=$('input:radio[name=categoria]:checked').val();
             $.ajax({
-                url:'/persona',
-                data:{alumno:{nombre: nombre,edad:edad,sexo:sexo}},
+                url:'/catalogo',
+                data:{filtro:{sexo:sex, tipo_prododucto:producto,categoria:category}},
                 type:'POST',
                 dataType:'json',
 
                 success:function(response){
 
                     var li="";
-                    var lista=$("#alumnos");
+                    var lista=$(".catalogo");
                     $.each(response, function(i, v){
 
-                       li+='<tr><td>'+v.nombre+'<td><td>'+v.edad+'<td><td>'+v.sexo+'<td></tr>';
+                       li+= '<div class="col m3 s3"><div class="card z-depth-3" style="color:black;"><div class="card-image grande"><img class="activator grande" src="storage/disenos/'+v.diseno+'" align="center"></div><div class="card-content"><span class="card-title grey-text text-darken-4">'+v.nombre+'</span><p style="color: #dd0007;">Precio: MXN$'+v.costo+'</p></div><div class="card-action"><form action="detalles" method="post"> {{csrf_field()}}<input id="id" name="id" class="hide" type="text" value="'+v.id_producto+'"><button  type="submit" class="btn center-block waves-effect waves-block grey darken-4 z-depth-3"><i class="material-icons left">dehaze</i>Ver detalles</button></form></div></div></div>'
 
                     });
                     lista.append(li);

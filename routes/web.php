@@ -63,6 +63,7 @@ Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
+Route::post('/catalogo','ControllerProducto@filtro');
 
 Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');

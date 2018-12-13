@@ -34,13 +34,21 @@ class ControllerProducto extends Controller
 {
 
     function filtro(Request $r){
+        $producto=$r->get('filtro');
+        $producto = collect($producto);
+        if($producto->get('tipo_prododucto')=='all' && $producto->get('categoria')=='all' && $producto->get('sexo')=='all'){
 
-         $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')->where('productos.sexo','=',$r->input('sexo'))->where('productos.id_tipo_producto','=',$r->input('tipo_producto'))
-                ->where('disenos.categoria','=',$r->input('categoria'))->get();
-
-dd($r->input('sexo'));
-
+        }elseif () {
+            # code...
+        }elseif (condition) {
+            # code...
+        }else{
+            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))->where('productos.sexo','=',$producto->get('sexo'))->where('productos.id_tipo_producto','=',$producto->get('tipo_prododucto'))
+                ->where('disenos.categoria','=',$producto->get('categoria'))->get();
+                return $filtro;
+        }
+        
 
     }
 
