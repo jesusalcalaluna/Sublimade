@@ -153,6 +153,11 @@
       paramName:"archivo",
       init: function () {
           var myDropzone=this;
+
+          myDropzone.on('complete',function(){
+            refresh();
+
+          });
       }
   }
 
