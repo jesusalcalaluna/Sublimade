@@ -126,6 +126,7 @@
           <li><a href="{{url('/pedidospen')}}">Pendientes</a></li>
           <li><a href="{{url('/pedidospro')}}">En proceso</a></li>
           <li><a href="{{url('/pedidosfin')}}">Finalizados</a></li>
+
         </ul>
     </li>
     <br>
@@ -136,6 +137,10 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">VENTAS</a></li>
+    <br>
+    <li class="divider" tabindex="-1"></li>
+    <br>
+    <li><a href="{{url('regadmin')}}">OTORGAR PERMISOS ADMI</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
