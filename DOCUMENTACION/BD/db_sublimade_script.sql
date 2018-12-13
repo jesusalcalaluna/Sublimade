@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`usuarios` (
   `pass` VARCHAR(45) NOT NULL,
   `tipo_usuario` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
-  UNIQUE INDEX `nom_usuario_UNIQUE` (`e-mail` ASC),
+  UNIQUE INDEX `nom_usuario_UNIQUE` (`e_mail` ASC),
   INDEX `fk_usuarios_personas1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_usuarios_personas1`
     FOREIGN KEY (`id_persona`)
