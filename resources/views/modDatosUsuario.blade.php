@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('base')
 @section('content')
     <div class="row center">
         <div class="col s12 m6 ">

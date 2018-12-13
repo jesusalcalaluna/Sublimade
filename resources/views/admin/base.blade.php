@@ -105,7 +105,7 @@
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
     <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
     <li class="divider" tabindex="-1"></li>
-    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>Opciones</a></li>
+    <li tabindex="0"><a href="{{url('modificarInfo')}}" class="black-text center"><i class="material-icons right">settings</i>Opciones</a></li>
         <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>Cerrar sesión</a></li>
   </ul>
 
@@ -140,7 +140,7 @@
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="{{url('regadmin')}}">OTORGAR PERMISOS ADMI</a></li>
+    <li><a href="{{url('regadmin')}}">OTORGAR PERMISOS DE ADMINISTRADOR</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
