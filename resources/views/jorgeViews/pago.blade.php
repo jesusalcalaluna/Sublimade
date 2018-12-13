@@ -5,8 +5,7 @@
             <div class="col m7 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
                     <p class="card-title">Ya casi!</p>
-                    <p class="card-content">Estás a un paso de terminar con tu compra.</p>
-                    <hr>
+                    <p class="card-content">Estás a un paso de terminar con tu compra.</p><br>
                     <p>Haz clic en el botón de PayPal para continuar con tu compra</p>
                     <p class="lead">
                     <div id="paypal-button-container"></div>
@@ -54,7 +53,7 @@
             // Wait for the payment to be authorized by the customer
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
-                    alert('Gracias por tus dineros!');
+                    alert('Gracias por tus compra!');
                     location.href = '{{url('generarPedido')}}';
                 });
             }
