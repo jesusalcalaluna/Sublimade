@@ -29,7 +29,7 @@ use App\Usuario;
 class ControllerPedido extends Controller
 {
     function getpedidopendiente(){
-    	$pedidos= Pedido::where('estado','=','PENDIENTE');
+    	$pedidos= Pedido::where('estado','=','pendiente');
     	dd($pedidos);
     	//return view('admin.pedidos')->with('pedidos', $pedidos);
     }

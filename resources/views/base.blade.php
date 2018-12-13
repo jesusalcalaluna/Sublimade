@@ -146,7 +146,7 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="{{url('/disenos')}}}">DISEÑOS</a></li>
+    <li><a href="#">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
   </ul>

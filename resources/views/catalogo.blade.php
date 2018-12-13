@@ -134,7 +134,6 @@
     @section('js')
     <script type="text/javascript">
         $(document).ready(function(){
-
         $("#peticion").click(function(){
             $('#alumnos').empty();
 

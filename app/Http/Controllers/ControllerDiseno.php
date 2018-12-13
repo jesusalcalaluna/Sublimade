@@ -28,5 +28,23 @@ use App\Usuario;
 
 class ControllerDiseno extends Controller
 {
- 
+ function  getdisenos(){
+     $disenos=Diseno::all();
+//     dd($disenos);
+     return view('admin.verdisenos',compact('disenos'));
+ }
+ function getnombresdisenos(){
+     $disenos=Diseno::all();
+     return $disenos;
+ }
+
+ function getdisenosfiltrados(Request $request){
+     $nombre=$request->get('nombre');
+
+//     dd($nombre);
+     $disenos=Diseno::all()->where('nombre','=',$nombre);
+//     dd($disenos);
+     return $disenos;
+ }
+
 }
