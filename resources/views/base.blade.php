@@ -88,29 +88,12 @@
   <title>Sublimade Fashion</title>
 </head>
 <body>
-  @section('nav')
 
-  <nav class="grey darken-4 ">
-    <div class="nav-wrapper">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
-      @if (Session::get('tipo')=='1')
-      <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'admin'}}">Admins</a>
-       @endif
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-          <li><a style="font-size: 20px" href="{{url('/catalogo')}}">Catálogo</a></li>
-      @if (Session::has('tipo'))
-      <li><a>{{Session::get('nombre')}}</a></li>
-      @endif
-      @if(Session()->get('tipo')==null)
-        <li><a href="{{url('/inicio.sesion')}}">Iniciar Sesion</a></li>
-         @endif
-      @if (Session::has('tipo'))
-        <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
-      @endif
-      </ul>
-    </div>
-  </nav>
+
+
+
+
+
 <!------------------------------------ DROPDOWN USUARIO ----------------------------------------->
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
     <li tabindex="0"><a href="{{url('carrito')}}" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
@@ -119,44 +102,32 @@
         <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>Cerrar sesión</a></li>
   </ul>
 
+
 <!------------------------------------ SIDEVAR----------------------------------------->
-<div class="sidenav grey lighten-5" id="mobile-demo" id="mobile-de">
+@section('nav')
+    <div class="navbar-fixed">
+        <nav class="grey darken-4">
+            <div class="nav-wrapper">
+                <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Calisto MT'; margin-left: 30px">Sublimade</a>
 
-  <nav>
-    <div class="nav-wrapper grey darken-4">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
-      <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a style="font-size: 18px" href="{{url('/catalogo')}}"><i class="material-icons left">shopping_cart</i>Ver catálogo</a></li>
+                    @if (Session::has('tipo'))
+                        <li><a>{{Session::get('nombre')}}</a></li>
+                    @endif
+                    @if(Session()->get('tipo')==null)
+                        <li><a href="{{url('/inicio.sesion')}}"><i class="material-icons left">account_circle</i>Iniciar Sesion</a></li>
+                    @endif
+                    @if (Session::has('tipo'))
+                        <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
+                    @endif
+                </ul>
+            </div>
+        </nav>
     </div>
-  </nav>
-  <ul class="collapsible collapsible-accordion">
-    <br>
-    <li>
-      <div class="collapsible-header">CATALOGO</div>
-    </li>
-    <br>
-      <li class="divider" tabindex="-1"></li>
-      <br>
-
-      <br>
-    <li class="divider" tabindex="-1"></li>
-    <br>
-    <li><a href="#">NOVEDADES</a></li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
-    <br>
-    <li><a href="#">PARA HOMBRE</a></li>
-    <li><a href="#">PARA MUJER</a></li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
-    <br>
-    <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="#">DISEÑOS</a></li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
-  </ul>
-</div>
   @show
 <!------------------------------------------------------------------------------------->
+
   @yield('slider')
 
   <div class="container">
@@ -216,7 +187,7 @@
     });
 
   $(document).ready(function(){
-    $('.sidenav').sidenav();
+
 
     $('.collapsible').collapsible();
     $('.fixed-action-btn').floatingActionButton();

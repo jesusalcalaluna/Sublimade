@@ -469,10 +469,6 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`salidas` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
-CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
-
-
 create table reporte_venta_producto
 (
 	id int auto_increment,
@@ -482,6 +478,11 @@ create table reporte_venta_producto
 	constraint reporte_venta_producto_pk
 		primary key (id)
 );
+
+
+ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
+CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -509,7 +510,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona
-group by tipos_producto.id_tipo_producto))>0
+group by tipos_producto.id_tipo_producto limit 1))>0
   then
   update reporte_venta_producto
   
@@ -523,7 +524,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona) as ventas2
-group by ventas2.idtipo) as tipo_producto),
+group by ventas2.idtipo limit 1) as tipo_producto),
 
 reporte_venta_producto.cantidad=(select cantidad from(
    select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -534,7 +535,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas1
-group by ventas1.idtipo)as cantidad),
+group by ventas1.idtipo limit 1)as cantidad),
 
 reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -553,7 +554,8 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona
-group by tipos_producto.id_tipo_producto);
+group by tipos_producto.id_tipo_producto
+limit 1);
 /*-----------------------*/
   else
    insert reporte_venta_producto 
@@ -567,7 +569,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona) as ventas2
-group by ventas2.idtipo) as tipo_producto),
+group by ventas2.idtipo limit 1) as tipo_producto),
 
 reporte_venta_producto.cantidad=(select cantidad from(
    select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -578,7 +580,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas1
-group by ventas1.idtipo)as cantidad),
+group by ventas1.idtipo limit 1)as cantidad),
 
 reporte_venta_producto.ultimo_vendido=(select ultima_venta from(
   select sum(cantidad) as 'cantidad', tipo_producto,ultima_venta 
@@ -589,7 +591,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas
-group by ventas.idtipo)as ultima);
+group by ventas.idtipo limit 1)as ultima);
 END if;
 END;//
 delimiter ;
@@ -649,4 +651,3 @@ INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUE
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('5', '5');
 
 
-INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', '2018-12-12', '2018-12-15', 'ninguno', 'pendiente', '2018-12-15');

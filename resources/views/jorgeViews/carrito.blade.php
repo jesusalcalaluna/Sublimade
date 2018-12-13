@@ -47,22 +47,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col m5 s5 offset-m8 offset-s8">
-                    <div class="file-field input-field">
-                        <a href="/catalogo" class="btn grey darken-2 z-depth-3">Seguir comprando</a>
-                            <form action="finalizarCompra" method="post">
-                                {{csrf_field()}}
-                                @if(count($producto)==0)
-                                    @else
-                                    <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
-                                    <input id="id_client" name="id_client" class="hide" type="text" value="{{$item->id_carrito}}">
-                                    <button class="btn green darken-2 z-depth-3 right-align" type="submit" style="margin-left: 5px">Finalizar compra</button>
-                                @endif
-                            </form>
-                    </div>
+        <div class="col m3 offset-m6">
+            <a href="/catalogo" class="btn grey darken-2 "><i class="material-icons left">shopping_cart</i>Seguir comprando</a>
         </div>
-    </div>
+        <div class="col m3">
+            <form action="finalizarCompra" method="post">
+                {{csrf_field()}}
+                @if(count($producto)==0)
+                @else
+                    <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
+                    <input id="id_client" name="id_client" class="hide" type="text" value="{{$item->id_carrito}}">
+                    <button class="btn green darken-2" type="submit" ><i class="material-icons left">payment</i>Finalizar compra</button>
+                @endif
+            </form>
+        </div>
 
+    </div>
+    @if(count($producto)==0)
+        <br><br><br><br><br><br><br>
+    @else
+
+    @endif
 
 
 

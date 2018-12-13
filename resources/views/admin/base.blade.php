@@ -190,12 +190,7 @@
       coverTrigger: false, // Displays dropdown below the button
       alignment: 'right' // Displays dropdown with edge aligned to the left of button
     });
-
-    
-
-
   });
-              
 </script>
     @include('sweet::alert')
 

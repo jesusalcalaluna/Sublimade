@@ -39,7 +39,7 @@
                             <input name="id" class="hide" type="text" value="{{$item->id_producto}}">
                         </p>
                         @if(Session::has('tipo'))
-                            <button class="btn grey darken-4 z-depth-2 waves-effect waves-light tooltip" data-position="right" data-tooltip="<i class='material-icons tiny'>shopping_cart</i>" type="submit">Agregar al carrito</button>
+                            <button class="btn grey darken-4 z-depth-2 waves-effect waves-light" type="submit"><i class='material-icons left'>add_shopping_cart</i>Agregar al carrito</button>
                             @else
                             <p style="font-size: 18px"><strong>Inicia sesión para poder comprar nuestros productos!</strong></p>
                         @endif
