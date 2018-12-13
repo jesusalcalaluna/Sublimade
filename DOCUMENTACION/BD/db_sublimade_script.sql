@@ -545,7 +545,7 @@ inner join detalles_pedido as detail on detail.id_producto=product.id_producto
 inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas
-group by ventas.idtipo)as ultima)
+group by ventas.idtipo limit 1)as ultima)
   where reporte_venta_producto.id_tipo_producto=(select tipos_producto.nombre as 'tipo_producto'
 from tipos_producto 
 inner join productos as product on product.id_tipo_producto=tipos_producto.id_tipo_producto
