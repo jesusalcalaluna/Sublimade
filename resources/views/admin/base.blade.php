@@ -84,7 +84,7 @@
 
   <nav class="blue-grey ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Calisto MT'">Sublimade</a>
       <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/'}}">Cliente</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
@@ -93,7 +93,7 @@
       <li><a>{{Session::get('nombre')}}</a></li>
       @endif
       @if(Session()->get('tipo')==null)
-        <li><a href="{{url('/inicio.sesion')}}">Iniciar Sesion</a></li>
+        <li><a href="{{url('/inicio.sesion')}}"><i class="material-icons left">account_circle</i>Iniciar Sesion</a></li>
          @endif
       @if (Session::has('tipo'))
         <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
