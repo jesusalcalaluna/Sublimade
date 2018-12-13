@@ -21,7 +21,7 @@
                     Tipo de producto: {{$item->tipo}}<br>
                     Precio: MXN${{$item->costo}}
                 </div>
-                <div class="col m3 s3" align="center">
+                <div class="col m4 s4" align="center">
                     <p style="font-size: 20px"><strong>Total</strong></p>
                     <strong>MXN${{$item->total}}</strong>
                     <form action="eliminarProducto" method="post">
@@ -29,7 +29,7 @@
 
                         <input id="id_prod" name="id_prod" class="hide" type="text" value="{{$item->id_producto}}">
                         <input id="id_carr" name="id_carr" class="hide" type="text" value="{{$item->id_carrito}}"><br><br>
-                        <button type="submit" class="btn red">Eliminar del carrito</button>
+                        <button type="submit" class="btn red"><i class="material-icons left">remove_shopping_cart</i>Eliminar del carrito</button>
                     </form>
                 </div>
             </div>
