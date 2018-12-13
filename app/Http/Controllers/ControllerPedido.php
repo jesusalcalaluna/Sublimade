@@ -33,14 +33,12 @@ use Session;
 class ControllerPedido extends Controller
 {
     function getpedidopendiente(){
-<<<<<<< HEAD
     	$pedidos= Pedido::where('estado','=','pendiente');
     	dd($pedidos);
     	//return view('admin.pedidos')->with('pedidos', $pedidos);
-=======
     	$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
->>>>>>> 4b8604fa439f67c58f084bf5758d7fbd0f19d067
+
     }
     function getpedidoenproceso(){
     	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
