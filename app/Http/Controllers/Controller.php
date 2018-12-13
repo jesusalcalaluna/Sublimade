@@ -16,10 +16,10 @@ class Controller extends BaseController
 
     function slider1(Request $request){
         $archivo=$request->file('archivo');
-        $archivo->resize(1000,200);
+        $archivo=Image::make($archivo)->resize(1000,600);
 
-        $ruta=public_path().'/storage/Inicio/';
-        $archivo->move($ruta,'slider1.png');
+        $ruta=public_path().'\storage\Inicio';
+        $archivo->save('storage\Inicio\slider1.png');
     }
     function slider2(Request $request){
         $archivo=$request->file('archivo');
