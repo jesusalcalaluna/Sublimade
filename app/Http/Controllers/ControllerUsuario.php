@@ -130,9 +130,65 @@ class ControllerUsuario extends Controller
     }
         
     public function cerrar(){
-   Session::flush();
-   return redirect('/');
+        Session::flush();
+        return redirect('/');
 	}
+
+  public function registraradmins(){
+    $Usuarios= DB::table('usuarios')->get();
+    return view('admin.registraradministradores')->with('usuarios',$Usuarios);
+   
+  }
+
+  public function cambioprivilegio(Request $r){
+  $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("nombre"))
+      ->first();
+     $A= $usua->id_persona;
+
+     $P= Usuario::find($A);
+     $P->tipo_usuario='1';
+     $P->save();
+     Alert::error('Privilegio de Administrador Otorgado A '.$usua->e_mail);
+     return back();
+  }
+
+	function modificarInfoView(){
+        $usuario = Persona::find(Session::get('id'));
+
+        return view('modDatosUsuario')->with('usuario',$usuario);
+    }
+    function actualizarInfo(Request $request){
+        $usuario=Persona::find(Session::get('id'));
+        $nombre = $request->nombre;
+        $apellido = $request->apellido;
+        $tel_casa =  $request->input('telefono-casa');
+        $tel_cel = $request->input('telefono-cel');
+        $direccion = $request->direccion;
+        $cp =  $request->cp;
+
+        if($nombre!=null){
+            $usuario->nombre = $nombre;
+        }
+        if($apellido!=null){
+            $usuario->apellido = $apellido;
+        }
+        if($tel_casa!=null){
+            $usuario->nombre = $tel_casa;
+        }
+        if($tel_cel!=null){
+            $usuario->tel_celular = $tel_cel;
+        }
+        if($direccion!=null){
+            $usuario->direccion = $direccion;
+        }
+        if($cp!=null){
+            $usuario->cp = $cp;
+        }
+        $usuario->save();
+        return back();
+
+    }
+
 }
 
 

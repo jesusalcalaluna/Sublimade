@@ -57,6 +57,8 @@ Route::get('/registro.usuario', function () {
 Route::post('/registro.usuario','ControllerUsuario@register');
 
 Route::get('/cerrar','ControllerUsuario@cerrar');
+Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
+Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
 
 
 //-----------------------Tienda
@@ -72,6 +74,9 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 //-----------------------restringirrutas
 
  Route::group(['middleware' => 'usuarioAdmin'], function () {
+ 	Route::get('regadmin','ControllerUsuario@registraradmins');
+Route::post('regadmin','ControllerUsuario@cambioprivilegio');
+
 
 });
 
@@ -83,7 +88,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Jorge
 
-Route::get('filtro','ControllerProducto@filtro');
 
 
 //-----------------------Favela
