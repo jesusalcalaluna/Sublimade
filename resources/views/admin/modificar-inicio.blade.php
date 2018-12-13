@@ -30,7 +30,7 @@
         <br>
         <div class="row">
           <div class="col s3">
-    <form action="/slider1" class="dropzone" id="my-dropzone-z">
+    <form action="/slider1" class="dropzone" id="my-dropzone">
         {{csrf_field()}}
         <div class="fallback">
             <input type="file" name="archivo">
@@ -66,7 +66,7 @@
 <br>
 <div class="divider"></div>
 <div class="center">
-  <h2>Destacados</h2>
+    <strong><h2 style="font-size: 60px; font-family: 'Calisto MT';">Destacados</h2></strong>
 </div>
 <div class="divider"></div>
 <br>
@@ -146,27 +146,13 @@
     
   });
 
-  Dropzone.options.myDropzoneZ={
+  Dropzone.options.myDropzone={
       uploadMultiple: false,
       autoProcessQueue: true,
       autoDiscover: false,
       paramName:"archivo",
       init: function () {
-          var myDropzoneZ=this;
-          myDropzoneZ.on("complete", function() {
-              $.ajax({
-                  url:"/actualizarini",
-                  // en data se envían los datos
-                  data:{},
-                  type:"get",
-                  dataType:'int',
-                  success:function (response) {
-                      var nombres = $("#carrusel");
-                      nombres.empty();
-                      alert("sss");
-                  }
-              })
-          })
+          var myDropzone=this;
       }
   }
 

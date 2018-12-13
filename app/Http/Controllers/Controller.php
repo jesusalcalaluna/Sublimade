@@ -17,6 +17,7 @@ class Controller extends BaseController
 
     function slider1(Request $request){
         $archivo=$request->file('archivo');
+        $archivo->resize(1000,200);
 
         $ruta=public_path().'/storage/Inicio/';
         $archivo->move($ruta,'slider1.png');

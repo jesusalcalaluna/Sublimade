@@ -103,14 +103,20 @@
   </ul>
 
 
-<!------------------------------------ SIDEVAR----------------------------------------->
+<!------------------------------------ NAVVAR----------------------------------------->
 @section('nav')
     <div class="navbar-fixed">
         <nav class="grey darken-4">
             <div class="nav-wrapper">
                 <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Calisto MT'; margin-left: 30px">Sublimade</a>
+                            
 
                 <ul class="right hide-on-med-and-down">
+                  @if(Session::get('tipo')=='1')
+                  <li>      
+                    <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/admin'}}">Administrador</a>
+                  </li>
+                  @endif
                     <li><a style="font-size: 18px" href="{{url('/catalogo')}}"><i class="material-icons left">shopping_cart</i>Ver catálogo</a></li>
                     @if (Session::has('tipo'))
                         <li><a>{{Session::get('nombre')}}</a></li>
@@ -164,7 +170,7 @@
           <div class="footer-copyright">
             <div class="container">
                 © 2018 Sublimade
-            <a class="grey-text text-lighten-4 right" href="{{url('/inicio.mod')}}">Inicio</a>
+
             </div>
           </div>
         </footer>

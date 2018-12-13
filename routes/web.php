@@ -99,7 +99,7 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 
 
-Route::get('/actualizarini','Controller@actualizar');
+Route::post('/actualizarini','Controller@actualizar');
 
 //generar key en dropbox
 //
