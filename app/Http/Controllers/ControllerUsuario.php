@@ -133,6 +133,24 @@ class ControllerUsuario extends Controller
    Session::flush();
    return redirect('/');
 	}
+
+  public function registraradmins(){
+    $Usuarios= DB::table('usuarios')->get();
+    return view('admin.registraradministradores')->with('usuarios',$Usuarios);
+   
+  }
+
+  public function cambioprivilegio(Request $r){
+  $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("nombre"))
+      ->first();
+     $A= $usua->id_persona;
+
+     $P= Usuario::find($A);
+     $P->tipo_usuario='1';
+     $P->save();
+     Alert::error('Privilegio de Administrador Otorgado A '.$usua->e_mail);
+     return back();
+  }
 }
 
 
