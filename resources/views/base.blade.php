@@ -91,8 +91,10 @@
   <nav class="grey darken-4 ">
     <div class="nav-wrapper">
       <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
+      @if (Session::get('tipo')=='1')
+      <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'admin'}}">Admins</a>
+       @endif
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-
       <ul class="right hide-on-med-and-down">
           <li><a style="font-size: 20px" href="{{url('/catalogo')}}">Catálogo</a></li>
       @if (Session::has('tipo'))
