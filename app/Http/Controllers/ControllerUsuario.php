@@ -130,9 +130,43 @@ class ControllerUsuario extends Controller
     }
         
     public function cerrar(){
-   Session::flush();
-   return redirect('/');
+        Session::flush();
+        return redirect('/');
 	}
+	function modificarInfoView(){
+        return view('modDatosUsuario');
+    }
+    function acualizarInfo(Request $request){
+        $usuario=Cliente::find(Session::get('id'));
+        $nombre = $request->nombre;
+        $apellido = $request->apellido;
+        $tel_casa =  $request->input('telefono-casa');
+        $tel_cel = $request->input('telefono-cel');
+        $direccion = $request->direccion;
+        $cp =  $request->cp;
+
+        if($nombre!=null){
+            $usuario->nombre = $nombre;
+        }
+        if($apellido!=null){
+            $usuario->apellido = $apellido;
+        }
+        if($tel_casa!=null){
+            $usuario->nombre = $tel_casa;
+        }
+        if($tel_cel!=null){
+            $usuario->tel_celular = $tel_cel;
+        }
+        if($direccion!=null){
+            $usuario->direccion = $direccion;
+        }
+        if($cp!=null){
+            $usuario->cp = $cp;
+        }
+        $usuario->save();
+
+    }
+
 }
 
 

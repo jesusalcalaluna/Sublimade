@@ -57,6 +57,8 @@ Route::get('/registro.usuario', function () {
 Route::post('/registro.usuario','ControllerUsuario@register');
 
 Route::get('/cerrar','ControllerUsuario@cerrar');
+Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
+Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
 
 
 //-----------------------Tienda
