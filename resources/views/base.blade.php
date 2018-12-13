@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <!---------------------------------------------- Sweetalert ------------------------------------>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
+    <!--------------------------------------------- PayPal --------------------------------------------->
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
 
@@ -87,12 +89,36 @@
 </head>
 <body>
   @section('nav')
+        <div class="navbar-fixed">
+            <nav class="grey darken-4">
+                <div class="nav-wrapper">
+                    <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Calisto MT'; margin-left: 30px">Sublimade</a>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li><a style="font-size: 18px" href="{{url('/catalogo')}}"><i class="material-icons left">shopping_cart</i>Ver catálogo</a></li>
+                        @if (Session::has('tipo'))
+                            <li><a>{{Session::get('nombre')}}</a></li>
+                        @endif
+                        @if(Session()->get('tipo')==null)
+                            <li><a href="{{url('/inicio.sesion')}}"><i class="material-icons left">account_circle</i>Iniciar Sesion</a></li>
+                        @endif
+                        @if (Session::has('tipo'))
+                            <li><a class='dropdown-trigger'  data-target='dropdown1' data-activates="dropdown" data-beloworigin="true"><i class="material-icons center">account_circle</i></a></li>
+                        @endif
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
 
   <nav class="grey darken-4 ">
     <div class="nav-wrapper">
       <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
+      @if (Session::get('tipo')=='1')
+      <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'admin'}}">Admins</a>
+       @endif
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-
       <ul class="right hide-on-med-and-down">
           <li><a style="font-size: 20px" href="{{url('/catalogo')}}">Catálogo</a></li>
       @if (Session::has('tipo'))
@@ -107,13 +133,15 @@
       </ul>
     </div>
   </nav>
+
 <!------------------------------------ DROPDOWN USUARIO ----------------------------------------->
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
-    <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
+    <li tabindex="0"><a href="{{url('carrito')}}" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
     <li class="divider" tabindex="-1"></li>
     <li tabindex="0"><a href="#!" class="black-text center"><i class="material-icons right">settings</i>Opciones</a></li>
         <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>Cerrar sesión</a></li>
   </ul>
+
 
 <!------------------------------------ SIDEVAR----------------------------------------->
 <div class="sidenav grey lighten-5" id="mobile-demo" id="mobile-de">
@@ -146,13 +174,14 @@
     <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="#">COTIZACIONES</a></li>
-    <li><a href="{{url('/disenos')}}}">DISEÑOS</a></li>
+    <li><a href="#">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
   </ul>
 </div>
   @show
 <!------------------------------------------------------------------------------------->
+
   @yield('slider')
 
   <div class="container">
@@ -212,7 +241,7 @@
     });
 
   $(document).ready(function(){
-    $('.sidenav').sidenav();
+
 
     $('.collapsible').collapsible();
     $('.fixed-action-btn').floatingActionButton();

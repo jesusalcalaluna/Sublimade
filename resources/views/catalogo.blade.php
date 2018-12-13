@@ -40,7 +40,7 @@
                             {{csrf_field()}}
                             <input id="id" name="id" class="hide" type="text" value="{{$producto->id_producto}}">
                             <button  type="submit" class="btn center-block waves-effect waves-block grey darken-4 z-depth-3">
-                                Ver detalles
+                                <i class="material-icons left">dehaze</i>Ver detalles
                             </button>
 
                         </form>
@@ -59,7 +59,7 @@
         <div class="section">
             <h5>Sexo</h5>
             <p>
-                <form action="#">
+             <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="sexo" value="all" type="radio" checked />
@@ -86,7 +86,7 @@
         <div class="section">
             <h5>Productos</h5>
             <p>
-                <form action="#">
+            <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="tipo_producto" value="all" type="radio" checked />
@@ -96,7 +96,7 @@
             @foreach($tipos_productos as $tipo_producto)
             <p>
                 <label>
-                    <input name="tipo_producto" value="{{$tipo_producto->nombre}}" type="radio" />
+                    <input name="tipo_producto" value="{{$tipo_producto->id_tipo_producto}}" type="radio" />
                     <span>{{$tipo_producto->nombre}}</span>
                 </label>
             </p>
@@ -109,7 +109,7 @@
         <div class="section">
             <h5>Categoria</h5>
             <p>
-                <form action="/filtro">
+                <form action="/filtro" method="post">
             <p>
                 <label>
                     <input name="categoria" value="all" type="radio" checked />
@@ -134,7 +134,6 @@
     @section('js')
     <script type="text/javascript">
         $(document).ready(function(){
-
         $("#peticion").click(function(){
             $('#alumnos').empty();
 

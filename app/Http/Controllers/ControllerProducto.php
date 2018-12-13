@@ -32,7 +32,20 @@ use Illuminate\Support\Facades\DB;
 
 class ControllerProducto extends Controller
 {
+
+    function filtro(Request $r){
+
+         $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')->where('productos.sexo','=',$r->input('sexo'))->where('productos.id_tipo_producto','=',$r->input('tipo_producto'))
+                ->where('disenos.categoria','=',$r->input('categoria'))->get();
+
+dd($r->input('sexo'));
+
+
+    }
+
     function viewProducto(){
+      
         $productos = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')->get();
         $tipos_productos = Tipos_producto::all();
         $categorias = Categoria::all();
@@ -48,4 +61,5 @@ class ControllerProducto extends Controller
             ->get();
         return view('jorgeViews.detallesProducto')->with('producto',$producto); 
     }
+
 }
