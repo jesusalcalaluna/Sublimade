@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <!---------------------------------------------- Sweetalert ------------------------------------>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
+    <!--------------------------------------------- PayPal --------------------------------------------->
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
 

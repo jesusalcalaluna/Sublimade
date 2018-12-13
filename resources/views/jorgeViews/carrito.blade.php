@@ -1,10 +1,10 @@
 @extends('base')
 @section('content')
     <h4 align="center"><strong>Productos en el carrito</strong></h4>
-    <hr>
+    <br>
     @if(count($producto) == 0)
 
-        <h5 align="center">Aún no tienes productos en el carrito</h5>
+        <h5 align="center" class="">Aún no tienes productos en el carrito</h5>
         @else
 
         @foreach($producto as $item)
@@ -35,9 +35,10 @@
             </div>
         @endforeach
         @endif
-
+    <hr>
     <div class="row">
         <div class="col m6 m6 offset-m8 offset-s8">
+
             @if(count($producto)==0)
 
             @else
@@ -49,17 +50,15 @@
         <div class="col m5 s5 offset-m8 offset-s8">
                     <div class="file-field input-field">
                         <a href="/catalogo" class="btn grey darken-2 z-depth-3">Seguir comprando</a>
-                        <div class="file-path-wrapper">
                             <form action="finalizarCompra" method="post">
                                 {{csrf_field()}}
                                 @if(count($producto)==0)
-
                                     @else
                                     <input id="subtotal" name="subtotal" class="hide" type="text" value="{{$item->subtotal}}">
-                                    <button class="btn green darken-2 z-depth-3" type="submit">Finalizar compra</button>
+                                    <input id="id_client" name="id_client" class="hide" type="text" value="{{$item->id_carrito}}">
+                                    <button class="btn green darken-2 z-depth-3 right-align" type="submit" style="margin-left: 5px">Finalizar compra</button>
                                 @endif
                             </form>
-                        </div>
                     </div>
         </div>
     </div>

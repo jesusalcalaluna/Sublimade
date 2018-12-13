@@ -56,10 +56,7 @@ class ControllerCarro extends Controller
 
         return view('jorgeViews.carrito')->with('producto', $producto)->with('cantidad', $cantidad)->with('talla', $talla);
     }
-    function finalizarcompra(Request $r){
-        $subtotal = $r->input('subtotal');
-        return view('jorgeViews.pago')->with('subtotal',$subtotal);
-    }
+
     function carritoVacio(){
         $producto = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
@@ -82,5 +79,12 @@ class ControllerCarro extends Controller
         return back();
 
     }
+    function finalizarcompra(Request $r){
+        $subtotal = $r->input('subtotal');
+        $cliente = $r->input('id_client');
+
+        return view('jorgeViews.pago')->with('subtotal',$subtotal)->with('cliente',$cliente);
+    }
+
 
 }

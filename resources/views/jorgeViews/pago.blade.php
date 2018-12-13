@@ -24,7 +24,7 @@
             // Specify the style of the button
             style: {
                 label: 'checkout',  // checkout | credit | pay | buynow | generic
-                size:  'responsive', // small | medium | large | responsive
+                size:  'medium', // small | medium | large | responsive
                 shape: 'rect',   // pill | rect
                 color: 'black'   // gold | blue | silver | black
             },
@@ -47,17 +47,18 @@
                             }
                         ]
                     },
-                    description: 'Id de cliente: 4'
+                    description: 'Id de cliente: '+'{{$cliente}}',
+
                 });
             },
             // Wait for the payment to be authorized by the customer
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
-                    window.alert('Gracias por tus dineros!');
-                    location.href = '{{url('paypal')}}';
+                    alert('Gracias por tus dineros!');
+                    location.href = '{{url('generarPedido')}}';
                 });
             }
         }, '#paypal-button-container');
     </script>
             @endsection
-    @endsection
+
