@@ -24,21 +24,7 @@ Route::post('/inicio.sesion','ControllerUsuario@iniciarsession');
 
 
 //--------------------Incio administrador
-Route::get('/admin', function () {
-    return view('admin.modificar-inicio');
-});
-Route::get('/pedidospen','ControllerPedido@getpedidopendiente');
-Route::get('/pedidospro','ControllerPedido@getpedidoenproceso');
-Route::get('/pedidosfin','ControllerPedido@getpedidofinalizado');
 
-Route::post('/slider1','Controller@slider1');
-Route::post('/slider2','Controller@slider2');
-Route::post('/slider3','Controller@slider3');
-Route::post('/slider4','Controller@slider4');
-Route::post('/destacado1','Controller@destacado1');
-Route::post('/destacado2','Controller@destacado2');
-Route::post('/destacado3','Controller@destacado3');
-Route::post('/destacado4','Controller@destacado4');
 
 //----------------------------------------
 
@@ -63,6 +49,7 @@ Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
+Route::post('/catalogo','ControllerProducto@filtro');
 
 Route::post('detalles','ControllerProducto@detalles');
 Route::post('carrito', 'ControllerCarro@carritoView');
@@ -76,6 +63,25 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
  Route::group(['middleware' => 'usuarioAdmin'], function () {
  	Route::get('regadmin','ControllerUsuario@registraradmins');
 Route::post('regadmin','ControllerUsuario@cambioprivilegio');
+Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
+Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
+Route::get('/admin', function () {
+    return view('admin.modificar-inicio');
+});
+Route::get('/pedidospen','ControllerPedido@getpedidopendiente');
+Route::get('/pedidospro','ControllerPedido@getpedidoenproceso');
+Route::get('/pedidosfin','ControllerPedido@getpedidofinalizado');
+
+Route::post('/slider1','Controller@slider1');
+Route::post('/slider2','Controller@slider2');
+Route::post('/slider3','Controller@slider3');
+Route::post('/slider4','Controller@slider4');
+Route::post('/destacado1','Controller@destacado1');
+Route::post('/destacado2','Controller@destacado2');
+Route::post('/destacado3','Controller@destacado3');
+Route::post('/destacado4','Controller@destacado4');
 
 
 });
@@ -89,12 +95,8 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 //-----------------------Jorge
 
 
-
 //-----------------------Favela
 
-Route::get('/verdisenos','ControllerDiseno@getdisenos');
-Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
-Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 
 
 Route::get('/actualizarini','Controller@actualizar');
