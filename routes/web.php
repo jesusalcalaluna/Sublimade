@@ -89,7 +89,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 //-----------------------Jorge
 
 
-
 //-----------------------Favela
 
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
