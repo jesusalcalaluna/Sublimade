@@ -469,10 +469,6 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`salidas` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
-CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
-
-
 create table reporte_venta_producto
 (
 	id int auto_increment,
@@ -482,6 +478,10 @@ create table reporte_venta_producto
 	constraint reporte_venta_producto_pk
 		primary key (id)
 );
+
+ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
+CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -649,4 +649,3 @@ INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUE
 INSERT INTO `sublimade_fashion_db`.`clientes` (`id_cliente`, `id_persona`) VALUES ('5', '5');
 
 
-INSERT INTO `sublimade_fashion_db`.`pedidos` (`reg_pedido`, `id_cliente`, `fecha_pedido`, `fecha_entrega`, `detalles`, `estado`, `fecha_real_entrega`) VALUES ('1', '1', '2018-12-12', '2018-12-15', 'ninguno', 'pendiente', '2018-12-15');

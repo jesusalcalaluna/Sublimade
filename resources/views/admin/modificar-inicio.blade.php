@@ -21,7 +21,7 @@
     @show
     @section('slider')
 
-        <div class="carousel carousel-slider">
+        <div class="carousel carousel-slider" id="carrusel">
             <a class="carousel-item"><img src="{{url('storage/Inicio/slider1.png')}}"></a>
             <a class="carousel-item"><img src="{{url('storage/Inicio/slider2.png')}}"></a>
             <a class="carousel-item"><img src="{{url('storage/Inicio/slider3.png')}}"></a>
@@ -147,7 +147,7 @@
   });
 
   Dropzone.options.myDropzoneZ={
-      uploadMultiple: true,
+      uploadMultiple: false,
       autoProcessQueue: true,
       autoDiscover: false,
       paramName:"archivo",
@@ -161,8 +161,9 @@
                   type:"get",
                   dataType:'int',
                   success:function (response) {
-                      var nombres = $("#disenos");
+                      var nombres = $("#carrusel");
                       nombres.empty();
+                      alert("sss");
                   }
               })
           })
