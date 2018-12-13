@@ -94,5 +94,8 @@ Route::get('/verdisenos','ControllerDiseno@getdisenos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 
+
+Route::get('/actualizarini','Controller@actualizar');
+
 //generar key en dropbox
 //
