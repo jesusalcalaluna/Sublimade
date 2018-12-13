@@ -40,7 +40,7 @@
                             {{csrf_field()}}
                             <input id="id" name="id" class="hide" type="text" value="{{$producto->id_producto}}">
                             <button  type="submit" class="btn center-block waves-effect waves-block grey darken-4 z-depth-3">
-                                Ver detalles
+                                <i class="material-icons left">dehaze</i>Ver detalles
                             </button>
 
                         </form>
