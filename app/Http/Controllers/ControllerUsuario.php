@@ -133,11 +133,32 @@ class ControllerUsuario extends Controller
         Session::flush();
         return redirect('/');
 	}
+
+  public function registraradmins(){
+    $Usuarios= DB::table('usuarios')->get();
+    return view('admin.registraradministradores')->with('usuarios',$Usuarios);
+   
+  }
+
+  public function cambioprivilegio(Request $r){
+  $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("nombre"))
+      ->first();
+     $A= $usua->id_persona;
+
+     $P= Usuario::find($A);
+     $P->tipo_usuario='1';
+     $P->save();
+     Alert::error('Privilegio de Administrador Otorgado A '.$usua->e_mail);
+     return back();
+  }
+
 	function modificarInfoView(){
-        return view('modDatosUsuario');
+        $usuario = Persona::find(Session::get('id'));
+
+        return view('modDatosUsuario')->with('usuario',$usuario);
     }
-    function acualizarInfo(Request $request){
-        $usuario=Cliente::find(Session::get('id'));
+    function actualizarInfo(Request $request){
+        $usuario=Persona::find(Session::get('id'));
         $nombre = $request->nombre;
         $apellido = $request->apellido;
         $tel_casa =  $request->input('telefono-casa');
@@ -164,6 +185,7 @@ class ControllerUsuario extends Controller
             $usuario->cp = $cp;
         }
         $usuario->save();
+        return back();
 
     }
 
