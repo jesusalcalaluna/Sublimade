@@ -85,6 +85,7 @@
   <nav class="blue-grey ">
     <div class="nav-wrapper">
       <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
+      <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/'}}">Cliente</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
@@ -130,7 +131,7 @@
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="#">DISEÑOS</a></li>
+    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
@@ -155,6 +156,7 @@
 
 
     <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="{{url('/js/jquery.easy-autocomplete.js')}}"></script>
     <script src="js/materialize/materialize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="{{url('/js/dropzone/dropzone.js')}}"></script>
@@ -183,6 +185,9 @@
       coverTrigger: false, // Displays dropdown below the button
       alignment: 'right' // Displays dropdown with edge aligned to the left of button
     });
+
+
+
 
   });
               

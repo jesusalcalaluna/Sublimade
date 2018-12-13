@@ -83,11 +83,14 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Jorge
 
+Route::get('filtro','ControllerProducto@filtro');
 
 
 //-----------------------Favela
 
-
+Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 
 //generar key en dropbox
 //
