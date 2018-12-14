@@ -141,6 +141,7 @@ class ControllerUsuario extends Controller
   }
 
   public function cambioprivilegio(Request $r){
+      
   $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("nombre"))
       ->first();
      $A= $usua->id_persona;

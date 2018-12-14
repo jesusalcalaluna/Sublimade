@@ -42,7 +42,7 @@
          <div class="">
           Otorgar privilegios de administrador:
           <div class="input-field inline">
-            <input id="email_inline" type="email" class="validate">
+            <input name="nombre" id="email_inline" type="email" class="validate">
             <label for="email_inline">Email</label>
             <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
           </div>
