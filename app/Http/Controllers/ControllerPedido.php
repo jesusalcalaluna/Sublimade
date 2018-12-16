@@ -68,7 +68,7 @@ class ControllerPedido extends Controller
         $pedido->fecha_pedido = substr(Carbon::today(),0,10);
         $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->detalles = 'Pedido realizado desde la web';
-        $pedido->estado = 'EN PROCESO';
+        $pedido->estado = 'PENDIENTE';
 
         $carrito= Carrito::find(Session::get('id'));
         foreach ($datos as $prod){

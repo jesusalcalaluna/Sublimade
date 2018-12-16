@@ -159,19 +159,12 @@ class ControllerUsuario extends Controller
     }
     function actualizarInfo(Request $request){
         $usuario=Persona::find(Session::get('id'));
-        $nombre = $request->nombre;
-        $apellido = $request->apellido;
+
         $tel_casa =  $request->input('telefono-casa');
         $tel_cel = $request->input('telefono-cel');
         $direccion = $request->direccion;
         $cp =  $request->cp;
 
-        if($nombre!=null){
-            $usuario->nombre = $nombre;
-        }
-        if($apellido!=null){
-            $usuario->apellido = $apellido;
-        }
         if($tel_casa!=null){
             $usuario->nombre = $tel_casa;
         }

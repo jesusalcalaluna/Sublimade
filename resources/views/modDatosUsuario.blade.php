@@ -13,18 +13,6 @@
 
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="nombre" name="nombre" type="text" class="validate">
-                                    <label for="nombre">Nombre</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="apellido" name="apellido" type="text" class="validate">
-                                    <label for="apellido">Apellido</label>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="input-field col s6">
                                     <i class="material-icons prefix">phone</i>
                                     <input id="telefono-casa" name="telefono" type="tel" class="validate">
                                     <label for="telefono-casa">Telefono casa</label>
