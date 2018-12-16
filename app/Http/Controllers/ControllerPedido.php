@@ -34,20 +34,31 @@ class ControllerPedido extends Controller
 {
     function getpedidopendiente(){
 
-    	$pedidos= Pedido::where('estado','=','pendiente');
-    
-    	//return view('admin.pedidos')->with('pedidos', $pedidos);
-
-    	$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
+    	//$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','PENDIENTE')
+        ->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
 
     }
     function getpedidoenproceso(){
-    	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
+
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','EN PROCESO')
+        ->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
     }
     function getpedidofinalizado(){
-    	$pedidos= Pedido::where('estado','=','FINALIZADO')->get();
+
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','FINALIZADO')
+        ->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
     }
     function generarPedido(){

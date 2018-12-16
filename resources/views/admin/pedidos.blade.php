@@ -33,7 +33,7 @@
             @foreach ($pedidos as $pedido)
             <tr>
                 <td>{{$pedido->reg_pedido}}</td>
-                <td>{{$pedido->id_cliente}}</td>
+                <td>{{$pedido->nombre}} {{$pedido->apellido}}</td>
                 <td>{{$pedido->fecha_pedido}}</td>
                 <td>{{$pedido->fecha_entrega}}</td>
                 <td>{{$pedido->detalles}}</td>
