@@ -469,19 +469,21 @@ CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`salidas` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-create table reporte_venta_producto
-(
-	id int auto_increment,
-	id_tipo_producto int null,
-	cantidad int null,
-	ultimo_vendido datetime null,
-	constraint reporte_venta_producto_pk
-		primary key (id)
-);
 
-ALTER TABLE `sublimade_fashion_db`.`reporte_venta_producto` 
-CHANGE COLUMN `id_tipo_producto` `id_tipo_producto` VARCHAR(25) NULL DEFAULT NULL ;
 
+CREATE TABLE IF NOT EXISTS `sublimade_fashion_db`.`reportes_ventas` (
+  `idreportes_ventas` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATETIME NOT NULL,
+  `pedidos_reg_pedido` INT(11) NOT NULL,
+  PRIMARY KEY (`idreportes_ventas`),
+  INDEX `fk_reportes_ventas_pedidos_idx` (`pedidos_reg_pedido` ASC),
+  CONSTRAINT `fk_reportes_ventas_pedidos`
+    FOREIGN KEY (`pedidos_reg_pedido`)
+    REFERENCES `sublimade_fashion_db`.`pedidos` (`reg_pedido`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -590,6 +592,22 @@ inner join pedidos as pedid on pedid.reg_pedido=detail.reg_pedido
 inner join clientes as clien on clien.id_cliente=pedid.id_cliente
 inner join personas on personas.id_persona=clien.id_persona)as ventas
 group by ventas.idtipo)as ultima);
+END if;
+END;//
+delimiter ;
+
+delimiter //
+
+create trigger reporte_de_ventas after update on pedidos for each row
+begin if
+
+new.estado='FINALIZADO'
+
+then
+
+insert reportes_ventas set reportes_ventas.fecha=now(),
+reportes_ventas.pedidos_reg_pedido=new.reg_pedido;
+
 END if;
 END;//
 delimiter ;
