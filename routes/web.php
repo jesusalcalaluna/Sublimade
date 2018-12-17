@@ -105,5 +105,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 
 Route::get('/test','ControllerPedido@pdf');
+Route::post('/grafica','ControllerPedido@getgrafica');
 
 

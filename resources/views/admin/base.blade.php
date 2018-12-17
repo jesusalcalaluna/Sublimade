@@ -168,8 +168,8 @@
   <script src="https://cdn.jsdelivr.net/combine/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js,npm/sweetalert2@7.32.2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/dist/sweetalert2.all.min.js"></script>
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
+  <script src="{{url('/js/highcharts.js')}}"></script>
   @yield('js')
 <script>
     $.ajaxSetup({
