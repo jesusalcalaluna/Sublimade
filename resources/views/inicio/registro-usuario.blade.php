@@ -121,7 +121,8 @@
                 done:  'Listo'
               },
           showClearBtn: true,
-          yearRange:100
+          yearRange:[1970,2000],
+
         });
     });
     </script>
