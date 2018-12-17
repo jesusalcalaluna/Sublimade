@@ -41,8 +41,8 @@
                     <input placeholder="Nombre del diseño" name="nombre_diseno" id="disen" type="text" class="validate">
                 <br> <br>
                 <div>
-                    <select name="cate">
-                        <option value="" disabled selected>Escoge una categoría</option>
+                    <select name="cate" id="categ">
+                        <option value="0" disabled selected>Escoge una categoría</option>
                         @foreach($categorias as $categoria)
                             <option value="{{$categoria->categoria}}">{{$categoria->categoria}}</option>
                         @endforeach
@@ -57,8 +57,8 @@
                     </div>
                 </div>
                 <br><br>
-                <button class="btn waves-effect waves-light center-align" type="submit" name="btn1" id="enviardis"> Enviar diseño
-                    <i class="medium material-icons right-align">send</i>
+                <button class="btn waves-effect waves-light center-align" type="submit" name="btn1" id="enviardis"> Subir diseño
+                    <i class="medium material-icons right-align">file_upload</i>
                 </button>
             </form>
         </div>
@@ -77,6 +77,7 @@
     <script>
         $(document).ready(function(){
             $('select').formSelect();
+            // $("#categ").material_select();
             var options = {
                 url: "vernombres",
 
@@ -160,10 +161,12 @@
                     e.preventDefault();
                     e.stopPropagation();
                     myDropzone.processQueue();
+                    $("#disen").val("");
+                    $("#categ").val("0");
+                    $('select').formSelect();
                 });
                 myDropzone.on("complete", function (file) {
                     myDropzone.removeFile(file);
-                    // $("#disen").val("");
                 });
             }
         }

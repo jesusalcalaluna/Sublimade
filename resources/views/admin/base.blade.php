@@ -136,7 +136,7 @@
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="#">VENTAS</a></li>
+    <li><a href="/ventas">VENTAS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>

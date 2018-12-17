@@ -27,27 +27,90 @@ use App\User;
 use App\Usuario;
 use Illuminate\Support\Facades\DB;
 use Session;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 //------------------
 
 class ControllerPedido extends Controller
 {
     function getpedidopendiente(){
 
-    	$pedidos= Pedido::where('estado','=','pendiente');
-    
-    	//return view('admin.pedidos')->with('pedidos', $pedidos);
-
-    	$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
+        $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
+            ->where('pedidos.estado','=','PENDIENTE')
+            ->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
 
     }
+
+    function verpedidos(){
+        $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',personas.nombre as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
+            ->get();
+        return $pedidos;
+    }
+    function getclientesfiltrados(Request $request){
+        $nombrecliente=$request->get('nombre');
+        $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
+            ->where('personas.nombre','=',$nombrecliente)
+            ->get();
+        return $pedidos;
+    }
+
+
+    function getreporteventas(){
+
+        $ventas=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->join('reportes_ventas','reportes_ventas.pedidos_reg_pedido','=','pedidos.reg_pedido','inner')
+            ->join('detalles_pedido','detalles_pedido.reg_pedido','=','pedidos.reg_pedido','inner')
+            ->select(DB::raw("concat(personas.nombre,' ',personas.apellido) as 'Cliente', reportes_ventas.fecha as 'Fecha_de_venta', sum(total) as 'total_de_venta'"))
+            ->groupBy('detalles_pedido.reg_pedido')
+            ->get();
+        return view('admin.reportes')->with('ventas',$ventas);
+    }
+function pdf(){
+    $ventas = DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('reportes_ventas','reportes_ventas.pedidos_reg_pedido','=','pedidos.reg_pedido','inner')
+        ->join('detalles_pedido','detalles_pedido.reg_pedido','=','pedidos.reg_pedido','inner')
+        ->select(DB::raw("concat(personas.nombre,' ',personas.apellido) as 'Cliente', reportes_ventas.fecha as 'Fecha_de_venta', sum(total) as 'total_de_venta'"))
+        ->groupBy('detalles_pedido.reg_pedido')
+        ->get();
+    $pdf = new Dompdf();
+    //$pdf = App::make('dompdf.wrapper');
+    $view = view('admin.reportes', compact('ventas'));
+    //$pdf->loadHtml('Hola mundo');
+    $options = new Options();
+    $options->set('defaultPaperSize','letter');
+    $pdf->loadHtml($view);
+    $pdf->setOptions($options);
+    $pdf->render();
+    return $pdf->stream('reportes.pdf');
+}
+
     function getpedidoenproceso(){
-    	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
-    	return view('admin.pedidos')->with('pedidos', $pedidos);
+//    	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
+
+        $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
+            ->where('pedidos.estado','=','EN PROCESO')
+            ->get();
+        return view('admin.pedidos')->with('pedidos', $pedidos);
     }
     function getpedidofinalizado(){
-    	$pedidos= Pedido::where('estado','=','FINALIZADO')->get();
+        $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
+            ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
+            ->where('pedidos.estado','=','FINALIZADO')
+            ->get();
     	return view('admin.pedidos')->with('pedidos', $pedidos);
     }
     function generarPedido(){

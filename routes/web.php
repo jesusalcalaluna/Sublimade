@@ -64,7 +64,10 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
  	Route::get('regadmin','ControllerUsuario@registraradmins');
 Route::post('regadmin','ControllerUsuario@cambioprivilegio');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/verpedidos','ControllerPedido@verpedidos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::get('/ventas','ControllerPedido@getreporteventas');
+Route::post('/clientesfiltrados','ControllerPedido@getclientesfiltrados');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 Route::get('/admin', function () {
@@ -98,8 +101,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 //-----------------------Favela
 
 
+Route::get('/test','ControllerPedido@pdf');
 
-Route::post('/actualizarini','Controller@actualizar');
 
-//generar key en dropbox
-//
