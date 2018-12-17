@@ -60,9 +60,11 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 
 //-----------------------restringirrutas
 
- Route::group(['middleware' => 'usuarioAdmin'], function () {
- 	Route::get('regadmin','ControllerUsuario@registraradmins');
+Route::group(['middleware' => 'usuarioAdmin'], function () {
+Route::get('regadmin','ControllerUsuario@registraradmins');
 Route::post('regadmin','ControllerUsuario@cambioprivilegio');
+Route::get('getadmin','ControllerUsuario@getadmins');
+Route::post('filtroadmin','ControllerUsuario@filtrogetadmins');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');

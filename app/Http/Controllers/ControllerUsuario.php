@@ -135,8 +135,19 @@ class ControllerUsuario extends Controller
 	}
 
   public function registraradmins(){
-    $Usuarios= DB::table('usuarios')->get();
+    $Usuarios= DB::table('usuarios')->where('usuarios.tipo_usuario', '=', '0')->get();
     return view('admin.registraradministradores')->with('usuarios',$Usuarios);
+   
+  }
+   public function getadmins(){
+    $Usuarios= Usuario::all();
+       return $Usuarios;
+   
+  }
+  public function filtrogetadmins(Request $r){
+    $nombre=$r->get('nombre');
+   $Usuarios= Usuario::all()->where("usuarios.e_mail","=",$nombre);
+    return $Usuarios;
    
   }
 
