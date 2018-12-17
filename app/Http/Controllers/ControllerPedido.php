@@ -90,4 +90,12 @@ class ControllerPedido extends Controller
 
         return redirect('/');
     }
+    function getPedidoUsuario(){
+        $pedidos=DB::table('personas')
+            ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+            ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->where('clientes.id_cliente','=', Session::get('id'))
+            ->get();
+        return view('verPedidosUser')->with('pedidos', $pedidos);
+    }
 }

@@ -45,7 +45,7 @@ Route::post('/registro.usuario','ControllerUsuario@register');
 Route::get('/cerrar','ControllerUsuario@cerrar');
 Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
 Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
-
+Route::get('misPedidos', 'ControllerPedido@getPedidoUsuario');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
@@ -87,6 +87,7 @@ Route::post('/destacado4','Controller@destacado4');
 });
 
 Route::group(['middleware' => 'usuarioStandard'], function () {
+
 
 });
 //-----------------------Alcala
