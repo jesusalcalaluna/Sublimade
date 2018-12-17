@@ -45,7 +45,7 @@ Route::post('/registro.usuario','ControllerUsuario@register');
 Route::get('/cerrar','ControllerUsuario@cerrar');
 Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
 Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
-
+Route::get('misPedidos', 'ControllerPedido@getPedidoUsuario');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
@@ -66,7 +66,10 @@ Route::post('regadmin','ControllerUsuario@cambioprivilegio');
 Route::get('getadmin','ControllerUsuario@getadmins');
 Route::post('filtroadmin','ControllerUsuario@filtrogetadmins');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/verpedidos','ControllerPedido@verpedidos');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::get('/ventas','ControllerPedido@getreporteventas');
+Route::post('/clientesfiltrados','ControllerPedido@getclientesfiltrados');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 Route::get('/admin', function () {
@@ -90,6 +93,7 @@ Route::post('/destacado4','Controller@destacado4');
 
 Route::group(['middleware' => 'usuarioStandard'], function () {
 
+
 });
 //-----------------------Alcala
 Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
@@ -100,8 +104,6 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 //-----------------------Favela
 
 
+Route::get('/test','ControllerPedido@pdf');
 
-Route::post('/actualizarini','Controller@actualizar');
 
-//generar key en dropbox
-//
