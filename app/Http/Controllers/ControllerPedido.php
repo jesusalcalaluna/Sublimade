@@ -37,11 +37,20 @@ class ControllerPedido extends Controller
 {
     function getpedidopendiente(){
 
+<<<<<<< HEAD
         $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
             ->join('personas','personas.id_persona','=','clientes.id_persona','inner')
             ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
             ->where('pedidos.estado','=','PENDIENTE')
             ->get();
+=======
+    	//$pedidos= Pedido::where('estado','=','PENDIENTE')->get();
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','PENDIENTE')
+        ->get();
+>>>>>>> 3f2d2577eccc8ca507a11c7181b6dfeabe3e6282
     	return view('admin.pedidos')->with('pedidos', $pedidos);
 
     }
@@ -96,6 +105,7 @@ function pdf(){
 }
 
     function getpedidoenproceso(){
+<<<<<<< HEAD
 //    	$pedidos= Pedido::where('estado','=','EN PROCESO')->get();
 
         $pedidos=DB::table('pedidos')->join('clientes','clientes.id_cliente','=','pedidos.id_cliente','inner')
@@ -111,6 +121,23 @@ function pdf(){
             ->select(DB::raw("pedidos.reg_pedido as 'reg_pedido',concat(personas.nombre,' ',personas.apellido) as 'id_cliente', pedidos.fecha_pedido as 'fecha_pedido', pedidos.fecha_entrega as 'fecha_entrega',pedidos.detalles as 'detalles', pedidos.estado as 'estado', pedidos.fecha_real_entrega as 'fecha_real_entrega'"))
             ->where('pedidos.estado','=','FINALIZADO')
             ->get();
+=======
+
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','EN PROCESO')
+        ->get();
+    	return view('admin.pedidos')->with('pedidos', $pedidos);
+    }
+    function getpedidofinalizado(){
+
+        $pedidos=DB::table('personas')
+        ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+        ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+        ->where('pedidos.estado','=','FINALIZADO')
+        ->get();
+>>>>>>> 3f2d2577eccc8ca507a11c7181b6dfeabe3e6282
     	return view('admin.pedidos')->with('pedidos', $pedidos);
     }
     function generarPedido(){
@@ -131,7 +158,7 @@ function pdf(){
         $pedido->fecha_pedido = substr(Carbon::today(),0,10);
         $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->detalles = 'Pedido realizado desde la web';
-        $pedido->estado = 'EN PROCESO';
+        $pedido->estado = 'PENDIENTE';
 
         $carrito= Carrito::find(Session::get('id'));
         foreach ($datos as $prod){
@@ -141,5 +168,13 @@ function pdf(){
 
 
         return redirect('/');
+    }
+    function getPedidoUsuario(){
+        $pedidos=DB::table('personas')
+            ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+            ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->where('clientes.id_cliente','=', Session::get('id'))
+            ->get();
+        return view('verPedidosUser')->with('pedidos', $pedidos);
     }
 }
