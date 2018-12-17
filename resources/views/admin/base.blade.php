@@ -118,7 +118,11 @@
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <ul class="collapsible collapsible-accordion">
+   <br>
+    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
+    <br>
+    @if(Session()->get('tipo')=='1')
+  <ul class="collapsible collapsible-accordion ">
     <br>
     <li>
       <div class="collapsible-header">PEDIDOS</div>
@@ -131,8 +135,6 @@
     </li>
     <br>
     <li class="divider" tabindex="-1"></li>
-    <br>
-    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
@@ -149,6 +151,7 @@
     <li class="divider" tabindex="-1"></li>
 
   </ul>
+   @endif
 </div>
   @show
 <!------------------------------------------------------------------------------------->

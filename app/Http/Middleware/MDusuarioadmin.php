@@ -20,14 +20,19 @@ class MDusuarioadmin
         
         $a=Session::get('tipo');
 
-         if( $a!='1')
+         if( $a=='1' || $a=='2')
         {
-       Alert::error('No tienes suficientes permisos ');
-      return redirect('/');
-        }  
+            return $next($request);
+         
+               }  
+     
         else { 
-         return $next($request);
+                Alert::error('No tienes suficientes permisos ');
+      return redirect('/');
+         
+       
         }  
+     
              
     }
 }
