@@ -61,15 +61,15 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 //-----------------------restringirrutas
 
 Route::group(['middleware' => 'usuarioAdmin'], function () {
-Route::get('regadmin','ControllerUsuario@registraradmins');
-Route::post('regadmin','ControllerUsuario@cambioprivilegio');
-Route::get('getadmin','ControllerUsuario@getadmins');
-Route::post('filtroadmin','ControllerUsuario@filtrogetadmins');
+Route::get('regadmin','ControllerUsuario@registraradmins')->middleware('usuarioStandard');
+Route::post('regadmin','ControllerUsuario@cambioprivilegio')->middleware('usuarioStandard');
+Route::get('getadmin','ControllerUsuario@getadmins')->middleware('usuarioStandard');
+Route::post('filtroadmin','ControllerUsuario@filtrogetadmins')->middleware('usuarioStandard');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
-Route::get('/verpedidos','ControllerPedido@verpedidos');
+Route::get('/verpedidos','ControllerPedido@verpedidos')->middleware('usuarioStandard');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
-Route::get('/ventas','ControllerPedido@getreporteventas');
-Route::post('/clientesfiltrados','ControllerPedido@getclientesfiltrados');
+Route::get('/ventas','ControllerPedido@getreporteventas')->middleware('usuarioStandard');
+Route::post('/clientesfiltrados','ControllerPedido@getclientesfiltrados')->middleware('usuarioStandard');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 Route::get('/admin', function () {

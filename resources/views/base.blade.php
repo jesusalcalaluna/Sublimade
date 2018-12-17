@@ -114,7 +114,7 @@
                             
 
                 <ul class="right hide-on-med-and-down">
-                  @if(Session::get('tipo')=='1')
+                  @if(Session::get('tipo')=='1' || Session::get('tipo')=='2' )
                   <li>      
                     <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/admin'}}">Administrador</a>
                   </li>
