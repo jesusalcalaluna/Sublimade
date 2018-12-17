@@ -45,7 +45,7 @@ Route::post('/registro.usuario','ControllerUsuario@register');
 Route::get('/cerrar','ControllerUsuario@cerrar');
 Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
 Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
-
+Route::get('misPedidos', 'ControllerPedido@getPedidoUsuario');
 
 //-----------------------Tienda
 Route::get('/catalogo','ControllerProducto@viewProducto');
@@ -60,11 +60,16 @@ Route::post('eliminarProducto','ControllerCarro@eliminarProducto');
 
 //-----------------------restringirrutas
 
- Route::group(['middleware' => 'usuarioAdmin'], function () {
- 	Route::get('regadmin','ControllerUsuario@registraradmins');
-Route::post('regadmin','ControllerUsuario@cambioprivilegio');
+Route::group(['middleware' => 'usuarioAdmin'], function () {
+Route::get('regadmin','ControllerUsuario@registraradmins')->middleware('usuarioStandard');
+Route::post('regadmin','ControllerUsuario@cambioprivilegio')->middleware('usuarioStandard');
+Route::get('getadmin','ControllerUsuario@getadmins')->middleware('usuarioStandard');
+Route::post('filtroadmin','ControllerUsuario@filtrogetadmins')->middleware('usuarioStandard');
 Route::get('/verdisenos','ControllerDiseno@getdisenos');
+Route::get('/verpedidos','ControllerPedido@verpedidos')->middleware('usuarioStandard');
 Route::get('/vernombres','ControllerDiseno@getnombresdisenos');
+Route::get('/ventas','ControllerPedido@getreporteventas')->middleware('usuarioStandard');
+Route::post('/clientesfiltrados','ControllerPedido@getclientesfiltrados')->middleware('usuarioStandard');
 Route::post('/disenosfiltrados','ControllerDiseno@getdisenosfiltrados');
 Route::post('/cargardiseno','ControllerDiseno@cargardiseno');
 Route::get('/admin', function () {
@@ -88,6 +93,7 @@ Route::post('/destacado4','Controller@destacado4');
 
 Route::group(['middleware' => 'usuarioStandard'], function () {
 
+
 });
 //-----------------------Alcala
 Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
@@ -98,8 +104,7 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 //-----------------------Favela
 
 
+Route::get('/test','ControllerPedido@pdf');
+Route::post('/grafica','ControllerPedido@getgrafica');
 
-Route::post('/actualizarini','Controller@actualizar');
 
-//generar key en dropbox
-//

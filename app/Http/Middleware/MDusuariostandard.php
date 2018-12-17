@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
+use Alert;
 
 class MDusuariostandard
 {
@@ -18,9 +20,11 @@ class MDusuariostandard
         
         $a=Session::get('tipo');
 
-         if( $a!='0')
+         if( $a!='1')
         {
-       return response()->view("msj_rechazado");
+           Alert::error('No tienes suficientes permisos ');
+      return redirect('/');
+         
         }  
         else { 
          return $next($request);

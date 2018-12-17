@@ -118,7 +118,11 @@
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <ul class="collapsible collapsible-accordion">
+   <br>
+    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
+    <br>
+    @if(Session()->get('tipo')=='1')
+  <ul class="collapsible collapsible-accordion ">
     <br>
     <li>
       <div class="collapsible-header">PEDIDOS</div>
@@ -132,11 +136,9 @@
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
-    <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="#">VENTAS</a></li>
+    <li><a href="/ventas">VENTAS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
@@ -149,6 +151,7 @@
     <li class="divider" tabindex="-1"></li>
 
   </ul>
+   @endif
 </div>
   @show
 <!------------------------------------------------------------------------------------->
@@ -168,8 +171,8 @@
   <script src="https://cdn.jsdelivr.net/combine/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js,npm/sweetalert2@7.32.2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/src/enhancers/withGlobalDefaults.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/dist/sweetalert2.all.min.js"></script>
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
+  <script src="{{url('/js/highcharts.js')}}"></script>
   @yield('js')
 <script>
     $.ajaxSetup({

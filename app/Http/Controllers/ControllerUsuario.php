@@ -66,6 +66,13 @@ class ControllerUsuario extends Controller
       return redirect('/');
     
       }  
+        if($users->tipo_usuario=='2')
+      {
+      Session::put('tipo' ,'2');
+      Alert::error('Binevenido '.$password->e_mail);
+      return redirect('/');
+    
+      }  
       }else{
        
         Alert::error('Usuario o contraseña incorrecta');
@@ -135,8 +142,19 @@ class ControllerUsuario extends Controller
 	}
 
   public function registraradmins(){
-    $Usuarios= DB::table('usuarios')->get();
+    $Usuarios= DB::table('usuarios')->where('usuarios.tipo_usuario', '=', '0')->get();
     return view('admin.registraradministradores')->with('usuarios',$Usuarios);
+   
+  }
+   public function getadmins(){
+    $Usuarios= Usuario::all();
+       return $Usuarios;
+   
+  }
+  public function filtrogetadmins(Request $r){
+    $nombre=$r->get('nombre');
+   $Usuarios= Usuario::all()->where("usuarios.e_mail","=",$nombre);
+    return $Usuarios;
    
   }
 
@@ -147,7 +165,7 @@ class ControllerUsuario extends Controller
      $A= $usua->id_persona;
 
      $P= Usuario::find($A);
-     $P->tipo_usuario='1';
+     $P->tipo_usuario='2';
      $P->save();
      Alert::error('Privilegio de Administrador Otorgado A '.$usua->e_mail);
      return back();

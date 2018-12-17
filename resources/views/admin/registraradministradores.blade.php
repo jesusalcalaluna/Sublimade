@@ -24,8 +24,8 @@
                 <tbody  id="disenos" style="color: black;" >
                 @foreach ($usuarios as $u)
                     <tr>
-                        <td id="">{{$u->e_mail}}</td>
-                        <td id="">{{$u->tipo_usuario}}</td>
+                        <td class="email" value="{{$u->e_mail}}">{{$u->e_mail}}</td>
+                        <td id="">Cliente</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -42,15 +42,17 @@
          <div class="">
           Otorgar privilegios de administrador:
           <div class="input-field inline">
-            <input name="nombre" id="email_inline" type="email" class="validate">
+            <input name="nombre" id="email_inline" type="email" class="validate" placeholder="" value="">
             <label for="email_inline">Email</label>
             <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
           </div>
-          <button class="black btn" type="submit" >Enviar</button>
+          <button class="black btn " type="submit" >Enviar</button>
         </div>
         </form>
         </div>
-
+<!--div class="col s4 offset-s1 input-field">
+        <input type="text" id="autocompletado" class="validate" name="diseno">
+        <br> <br!-->
 
 
 @endsection
@@ -59,38 +61,68 @@
 
 @endsection
 @section('js')
-<script type="text/javascript">
-$(document).ready(function(){
-            $("#email").click(function(){
-                // #ListaAlumnos.html("");
-                
-                var token=$("input[name=_token]").val();
-                $.ajax({
-                    url:"/regadmin",
-                    // en data se envían los datos
-                    //en este caso se envía un objeto con una propiedad nombre, cuyo valor es: jorge
-                    //data:{Alumno:{nombre:$("input[name=nombre]").val()},_token:token},
-                    data:{Alumno:{nombre:$("input[name=tipo]").val()},_token:token},
-                    
-                    type:"get",
-                    dataType:'json',
+    <script>
+ 
 
-                    success:function (response) {
-                       
-                        var li="";
-                        var lista=$("#listaAlumnos");
-                       
-                        lista.html("");
-                        $.each(response, function(i,r){
-                            li='<tr><td>'+r.nombre+'</td></tr>';
-                             lista.append(li);
-                        });
-
-                        console.log($nombre);
-                       
-                    }
-                })
+        $(document).ready(function(){
+         $(".email").click(function () {
+               $("input[name=nombre]").val($(this).html());
+               
             })
+          
+        });
+
+</script>
+<script>
+        $(document).ready(function(){
+           
+            var options = {
+                url: "getadmins",
+
+                getValue: "nombre",
+
+                placeholder:"Buscar un diseño",
+
+                list: {
+                    showAnimation: {
+                        type: "fade", //normal|slide|fade
+                        time: 400,
+                        callback: function() {}
+                    },
+                    hideAnimation: {
+                        type: "slide", //normal|slide|fade
+                        time: 400,
+                        callback: function() {}
+                    },
+                    onChooseEvent: function() {
+                        var token=$("input[name=_token]").val();
+
+                        $.ajax({
+                            url:"/filtroadmin",
+                            // en data se envían los datos
+                            data:{nombre:$("input[name=diseno]").val(),_token:token},
+                            type:"post",
+                            dataType:'json',
+                            success:function (response) {
+                                // alert("sss");
+                                var cont="";
+                                var nombres = $("#disenos");
+                                nombres.empty();
+                                $.each(response, function(i,r){
+                                cont+='<tr><td>'+r.e_mail+'</td><td>'        
+                              });
+                                nombres.append(cont);
+
+                            }
+                        })
+                    },
+
+                    match: {
+                        enabled: true
+                    }
+                }
+            };
+             $("#autocompletado").easyAutocomplete(options);
 </script>
 
 @endsection

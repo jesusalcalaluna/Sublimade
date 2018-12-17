@@ -98,8 +98,10 @@
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
     <li tabindex="0"><a href="{{url('carrito')}}" class="black-text center"><i class="material-icons right">shopping_cart</i>Carrito</a></li>
     <li class="divider" tabindex="-1"></li>
-    <li tabindex="0"><a href="{{url('modificarInfo')}}" class="black-text center"><i class="material-icons right">settings</i>Opciones</a></li>
+    <li tabindex="0"><a href="{{url('modificarInfo')}}" class="black-text center"><i class="material-icons right">settings</i>Mi perfil</a></li>
+    <li tabindex="0"><a href="{{url('misPedidos')}}" class="black-text center"><i class="material-icons right">shopping_basket</i>Mis pedidos</a></li>
         <li tabindex="0"><a href="{{url('cerrar')}}" class="black-text center"><i class="material-icons right">close</i>Cerrar sesión</a></li>
+
   </ul>
 
 
@@ -112,7 +114,7 @@
                             
 
                 <ul class="right hide-on-med-and-down">
-                  @if(Session::get('tipo')=='1')
+                  @if(Session::get('tipo')=='1' || Session::get('tipo')=='2' )
                   <li>      
                     <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/admin'}}">Administrador</a>
                   </li>
