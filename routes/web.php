@@ -103,8 +103,10 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 
 //-----------------------Favela
 
-
 Route::get('/test','ControllerPedido@pdf');
 Route::post('/grafica','ControllerPedido@getgrafica');
+
+//---------------------Android
+Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 
 

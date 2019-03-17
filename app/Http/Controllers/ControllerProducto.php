@@ -126,4 +126,12 @@ class ControllerProducto extends Controller
         return view('jorgeViews.detallesProducto')->with('producto',$producto); 
     }
 
+    //Android
+    function androidCatalogo(){
+        $productos = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')->join('tipos_producto','tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')->get();
+
+
+        return $productos;
+    }
+
 }
