@@ -24,7 +24,7 @@
                 <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider1.png')}}"></a>
             <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider2.png')}}"></a>
             <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider3.png')}}"></a>
-            <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider4.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider4.png')}}"></a>
         </div>
 
 <br>
