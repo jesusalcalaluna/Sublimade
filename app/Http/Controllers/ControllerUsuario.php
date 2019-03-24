@@ -203,57 +203,7 @@ class ControllerUsuario extends Controller
 
     public function registerandroid(Request $r){
 
-      $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("email"))
-     ->first();
-       $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
-        ->first();
-
-
-      if($usua==null){
-
-       $persona= new Persona;
-       //  $persona->id_persona= $request->input("id_usuario");
-        $persona->nombre= $r->input("nombre");
-        $persona->apellido=$r->input("apellido");
-        $persona->direccion=$r->input("direccion");
-        $persona->tel_casa=$r->input("telefono");
-        $persona->tel_celular=$r->input("celular");
-        $persona->cp=$r->input("cp");
-        $persona->f_nacimiento=$r->input("nacimiento");
-        $persona->sexo=$r->input("sexo");
-        $resul= $persona->save();
-
-        $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
-        ->select('personas.id_persona')
-        ->first();
-
-
-        //Session::put('id',$id->id_persona);
-
-        $Usuario= new Usuario;
-       //  $Usuario->id_persona= $request->input("id_usuario");
-        $Usuario->id_persona= $id->id_persona;
-        $Usuario->pass= $r->input("contrasena");
-       $Usuario->e_mail=$r->input("email");
-        $Usuario->tipo_usuario="0";
-        $resul= $Usuario->save();
-
-        $cliente= new Cliente;
-        $cliente->id_persona= $id->id_persona;
-        $cliente->save();
-        $carrito= new Carrito;
-        $carrito->id_carrito= $id->id_persona;
-        $carrito->sub_total='0';
-        $carrito->save();
-
-        //Alert::error('Usuario Registrado ');
-        //return redirect('/inicio.sesion');
-
-      }
-      else{
-        //Alert::error('Este Correo Ya Existe');
-        //return back();
-       }
+      dd($r);
    }
 
 }
