@@ -203,7 +203,17 @@ class ControllerUsuario extends Controller
 
     public function registerandroid(Request $r){
 
-      dd($r);
+        $persona= new Persona;
+        $persona->nombre= $r->input("nombre");
+        $persona->apellido=$r->input("apellido");
+        $persona->direccion=$r->input("direccion");
+        $persona->tel_casa=$r->input("telefono");
+        $persona->tel_celular=$r->input("celular");
+        $persona->cp = $r->input("cp");
+        $persona->f_nacimiento=$r->input("nacimiento");
+        $persona->sexo=$r->input("sexo");
+        $resul= $persona->save();
+
    }
 
 }
