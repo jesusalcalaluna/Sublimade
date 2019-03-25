@@ -42,6 +42,9 @@ Route::get('/registro.usuario', function () {
 });
 Route::post('/registro.usuario','ControllerUsuario@register');
 
+Route::post('/registro.usuario.android','ControllerUsuario@registerandroid');
+
+
 Route::get('/cerrar','ControllerUsuario@cerrar');
 Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
 Route::post('actualizarinfo','ControllerUsuario@actualizarInfo');
