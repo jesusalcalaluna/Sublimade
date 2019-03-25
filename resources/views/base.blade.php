@@ -30,7 +30,7 @@
   @yield('css')
   <style type="text/css">
       body{
-          background-image: {{url('images/background.jpg')}};
+          background-image: {{url('public/images/background.jpg')}};
           background-size: 500px;
           background-attachment: scroll;
           background-repeat: repeat;
