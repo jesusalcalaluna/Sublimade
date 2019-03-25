@@ -231,7 +231,7 @@ public function registerandroid(Request $r){
          $persona->sexo=$r->input("sexo");
          $resul= $persona->save();
 
-         $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
+      /*   $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->select('personas.id_persona')
          ->first();
 
@@ -252,7 +252,7 @@ public function registerandroid(Request $r){
          $carrito= new Carrito;
          $carrito->id_carrito= $id->id_persona;
          $carrito->sub_total='0';
-         $carrito->save();
+         $carrito->save();*/
 
     }
 }
