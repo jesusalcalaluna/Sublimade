@@ -19,7 +19,7 @@ class Controller extends BaseController
         $archivo=Image::make($archivo)->resize(1000,400);
 
         $ruta=public_path().'\storage\Inicio';
-        $archivo->save('storage\Inicio\slider1.png');
+        $archivo->save($ruta,'slider1.png');
     }
     function slider2(Request $request){
         $archivo=$request->file('archivo');
