@@ -213,6 +213,7 @@ class ControllerUsuario extends Controller
         $persona->f_nacimiento=$r->input("nacimiento");
         $persona->sexo=$r->input("sexo");
         $resul= $persona->save();
+        return $resul;
 
    }
 
