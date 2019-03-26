@@ -216,5 +216,11 @@ class ControllerUsuario extends Controller
        return($resul);
 
    }
+ public function registerandroidv(Request $r){
+
+       $disenos=Persona::all();
+       return($disenos);
+
+   }
 
 }
