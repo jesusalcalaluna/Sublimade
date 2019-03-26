@@ -30,7 +30,7 @@
   @yield('css')
   <style type="text/css">
       body{
-          background-image: url('storage/Inicio/background.jpg');
+          background-image: {{url('public/images/background.jpg')}};
           background-size: 500px;
           background-attachment: scroll;
           background-repeat: repeat;
@@ -88,11 +88,6 @@
   <title>Sublimade Fashion</title>
 </head>
 <body>
-
-
-
-
-
 
 <!------------------------------------ DROPDOWN USUARIO ----------------------------------------->
 <ul id="dropdown1" class="dropdown-content drop-usuario" tabindex="0" data-activates="dropdown" data-beloworigin="true">
