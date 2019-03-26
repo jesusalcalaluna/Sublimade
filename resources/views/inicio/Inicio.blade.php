@@ -21,16 +21,17 @@
     @section('slider')
 
             <div class="carousel carousel-slider">
-                <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider1.png')}}"></a>
-            <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider2.png')}}"></a>
-            <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider3.png')}}"></a>
-            <a class="carousel-item"><img src="{{url('storage/app/public/Inicio/slider4.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider1.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider2.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider3.png')}}"></a>
+            <a class="carousel-item"><img src="{{url('storage/Inicio/slider4.png')}}"></a>
         </div>
 
 <br>
 <div class="divider"></div>
 <div class="center">
     <strong><h2 style="font-size: 60px; font-family: 'Calisto MT';">Destacados</h2></strong>
+</div>
 <div class="divider"></div>
 <br>
     @endsection

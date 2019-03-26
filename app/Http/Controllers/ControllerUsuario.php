@@ -35,7 +35,7 @@ use Alert;
 
 class ControllerUsuario extends Controller
 {
-    
+
     public function iniciarsession(Request $r){
     $users = DB::table('usuarios')->where('usuarios.e_mail','=',$r->usuario)
     ->select('usuarios.tipo_usuario')
@@ -58,39 +58,39 @@ class ControllerUsuario extends Controller
        Alert::error('Binevenido '.$password->e_mail);
       //dd( Session::get('admin') );
        return redirect('/');
-      }  
+      }
       if($users->tipo_usuario=='0')
       {
       Session::put('tipo' ,'0');
       Alert::error('Binevenido '.$password->e_mail);
       return redirect('/');
-    
-      }  
+
+      }
         if($users->tipo_usuario=='2')
       {
       Session::put('tipo' ,'2');
       Alert::error('Binevenido '.$password->e_mail);
       return redirect('/');
-    
-      }  
+
+      }
       }else{
-       
+
         Alert::error('Usuario o contraseña incorrecta');
        return back();
-      } 
+      }
 
     }
-   
+
      public function register(Request $r){
-      
+
        $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("email"))
       ->first();
         $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->first();
 
-       
+
        if($usua==null){
-       
+
         $persona= new Persona;
         //  $persona->id_persona= $request->input("id_usuario");
          $persona->nombre= $r->input("nombre");
@@ -102,7 +102,7 @@ class ControllerUsuario extends Controller
          $persona->f_nacimiento=$r->input("nacimiento");
          $persona->sexo=$r->input("sexo");
          $resul= $persona->save();
-  
+
          $id = DB::table('personas')->where('personas.tel_celular','=',$r->input("celular"))
          ->select('personas.id_persona')
          ->first();
@@ -117,7 +117,7 @@ class ControllerUsuario extends Controller
         $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          $resul= $Usuario->save();
-         
+
          $cliente= new Cliente;
          $cliente->id_persona= $id->id_persona;
          $cliente->save();
@@ -135,7 +135,7 @@ class ControllerUsuario extends Controller
          return back();
         }
     }
-        
+
     public function cerrar(){
         Session::flush();
         return redirect('/');
@@ -144,22 +144,22 @@ class ControllerUsuario extends Controller
   public function registraradmins(){
     $Usuarios= DB::table('usuarios')->where('usuarios.tipo_usuario', '=', '0')->get();
     return view('admin.registraradministradores')->with('usuarios',$Usuarios);
-   
+
   }
    public function getadmins(){
     $Usuarios= Usuario::all();
        return $Usuarios;
-   
+
   }
   public function filtrogetadmins(Request $r){
     $nombre=$r->get('nombre');
    $Usuarios= Usuario::all()->where("usuarios.e_mail","=",$nombre);
     return $Usuarios;
-   
+
   }
 
   public function cambioprivilegio(Request $r){
-      
+
   $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->input("nombre"))
       ->first();
      $A= $usua->id_persona;
@@ -201,9 +201,26 @@ class ControllerUsuario extends Controller
 
     }
 
+    public function registerandroid(Request $r){
+
+        $persona= new Persona;
+        $persona->nombre= $r->input("nombre");
+        $persona->apellido=$r->input("apellido");
+        $persona->direccion=$r->input("direccion");
+        $persona->tel_casa=$r->input("telefono");
+        $persona->tel_celular=$r->input("celular");
+        $persona->cp = $r->input("cp");
+        $persona->f_nacimiento=$r->input("nacimiento");
+        $persona->sexo=$r->input("sexo");
+        $resul= $persona->save();
+       return($resul);
+
+   }
+ public function registerandroidv(Request $r){
+
+       $disenos=Persona::all();
+       return($disenos);
+
+   }
+
 }
-
-
-
-     
-
