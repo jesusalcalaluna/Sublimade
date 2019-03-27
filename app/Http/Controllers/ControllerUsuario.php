@@ -215,7 +215,7 @@ class ControllerUsuario extends Controller
         $persona->save();
         return $persona;
 
-          $id = DB::table('personas')->where('personas.tel_celular','=',$r->get("celular"))
+          $id = DB::table('personas')->where('personas.tel_celular','=',$r->get('celular'))
          ->select('personas.id_persona')
          ->first();
 
@@ -225,9 +225,9 @@ class ControllerUsuario extends Controller
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->get("contrasena");
-        $Usuario->e_mail=$r->get("email");
-         $Usuario->tipo_usuario="0";
+         $Usuario->pass= $r->get('contrasena');
+        $Usuario->e_mail=$r->get('email');
+         $Usuario->tipo_usuario='0';
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
