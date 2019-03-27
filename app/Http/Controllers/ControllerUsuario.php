@@ -212,8 +212,8 @@ class ControllerUsuario extends Controller
         $persona->cp = $r->get('cp');
         $persona->f_nacimiento=$r->get('nacimiento');
         $persona->sexo=$r->get('sexo');
-        $resul= $persona->save();
-       return($resul);
+        $persona->save();
+        return $persona;
 
    }
  public function registerandroidv(Request $r){
