@@ -213,7 +213,7 @@ class ControllerUsuario extends Controller
         $persona->f_nacimiento=$r->get('nacimiento');
         $persona->sexo=$r->get('sexo');
         $persona->save();
-        return $persona;
+        return $usuario;
 
           $id = DB::table('personas')->where('personas.tel_celular','=',$r->get('celular'))
          ->select('personas.id_persona')
