@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-       'http://www.sublimade.mipantano.com/registro.usuario.android',
+      
     ];
 }
