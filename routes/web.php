@@ -42,8 +42,6 @@ Route::get('/registro.usuario', function () {
 });
 Route::post('/registro.usuario','ControllerUsuario@register');
 
-Route::post('/registro.usuario.android','ControllerUsuario@registerandroid');
-Route::get('/registro.usuario.androidv','ControllerUsuario@registerandroidv');
 
 Route::get('/cerrar','ControllerUsuario@cerrar');
 Route::get('modificarInfo','ControllerUsuario@modificarInfoView');
@@ -113,3 +111,6 @@ Route::post('/grafica','ControllerPedido@getgrafica');
 Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::post('/android/registro.usuario','ControllerUsuario@register');
 Route::get('/android/detalles', 'Controller@androidDetalles');
+Route::post('/registro.usuario.android','ControllerUsuario@registerandroid');
+Route::get('/registro.usuario.androidv','ControllerUsuario@registerandroidv');
+
