@@ -245,7 +245,7 @@ class ControllerUsuario extends Controller
    }
  public function registerandroidv(Request $r){
 
-       $a = Session::get('id');
+       $a = Session::all();
        return $a;
 
    }
