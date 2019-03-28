@@ -137,7 +137,7 @@ class ControllerProducto extends Controller
         return $productos;
     }
     function androidDetalles(Request $r){
-        $id = $r->input('id');
+        $id = $r->input(1);
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->where("productos.id_producto", '=', $id)
