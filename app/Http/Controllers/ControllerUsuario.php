@@ -215,12 +215,14 @@ class ControllerUsuario extends Controller
         $persona->save();
         return $usuario;
 
-        
+          $id = DB::table('personas')->where('personas.tel_celular','=',$r->get->celular->select('personas.id_persona')->first();
+
+
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
-         $Usuario->id_persona= $r->get('id');
+         $Usuario->id_persona= $id->id_persona;
          $Usuario->pass= $r->get('contrasena');
         $Usuario->e_mail=$r->get('email');
          $Usuario->tipo_usuario='0';
