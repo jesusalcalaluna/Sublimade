@@ -220,8 +220,7 @@ class ControllerUsuario extends Controller
          ->first();
 
          Session::put('id', $id);
-         $a = Session::get('id');
-
+        
 
          //Session::put('id',$id->id_persona);
 
@@ -240,13 +239,13 @@ class ControllerUsuario extends Controller
          $carrito->id_carrito= $id->id_persona;
          $carrito->sub_total='0';
          $carrito->save();
-Session::forget('id');
+
 
    }
  public function registerandroidv(Request $r){
 
-       $disenos=Usuario::all();
-       return($disenos);
+       $a = Session::get('id');
+       return $a;
 
    }
 
