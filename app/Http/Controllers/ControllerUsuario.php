@@ -203,19 +203,37 @@ class ControllerUsuario extends Controller
 
     public function registerandroid(Request $r){
 
-   
-         //Session::put('id',$id->id_persona);
+        $persona= new Persona;
+        $persona->nombre= $r->get('nombre');
+        $persona->apellido=$r->get('apellido');
+        $persona->direccion=$r->get('direccion');
+        $persona->tel_casa=$r->get('telefono');
+        $persona->tel_celular=$r->get('celular');
+        $persona->cp = $r->get('cp');
+        $persona->f_nacimiento=$r->get('nacimiento');
+        $persona->sexo=$r->get('sexo');
+        $persona->save();
+        return $usuario;
 
+         Session::put('id',$id->id_persona);
+
+        $id = Session::get('id');
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
-         $Usuario->id_persona= $r->get('id');
+         $Usuario->id_persona= $id;
          $Usuario->pass= $r->get('contrasena');
         $Usuario->e_mail=$r->get('email');
          $Usuario->tipo_usuario='0';
-        $Usuario->save();
+         $resul= $Usuario->save();
 
-        
-
+         $cliente= new Cliente;
+         $cliente->id_persona= $id->id_persona;
+         $cliente->save();
+         $carrito= new Carrito;
+         $carrito->id_carrito= $id->id_persona;
+         $carrito->sub_total='0';
+         $carrito->save();
+Session::forget('id');
 
    }
  public function registerandroidv(Request $r){
