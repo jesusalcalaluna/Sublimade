@@ -219,7 +219,7 @@ class ControllerUsuario extends Controller
          ->select('personas.id_persona')
          ->first();
 
-         Session::put('id', $id);
+         Session::put('id', $r->get('nombre'));
         
 
          //Session::put('id',$id->id_persona);
