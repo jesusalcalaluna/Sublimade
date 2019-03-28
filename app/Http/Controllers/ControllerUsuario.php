@@ -212,6 +212,8 @@ class ControllerUsuario extends Controller
         $persona->cp = $r->get('cp');
         $persona->f_nacimiento=$r->get('nacimiento');
         $persona->sexo=$r->get('sexo');
+
+         Session::put('id', $r->get('nombre'));
         $persona->save();
         return $usuario;
 
@@ -219,7 +221,6 @@ class ControllerUsuario extends Controller
          ->select('personas.id_persona')
          ->first();
 
-         Session::put('id', $r->get('nombre'));
         
 
          //Session::put('id',$id->id_persona);
