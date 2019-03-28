@@ -13,7 +13,7 @@ class Persona extends Model
             public function Usuario()
     {
     	
-    	 	return $this->hasOne(Usuario::class ,'id_carrito','id_persona');
+    	 	return $this->hasOne(Usuario::class ,'id_persona','id_persona');
 	    
     }
 }
