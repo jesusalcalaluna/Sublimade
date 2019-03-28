@@ -218,24 +218,6 @@ class ControllerUsuario extends Controller
           $id = DB::table('personas')->where('personas.tel_celular','=',$r->get->celular->select('personas.id_persona')->first();
 
 
-         //Session::put('id',$id->id_persona);
-
-         $Usuario= new Usuario;
-        //  $Usuario->id_persona= $request->input("id_usuario");
-         $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->get('contrasena');
-        $Usuario->e_mail=$r->get('email');
-         $Usuario->tipo_usuario='0';
-         $Usuario->save();
-
-         $cliente= new Cliente;
-         $cliente->id_persona= $id->id_persona;
-         $cliente->save();
-         $carrito= new Carrito;
-         $carrito->id_carrito= $id->id_persona;
-         $carrito->sub_total='0';
-         $carrito->save();
-
 
    }
  public function registerandroidv(Request $r){
