@@ -19,7 +19,7 @@ class Usuario extends Model
          public function Persona()
     {
     	
-    	 	return $this->belongsTo(Persona::class ,'id_carrito','id_persona');
+    	 	return $this->belongsTo(Persona::class ,'id_persona','id_persona');
 	    
     }
 }
