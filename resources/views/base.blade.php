@@ -105,7 +105,7 @@
     <div class="navbar-fixed">
         <nav class="grey darken-4">
             <div class="nav-wrapper">
-                <a href="{{url('/')}}" style="font-size: 30px; font-family:'cursive'; font-style: italic; margin-left: 30px">Sublimade</a>
+                <a href="{{url('/')}}" style="font-size: 30px; font-family:cursive; font-style: italic; margin-left: 30px">Sublimade</a>
                             
 
                 <ul class="right hide-on-med-and-down">
