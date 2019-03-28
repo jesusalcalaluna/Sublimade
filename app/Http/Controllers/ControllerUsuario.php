@@ -228,7 +228,7 @@ class ControllerUsuario extends Controller
          $Usuario->pass= $r->get('contrasena');
         $Usuario->e_mail=$r->get('email');
          $Usuario->tipo_usuario='0';
-         $resul= $Usuario->save();
+         $Usuario->save();
 
          $cliente= new Cliente;
          $cliente->id_persona= $id->id_persona;
