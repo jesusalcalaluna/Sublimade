@@ -240,7 +240,7 @@ class ControllerUsuario extends Controller
          $carrito->sub_total='0';
          $carrito->save();
 
-     return $usuario;
+     return $Usuario;
 }
  public function registerandroidv(Request $r){
 
