@@ -117,7 +117,7 @@ class ControllerUsuario extends Controller
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          $Usuario->pass=$r->input("contrasena");
-         //$usuario->token="SDKJFS";
+         $usuario->token= Str::random(60);
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
