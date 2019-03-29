@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    protected $table = 'usuarios';
-     protected $primaryKey='id_persona';
-         public $timestamps=false;
+  //  protected $table = 'usuarios';
+    // protected $primaryKey='id_persona';
+      //   public $timestamps=false;
 
           public function Carrito()
     {
