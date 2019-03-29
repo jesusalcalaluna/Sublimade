@@ -113,9 +113,10 @@ class ControllerUsuario extends Controller
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-       
+
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
+
          $Usuario->pass=Hash::make($r->input("contrasena"));
         // $usuario->token="SDKJFS";
          $resul= $Usuario->save();
@@ -216,13 +217,13 @@ class ControllerUsuario extends Controller
         $persona->f_nacimiento=$r->get('nacimiento');
         $persona->sexo=$r->get('sexo');
         $persona->save();
-      
+
 
           $id = DB::table('personas')->where('personas.tel_celular','=',$r->get('celular'))
          ->select('personas.id_persona')
          ->first();
 
-        
+
 
          //Session::put('id',$id->id_persona);
 
@@ -243,12 +244,12 @@ class ControllerUsuario extends Controller
          $carrito->save();
 
      return $persona;
-   }
-  
+}
  public function registerandroidv(Request $r){
 
 
    }
 
-}
 
+
+}
