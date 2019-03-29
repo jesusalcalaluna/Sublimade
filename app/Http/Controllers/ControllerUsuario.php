@@ -29,6 +29,7 @@ use DB;
 use Session;
 Use Redirect;
 use Alert;
+use str;
 
 
 //------------------
