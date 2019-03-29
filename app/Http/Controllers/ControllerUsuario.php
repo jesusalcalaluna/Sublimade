@@ -111,13 +111,11 @@ class ControllerUsuario extends Controller
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
-        //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          $Usuario->pass=Hash::make($r->input("contrasena"));
-         $usuario->token= Str::random(60);
+         $usuario->api_token= Str::random(60);
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
@@ -227,7 +225,6 @@ class ControllerUsuario extends Controller
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
-        //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
          $Usuario->pass= $r->get('contrasena');
         $Usuario->e_mail=$r->get('email');
