@@ -108,7 +108,6 @@ class ControllerUsuario extends Controller
          ->select('personas.id_persona')
          ->first();
 
-$a=str_random(60);
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
@@ -118,7 +117,7 @@ $a=str_random(60);
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
          $Usuario->pass=Hash::make($r->input("contrasena"));
-         $usuario->token=$a;
+         $usuario->token=str_random(60);
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
