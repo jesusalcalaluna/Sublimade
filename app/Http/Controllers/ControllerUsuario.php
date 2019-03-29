@@ -241,19 +241,10 @@ class ControllerUsuario extends Controller
 
      return $persona;
    }
- public function validaciondeusuario(Request $r){
-   $usua = DB::table('usuarios')->where('usuarios.e_mail','=',$r->get("email"))
-      ->first();
-       
+ public function registerandroidv(Request $r){
 
-       if($usua==null){
-        return 2;
-
-
-       }else{
-
-        return 1;
-       }
+       $a = Session::all();
+       return $a;
 
    }
 
