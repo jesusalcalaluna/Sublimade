@@ -111,7 +111,7 @@ Route::post('/grafica','ControllerPedido@getgrafica');
 
 Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::post('/android/registro.usuario','ControllerUsuario@register');
-Route::get('/android/detalles', 'ControllerProducto@androidDetalles');
+Route::post('/android/detalles', 'ControllerProducto@androidDetalles');
 Route::post('/registro.usuario.android','ControllerUsuario@registerandroid');
 Route::post('/registro.usuario.androidv','ControllerUsuario@validaciondeusuario');
 
