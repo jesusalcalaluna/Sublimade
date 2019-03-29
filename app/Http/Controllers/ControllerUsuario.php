@@ -29,7 +29,7 @@ use DB;
 use Session;
 Use Redirect;
 use Alert;
-use str;
+use Illuminate\Support\Str;
 
 
 //------------------
