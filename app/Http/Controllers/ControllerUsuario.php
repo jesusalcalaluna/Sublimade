@@ -116,7 +116,7 @@ class ControllerUsuario extends Controller
        
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
-         $Usuario->pass=>Hash::make($r->input["contrasena"]);
+         $Usuario->pass=>Hash::make($r->input("contrasena"));
          $usuario->token=>Str::random(60);
          $resul= $Usuario->save();
 
