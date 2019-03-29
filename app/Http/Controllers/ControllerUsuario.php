@@ -113,9 +113,11 @@ class ControllerUsuario extends Controller
          $Usuario= new Usuario;
         //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->input("contrasena");
-        $Usuario->e_mail=$r->input("email");
+       
+         $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
+         $Usuario->pass=>Hash::make($r->input["contrasena"]);
+         $usuario->token=>Str::random(60);
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
@@ -125,6 +127,7 @@ class ControllerUsuario extends Controller
          $carrito->id_carrito= $id->id_persona;
          $carrito->sub_total='0';
          $carrito->save();
+
 
          Alert::error('Usuario Registrado ');
          return redirect('/inicio.sesion');
@@ -243,8 +246,6 @@ class ControllerUsuario extends Controller
    }
  public function registerandroidv(Request $r){
 
-       $a = Session::all();
-       return $a;
 
    }
 
