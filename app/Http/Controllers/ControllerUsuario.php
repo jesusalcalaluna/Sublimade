@@ -226,8 +226,9 @@ class ControllerUsuario extends Controller
 
          $Usuario= new Usuario;
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->get('contrasena');
-        $Usuario->e_mail=$r->get('email');
+         $Usuario->pass=Hash::make($r->input("contrasena"));
+         $Usuario->api_token= Str::random(60);
+         $Usuario->e_mail=$r->get('email');
          $Usuario->tipo_usuario='0';
          $resul= $Usuario->save();
 
