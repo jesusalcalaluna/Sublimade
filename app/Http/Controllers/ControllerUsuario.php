@@ -116,8 +116,8 @@ class ControllerUsuario extends Controller
        
          $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
-         $Usuario->pass=$r->input("contrasena");
-         $usuario->token="SDKJFS";
+         $Usuario->pass=Hash::make($r->input("contrasena"));
+        // $usuario->token="SDKJFS";
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
@@ -244,7 +244,11 @@ class ControllerUsuario extends Controller
 
      return $persona;
    }
- 
+  
+ public function registerandroidv(Request $r){
+
+
+   }
 
 }
 
