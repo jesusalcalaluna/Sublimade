@@ -11,6 +11,7 @@
 
   <!----------------------------------------LINKS ICONS - FONTS----------------------------------------->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
@@ -105,7 +106,7 @@
     <div class="navbar-fixed">
         <nav class="grey darken-4">
             <div class="nav-wrapper">
-                <a href="{{url('/')}}" style="font-size: 30px; font-family:cursive; font-style: italic; margin-left: 30px">Sublimade</a>
+                <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Dancing Script', cursive; margin-left: 30px">Sublimade</a>
                             
 
                 <ul class="right hide-on-med-and-down">
