@@ -108,7 +108,7 @@ class ControllerUsuario extends Controller
          ->select('personas.id_persona')
          ->first();
 
-$a=>str::random(60);
+$a=str::random(60);
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
