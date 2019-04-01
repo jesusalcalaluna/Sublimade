@@ -202,10 +202,7 @@ class ControllerUsuario extends Controller
 
     }
 
-    public function __construct()
-    {
-        registerandroid();
-    }
+  
 
     public function registerandroid(Request $r){
 

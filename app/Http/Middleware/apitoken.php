@@ -18,12 +18,6 @@ class apitoken
        
 
 
-
-
-
-
-
-
         return $next($request);
     }
 }

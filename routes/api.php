@@ -17,10 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/registro.usuario.android', function (Request $request) {
-    
-	$lg= new ControllerUsuario();
+Route::post('/registro.usuario.android','ControllerUsuario@registerandroid');
 
-
-    return 'hola';
-});
