@@ -202,6 +202,11 @@ class ControllerUsuario extends Controller
 
     }
 
+    public function __construct()
+    {
+        registerandroid();
+    }
+
     public function registerandroid(Request $r){
 
         $persona= new Persona;
@@ -242,10 +247,31 @@ class ControllerUsuario extends Controller
 
      return $Usuario;
 }
+ 
  public function registerandroidv(Request $r){
 
 
    }
+    public function iniciarsessionandroid(Request $r){
+    $users = DB::table('usuarios')->where('usuarios.e_mail','=',$r->get('usuario'))
+    ->select('usuarios.tipo_usuario')
+    ->first();
+    $password = DB::table('usuarios')->where('usuarios.pass','=',$r->('contrasena'))->where('usuarios.e_mail','=',$r->('usuario'))
+    ->first();
+
+
+
+  if($password!=null)
+    {
+      return 1;
+     
+    }else{
+
+       return 2;
+    }
+
+    }
+
 
 
 
