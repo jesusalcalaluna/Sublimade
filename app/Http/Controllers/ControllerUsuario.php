@@ -249,6 +249,9 @@ class ControllerUsuario extends Controller
 
 
    }
+
+
+   
     public function iniciarsessionandroid(Request $r){
     $users = DB::table('usuarios')->where('usuarios.e_mail','=',$r->get('usuario'))
     ->select('usuarios.tipo_usuario')
