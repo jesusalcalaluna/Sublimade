@@ -202,7 +202,7 @@ class ControllerUsuario extends Controller
 
     }
 
-  
+
 
     public function registerandroid(Request $r){
 
@@ -258,7 +258,7 @@ class ControllerUsuario extends Controller
 
 
 
-  if($password!=null)
+    if($password!=null)
     {
       return 1;
      
@@ -267,7 +267,8 @@ class ControllerUsuario extends Controller
        return 2;
     }
 
-    }
+   
+}
 
 
 
