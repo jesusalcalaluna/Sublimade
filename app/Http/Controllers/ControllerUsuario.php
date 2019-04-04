@@ -218,7 +218,7 @@ class ControllerUsuario extends Controller
         $persona->save();
 
 return $persona;
- 
+ }
  public function registerandroidv(Request $r){
 
 
