@@ -204,7 +204,7 @@ class ControllerUsuario extends Controller
 
 
 
-    public function registerandroid(Request $r){
+    public function android(Request $r){
 
         $persona= new Persona;
         $persona->nombre= $r->get('nombre');
@@ -217,8 +217,34 @@ class ControllerUsuario extends Controller
         $persona->sexo=$r->get('sexo');
         $persona->save();
 
-return $persona;
- }
+
+          $id = DB::table('personas')->where('personas.tel_celular','=',$r->get('celular'))
+         ->select('personas.id_persona')
+         ->first();
+
+
+
+         //Session::put('id',$id->id_persona);
+
+         $Usuario= new Usuario;
+         $Usuario->id_persona= $id->id_persona;
+         $Usuario->pass=Hash::make($r->input("contrasena"));
+         $Usuario->api_token= Str::random(60);
+         $Usuario->e_mail=$r->get('email');
+         $Usuario->tipo_usuario='0';
+         $resul= $Usuario->save();
+
+         $cliente= new Cliente;
+         $cliente->id_persona= $id->id_persona;
+         $cliente->save();
+         $carrito= new Carrito;
+         $carrito->id_carrito= $id->id_persona;
+         $carrito->sub_total='0';
+         $carrito->save();
+
+     return $Usuario;
+}
+ 
  public function registerandroidv(Request $r){
 
 
