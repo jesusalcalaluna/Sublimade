@@ -246,7 +246,7 @@ class ControllerUsuario extends Controller
      return $Usuario;
 }
 
-    public function iniciarsessionandroid(Request $r){
+    public function iniciarsessionandroid(){
    
      $email = $r->get("usuario");
      $pass = $r->get("contrasena");
