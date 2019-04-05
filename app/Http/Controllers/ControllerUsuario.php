@@ -251,8 +251,8 @@ class ControllerUsuario extends Controller
      $email = $r->get("usuario");
      $pass = $r->get("contrasena");
           $users = DB::table('usuarios')
-          ->where('usuarios.e_mail','=',$email)
-          ->where('usuarios.pass', '=', $pass)  
+          ->where('usuarios.e_mail','=',"LOCOOOOOOOS")
+          ->where('usuarios.pass', '=', "$2y$10$2qxhdQL9nst4fvt.4gIbDOtKqhUpJSovdg6JGV")  
           ->first()->get();
 
         
