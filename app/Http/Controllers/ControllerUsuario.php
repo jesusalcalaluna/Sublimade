@@ -244,23 +244,14 @@ class ControllerUsuario extends Controller
 
      return $Usuario;
 }
- 
- public function registerandroidv(Request $r){
 
-
-   }
-
-
-   
     public function iniciarsessionandroid(Request $r){
     $users = DB::table('usuarios')->where('usuarios.e_mail','=',$r->get('usuario'))
     ->select('usuarios.tipo_usuario')
     ->first();
-    $password = DB::table('usuarios')->where('usuarios.pass','=',$r->('contrasena'))->where('usuarios.e_mail','=',$r->('usuario'))
+    $password = DB::table('usuarios')->where('usuarios.pass','=',$r->get('contrasena'))->where('usuarios.e_mail','=',$r->get('usuario'))
     ->first();
-
-
-
+    
     if($password!=null)
     {
       return 1;

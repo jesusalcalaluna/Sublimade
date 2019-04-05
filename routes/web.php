@@ -107,7 +107,7 @@ Route::get('/tipo_producto','ControllerTipo_Producto@GetTipos_producto');
 Route::get('/test','ControllerPedido@pdf');
 Route::post('/grafica','ControllerPedido@getgrafica');
 
-//---------------------Androi
+//---------------------Android
 Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::post('/android/detalles', 'ControllerProducto@androidDetalles');
 Route::post('/registro.android','ControllerUsuario@android');
