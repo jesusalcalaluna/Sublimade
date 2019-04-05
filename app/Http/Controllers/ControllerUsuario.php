@@ -253,7 +253,7 @@ class ControllerUsuario extends Controller
           $users = DB::table('usuarios')
           ->where('usuarios.e_mail','=',$email)
           ->where('usuarios.pass', '=', $pass) 
-          ->get()->toJson();
+          ->get();
 
         
 
