@@ -44,7 +44,7 @@ class ControllerUsuario extends Controller
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
 
-dd($password->id_persona);
+//dd($password->id_persona);
 
   if($password!=null)
     {
