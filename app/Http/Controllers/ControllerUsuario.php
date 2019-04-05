@@ -242,7 +242,7 @@ class ControllerUsuario extends Controller
          $carrito->sub_total='0';
          $carrito->save();
 
-     return $resul;
+     return $Usuario;
 }
 
     public function iniciarsessionandroid(Request $r){
