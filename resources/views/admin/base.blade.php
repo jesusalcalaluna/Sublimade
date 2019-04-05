@@ -15,6 +15,15 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
+
+    <!---------------------------------------------LINK ICONO LOCAL----------------------------------------->
+
+    <link rel="icon"
+          type="image/png"
+          href="{{url('/icono/Logo_Sublimade.ico')}}">
+
+
+
   <!---------------------------------------------LINKS CSS LOCAL----------------------------------------->
   <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href={{url('/css/dropzone/dropzone.css')}}>
@@ -85,7 +94,7 @@
 
   <nav class="blue-grey ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family:'Dancing Script'">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 50px; font-family:'Dancing Script'">Sublimade</a>
       <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/'}}">Cliente</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
