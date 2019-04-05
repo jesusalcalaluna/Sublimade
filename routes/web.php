@@ -112,3 +112,4 @@ Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::post('/android/detalles', 'ControllerProducto@androidDetalles');
 Route::get('/registro.usuario.androidv','ControllerUsuario@validaciondeusuario');
 
+Route::post('/registro.android','ControllerUsuario@android');
