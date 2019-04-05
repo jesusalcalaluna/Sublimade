@@ -39,7 +39,7 @@ class ControllerCarro extends Controller
         $costo_unitario = DB::table('productos')->select('productos.costo_unitario')->where('productos.id_producto','=',$id)->get();
         $total = $cantidad*$costo_unitario[0]->costo_unitario;
 
-        
+
 
         $carrito_pivot = Carrito::find(Session::get('id'));
         $carrito_pivot->sub_total = 0;

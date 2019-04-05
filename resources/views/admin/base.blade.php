@@ -11,6 +11,7 @@
 
   <!----------------------------------------LINKS ICONS - FONTS----------------------------------------->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
@@ -84,7 +85,7 @@
 
   <nav class="blue-grey ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family: 'Californian FB'">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 30px; font-family:'Dancing Script'">Sublimade</a>
       <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/'}}">Cliente</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
