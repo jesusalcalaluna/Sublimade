@@ -44,7 +44,7 @@ class ControllerUsuario extends Controller
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
 
-
+dd($password->id_persona);
 
   if($password!=null)
     {
@@ -251,7 +251,7 @@ class ControllerUsuario extends Controller
     ->first();
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->get('contrasena'))->where('usuarios.e_mail','=',$r->get('usuario'))
     ->first();
-    
+
     if($password!=null)
     {
       return 1;
