@@ -252,7 +252,7 @@ class ControllerUsuario extends Controller
      $pass = $r->get("contrasena");
           $users = DB::table('usuarios')
           ->where('usuarios.e_mail','=',$email)
-          ->where('usuarios.pass', '=', $pas) 
+          ->where('usuarios.pass', '=', $pass) 
           ->get()->toJson();
 
         
