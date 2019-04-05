@@ -264,7 +264,7 @@ class ControllerUsuario extends Controller
      
     }else{
 
-      $respuesta=2;
+      
     
     }
 
