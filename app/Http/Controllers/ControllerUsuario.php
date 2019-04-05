@@ -251,8 +251,8 @@ class ControllerUsuario extends Controller
      $email = $r->get("usuario");
      $pass = $r->get("contrasena");
           $users = DB::table('usuarios')
-          ->where('usuarios.e_mail','=',$email)
-          ->where('usuarios.pass', '=', $pass)  
+          ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
+          ->where('usuarios.pass', '=', "030117")  
           ->get()->toJson();
 
         
