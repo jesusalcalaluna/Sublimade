@@ -256,13 +256,13 @@ class ControllerUsuario extends Controller
     if($password!=null)
     {
      
-        $respuesta="1";
+        $respuesta=1;
 
      return $respuesta;
      
     }else{
 
-      $respuesta="2";
+      $respuesta=2;
        return $respuesta;
     }
 
