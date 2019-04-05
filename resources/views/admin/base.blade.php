@@ -85,7 +85,7 @@
 
   <nav class="blue-grey ">
     <div class="nav-wrapper">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family:'Dancing Script'">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 50px; font-family:'Dancing Script'">Sublimade</a>
       <a class="black btn" style="margin-left: 10px; margin-top: -10px" href="{{'/'}}">Cliente</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
