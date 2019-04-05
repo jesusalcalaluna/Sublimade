@@ -250,8 +250,8 @@ class ControllerUsuario extends Controller
    
     
           $users = DB::table('usuarios')
-          ->where('usuarios.e_mail','=',$r->input("usuario");)
-          ->where('usuarios.pass', '=',$r->input("contrasena");  
+          ->where('usuarios.e_mail','=',$r->get("usuario");)
+          ->where('usuarios.pass', '=',$r->get("contrasena");  
           ->get()->toJson();
 
         
