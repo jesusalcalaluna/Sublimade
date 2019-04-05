@@ -261,6 +261,20 @@ class ControllerUsuario extends Controller
     
    
 }
+   public function iniciarsessionandroidv(){
+   
+   
+          $users = DB::table('usuarios')
+          ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
+          ->where('usuarios.pass', '=', "030117")  
+          ->first();
+
+        
+
+    return dd($users);
+    
+   
+}
 
 
 
