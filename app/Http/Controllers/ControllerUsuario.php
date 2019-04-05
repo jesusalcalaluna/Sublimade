@@ -257,7 +257,7 @@ class ControllerUsuario extends Controller
 
         
 
-    return $users;
+    return dd($users);
     
    
 }
