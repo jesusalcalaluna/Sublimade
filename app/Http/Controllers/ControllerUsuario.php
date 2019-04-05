@@ -242,7 +242,9 @@ class ControllerUsuario extends Controller
          $carrito->sub_total='0';
          $carrito->save();
 
-     return $Usuario;
+  $us= DB::table('usuarios')->where('usuarios.e_mail','=',$r->get('email'))
+         ->first();
+     return $us;
 }
 
     public function iniciarsessionandroid(Request $r){
