@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //--------Modelos
 use App\Carrito;
 use App\Categoria;
+
 use App\Cliente;
 use App\Detalle_pedido;
 use App\Diseno;
@@ -250,14 +251,10 @@ class ControllerUsuario extends Controller
    
      $email = $r->get("usuario");
      $pass = $r->get("contrasena");
-          $users = DB::table('usuarios')
-          ->where('usuarios.e_mail','=',$email)
-          ->where('usuarios.pass', '=', $pass) 
-          ->first();
-
+          $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
         
 
-    return $users;
+    return $u;
     
    
 }
