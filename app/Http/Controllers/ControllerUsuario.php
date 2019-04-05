@@ -253,7 +253,7 @@ class ControllerUsuario extends Controller
           $users = DB::table('usuarios')
           ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
           ->where('usuarios.pass', '=', "030117")  
-          ->get();
+          ->find();
 
         
 
