@@ -253,18 +253,22 @@ class ControllerUsuario extends Controller
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->get('contrasena'))->where('usuarios.e_mail','=',$r->get('usuario'))
     ->first();
 
+    $respuesta=null;
+
     if($password!=null)
     {
      
         $respuesta=1;
 
-     return $respuesta;
+     
      
     }else{
 
       $respuesta=2;
-       return $respuesta;
+    
     }
+
+    return $respuesta;
 
    
 }
