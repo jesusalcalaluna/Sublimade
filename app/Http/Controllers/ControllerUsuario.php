@@ -253,7 +253,7 @@ class ControllerUsuario extends Controller
           $users = DB::table('usuarios')
           ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
           ->where('usuarios.pass', '=', "030117")  
-          ->first();
+          ->get()->toJson();
 
         
 
@@ -266,9 +266,8 @@ class ControllerUsuario extends Controller
    
           $users = DB::table('usuarios')
           ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
-          ->where('usuarios.pass', '=', "030117")  
-          ->first();
-
+          ->where('usuarios.pass', '=', "030117")
+          
         
 
     return dd($users);
