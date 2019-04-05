@@ -15,6 +15,15 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
+
+    <!---------------------------------------------LINK ICONO LOCAL----------------------------------------->
+
+    <link rel="icon"
+          type="image/png"
+          href="{{url('/icono/Logo_Sublimade.ico')}}">
+
+
+
   <!---------------------------------------------LINKS CSS LOCAL----------------------------------------->
   <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href={{url('/css/dropzone/dropzone.css')}}>
