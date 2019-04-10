@@ -256,9 +256,11 @@ class ControllerUsuario extends Controller
 if($u!=null){
    return $u;
 }
+else{
+  return {respuesta:"Usuario o contraseña incorrecta"};
 
+}
 
-return {respuesta:"Usuario o contraseña incorrecta"};
    
     
    
