@@ -257,8 +257,8 @@ class ControllerUsuario extends Controller
 if($u!=null){
    return $u;
 }else{
-  $a=new Request('e_mail'=>"POPO");
-  return $a;
+
+  return $u;
 }
       
 }
