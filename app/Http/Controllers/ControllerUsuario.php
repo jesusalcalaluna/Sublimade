@@ -256,7 +256,9 @@ class ControllerUsuario extends Controller
 if($u!=null){
    return $u;
 }else{
-  return  array(['telefonos' => '5353647'])->toJson();
+  $a = array(['telefonos' => '5353647']);
+  $collection = Collection::make($a);
+  return $collection;
 }
       
 }
