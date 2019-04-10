@@ -256,7 +256,7 @@ class ControllerUsuario extends Controller
 if($u!=null){
    return $u;
 }
-return {e_mail:"popo"};
+return ({e_mail:"popo"});
 
 
    
