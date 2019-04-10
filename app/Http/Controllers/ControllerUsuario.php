@@ -259,7 +259,7 @@ if($u!=null){
 }else{
   $a = array(['telefonos' => '5353647']);
   $collection = Collection::make($a);
-  return $collection;
+  return $collection->toJson();
 }
       
 }
