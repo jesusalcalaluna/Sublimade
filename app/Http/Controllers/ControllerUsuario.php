@@ -257,7 +257,7 @@ if($u!=null){
    return $u;
 }
 else{
-  return {e_mail:"Usuario o contraseña incorrecta"};
+  
 
 }
 
