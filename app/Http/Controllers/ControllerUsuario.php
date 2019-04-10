@@ -256,10 +256,7 @@ class ControllerUsuario extends Controller
 if($u!=null){
    return $u;
 }
-else{
-  
 
-}
 
    
     
