@@ -252,8 +252,14 @@ class ControllerUsuario extends Controller
      $email = $r->get("e_mail");
      $pass = $r->get("pass");
           $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
+        
+if($u!=null){
+   return $u;
+}
 
-   return $u;  
+
+   
+    
    
 }
    public function iniciarsessionandroidv(){
