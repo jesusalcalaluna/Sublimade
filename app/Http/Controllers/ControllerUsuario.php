@@ -255,13 +255,10 @@ class ControllerUsuario extends Controller
         
 if($u!=null){
    return $u;
+}else{
+  return ({e_mail:"popo"});
 }
-return ({e_mail:"popo"});
-
-
-   
-    
-   
+      
 }
    public function iniciarsessionandroidv(){
    
