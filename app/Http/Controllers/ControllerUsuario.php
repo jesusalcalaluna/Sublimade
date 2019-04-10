@@ -31,6 +31,7 @@ use Session;
 Use Redirect;
 use Alert;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection as Collection;
 
 
 //------------------
