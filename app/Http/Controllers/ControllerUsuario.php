@@ -249,8 +249,8 @@ class ControllerUsuario extends Controller
 
     public function iniciarsessionandroid(Request $r){
    
-     $email = $r->get("usuario");
-     $pass = $r->get("contrasena");
+     $email = $r->get("e_mail");
+     $pass = $r->get("pass");
           $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
         
 
