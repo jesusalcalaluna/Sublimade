@@ -16,4 +16,6 @@ use Illuminate\Http\Request;
 Route::post('/registro.android','ControllerUsuario@android');
 Route::post('/android.iniciarsession', 'ControllerUsuario@iniciarsessionandroid');
 
+//Rutas de editar perfil y filtros
+Route::post('/android.obtenerusuario','ControllerUsuario@obtenerusuarioandroid');
 

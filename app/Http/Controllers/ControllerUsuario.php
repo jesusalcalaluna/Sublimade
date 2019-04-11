@@ -204,7 +204,7 @@ class ControllerUsuario extends Controller
 
     }
 
-
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>ANDROID>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
 
     public function android(Request $r){
 
@@ -262,21 +262,14 @@ if($u!=null){
 }
       
 }
-   public function iniciarsessionandroidv(){
-   
-   
-          $users = DB::table('usuarios')
-          ->where('usuarios.e_mail','=',"arturo99favela@gmail.com")
-          ->where('usuarios.pass', '=', "030117")
-          ->get()->toJson();
-        
 
-    return dd($users);
-    
-   
-}
+public function obtenerusuarioandroid(Request $r){
 
+    $email = $r->get("e_mail");
+    $u=Usuario::where("e_mail","=",$email)->first();
+    $p=Persona::where("id_persona","=",$u->id_persona)->first();
 
-
+    return $p;
+    }
 
 }
