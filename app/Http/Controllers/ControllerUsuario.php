@@ -272,4 +272,29 @@ public function obtenerusuarioandroid(Request $r){
     return $p;
     }
 
+    function actualizarInfoandroid(Request $request){
+
+        $usuario=Persona::where("id_persona","=",$request->get('id'));
+
+        $tel_casa =  $request->telefono_casa;
+        $tel_cel = $request->telefono_cel;
+        $direccion = $request->direccion;
+        $cp =  $request->cp;
+
+        if($tel_casa!=null){
+            $usuario->nombre = $tel_casa;
+        }
+        if($tel_cel!=null){
+            $usuario->tel_celular = $tel_cel;
+        }
+        if($direccion!=null){
+            $usuario->direccion = $direccion;
+        }
+        if($cp!=null){
+            $usuario->cp = $cp;
+        }
+        $usuario->save();
+        return $usuario;
+    }
+
 }

@@ -18,4 +18,5 @@ Route::post('/android.iniciarsession', 'ControllerUsuario@iniciarsessionandroid'
 
 //Rutas de editar perfil y filtros
 Route::post('/android.obtenerusuario','ControllerUsuario@obtenerusuarioandroid');
+Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid');
 
