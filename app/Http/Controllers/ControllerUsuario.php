@@ -274,12 +274,13 @@ public function obtenerusuarioandroid(Request $r){
 
     function actualizarInfoandroid(Request $request){
 
-        $usuario=Persona::where("id_persona","=",$request->get('id'));
+        $pers=$request->get('id');
+        $usuario=Persona::find("id_persona","=",$pers)->get();
 
-        $tel_casa =  $request->telefono_casa;
-        $tel_cel = $request->telefono_cel;
-        $direccion = $request->direccion;
-        $cp =  $request->cp;
+        $tel_casa =  $request->get('telefono_casa');
+        $tel_cel = $request->get('telefono_cel');
+        $direccion = $request->get('direccion');
+        $cp =  $request->get('cp');
 
         if($tel_casa!=null){
             $usuario->nombre = $tel_casa;
