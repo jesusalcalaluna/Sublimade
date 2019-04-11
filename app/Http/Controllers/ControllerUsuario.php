@@ -275,15 +275,12 @@ public function obtenerusuarioandroid(Request $r){
     function actualizarInfoandroid(Request $request){
 
         $pers=$request->get('id');
-//        $usuario=Persona::where("id_persona","=",$pers)->first();
+        $usuario=Persona::where("id_persona","=",$pers)->first();
 
         $tel_casa =  $request->get('telefono_casa');
-        $tel_cel = $request->get('telefono_cel');
+        $tel_cel = $request->get('telefono_celular');
         $direccion = $request->get('direccion');
         $cp =  $request->get('cp');
-
-
-        if ($tel_casa!=null&&$tel_cel!=null&&$direccion!=null&&$cp!=null){
 
             $consulta=DB::table('personas')->where('id_persona',"=",$pers)
                 ->update(['tel_casa'=>$tel_casa,
@@ -291,16 +288,7 @@ public function obtenerusuarioandroid(Request $r){
                     'direccion'=>$direccion,
                     'cp'=>$cp
                 ]);
-            return $consulta;
-
-//            $usuario->tel_casa=$tel_casa;
-//            $usuario->tel_celular=$tel_cel;
-//            $usuario->direccion=$direccion;
-        }
-        else {
-            $string="no se hizo";
-            return $string;
-        }
+            return $usuario;
     }
 
 }
