@@ -275,27 +275,25 @@ public function obtenerusuarioandroid(Request $r){
     function actualizarInfoandroid(Request $request){
 
         $pers=$request->get('id');
-        $usuario=Persona::find("id_persona","=",$pers)->get();
+//        $usuario=Persona::where("id_persona","=",$pers)->first();
 
         $tel_casa =  $request->get('telefono_casa');
         $tel_cel = $request->get('telefono_cel');
         $direccion = $request->get('direccion');
         $cp =  $request->get('cp');
 
-        if($tel_casa!=null){
-            $usuario->nombre = $tel_casa;
+
+        if ($tel_casa!=null&&$tel_cel!=null&&$direccion!=null&&$cp!=null){
+
+            DB::table('personas')->where('id_persona',"=",$pers)->update(['tel_casa'=>$tel_casa])
+            ->update(['tel_celular'=>$tel_cel])
+            ->update(['direccion'=>$direccion])
+            ->update(['cp'=>$cp]);
+
+//            $usuario->tel_casa=$tel_casa;
+//            $usuario->tel_celular=$tel_cel;
+//            $usuario->direccion=$direccion;
         }
-        if($tel_cel!=null){
-            $usuario->tel_celular = $tel_cel;
-        }
-        if($direccion!=null){
-            $usuario->direccion = $direccion;
-        }
-        if($cp!=null){
-            $usuario->cp = $cp;
-        }
-        $usuario->save();
-        return $usuario;
     }
 
 }
