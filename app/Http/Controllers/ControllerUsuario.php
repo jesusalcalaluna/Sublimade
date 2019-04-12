@@ -293,8 +293,8 @@ public function obtenerusuarioandroid(Request $r){
     public function obtenerusuarioandroidgoogle(Request $r){
 
        $email = $r->get("e_mail");
-     $pass = $r->get("pass");
-          $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
+    $email = $r->get("e_mail");
+    $u=Usuario::where("e_mail","=",$email)->first();
     return $u;
     }
 
