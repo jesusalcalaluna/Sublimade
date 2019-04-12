@@ -23,3 +23,4 @@ Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid
 Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::get('/android.obtenercategoria','ControllerProducto@androidcategorias');
 
+Route::post('/android.obtenerproducto','ControllerUsuario@obtenerproducto');

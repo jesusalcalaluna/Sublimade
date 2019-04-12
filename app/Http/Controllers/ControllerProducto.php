@@ -149,5 +149,12 @@ class ControllerProducto extends Controller
         $categorias=DB::table('categorias')->get();
         return $categorias[0];
     }
+     public function obtenerproducto(Request $r){
+
+    $id_producto = $r->get("productos_id_producto");
+
+    $u=Producto::where("id_producto","=",$id_producto)->first();
+    return $u;
+    }
 
 }
