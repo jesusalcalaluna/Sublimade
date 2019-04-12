@@ -131,12 +131,12 @@ class ControllerProducto extends Controller
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria"))
+            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
             ->get();
         return $productos;
     }
     function androidDetalles(Request $r){
-        $id = $r->input(1);
+        $id = $r->get(1);
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->where("productos.id_producto", '=', $id)
@@ -147,7 +147,7 @@ class ControllerProducto extends Controller
 
     function androidcategorias(){
         $categorias=DB::table('categorias')->get();
-        return $categorias[0];
+        return $categorias;
     }
      public function obtenerproducto(Request $r){
 
