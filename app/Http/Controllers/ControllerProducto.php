@@ -24,6 +24,7 @@ use App\Salida;
 use App\Tipos_producto;
 use App\User;
 use App\Usuario;
+use App\Deseado;
 
 //------------------
 //--------Librerias
