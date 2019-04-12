@@ -24,6 +24,7 @@ use App\Salida;
 use App\Tipos_producto;
 use App\User;
 use App\Usuario;
+use App\Deseado;
 
 //------------------
 //--------Librerias
@@ -127,15 +128,16 @@ class ControllerProducto extends Controller
     }
 
     //Android
-    function androidCatalogo(Request $request){
+    function androidCatalogo(){
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-        //    ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno"))
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
+            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
             ->get();
         return $productos;
     }
     function androidDetalles(Request $r){
-        $id = $r->input(1);
+        $id = $r->get(1);
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->where("productos.id_producto", '=', $id)
@@ -147,6 +149,18 @@ class ControllerProducto extends Controller
     function androidcategorias(){
         $categorias=DB::table('categorias')->get();
         return $categorias;
+    }
+     public function obtenerproducto(Request $r){
+        
+        $deseado= new deseado;
+        $deseado->productos_id_producto= $r->get('productos_id_producto');
+        $deseado->usuarios_id_persona=$r->get('usuarios_id_persona');
+        $deseado->save();
+    
+    $id_producto = $r->get("productos_id_producto");
+
+    $u=Producto::where("id_producto","=",$id_producto)->first();
+    return $u;
     }
 
 }
