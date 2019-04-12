@@ -146,7 +146,6 @@ class ControllerProducto extends Controller
 
     function androidcategorias(){
         $categorias=DB::table('categorias')->get();
-        $categorias=collect($categorias);
         return $categorias;
     }
 
