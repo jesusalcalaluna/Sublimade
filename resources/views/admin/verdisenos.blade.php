@@ -164,6 +164,27 @@
                     $("#disen").val("");
                     $("#categ").val("0");
                     $('select').formSelect();
+
+
+                    $.ajax({
+                        url:"/vernombres",
+                        // en data se envían los datos
+                        data:{},
+                        type:"get",
+                        dataType:'json',
+                        success:function (response) {
+                            // alert("sss");
+                            var cont="";
+                            var nombres = $("#disenos");
+                            var input=$("#autocompletado");
+                            nombres.empty();
+                            input.val("");
+                            $.each(response, function(i,r){
+                                cont+='<tr><td>'+r.id_diseno+'</td><td>'+r.categoria+'</td><td>'+r.nombre+'</td><td><div style="height: 100px; width: 100px"><img style="width: 100px;height: 100px" src="storage/disenos/'+r.diseno+'"></div></td></tr>'
+                            });
+                            nombres.append(cont);
+                        }
+                    });
                 });
                 myDropzone.on("complete", function (file) {
                     myDropzone.removeFile(file);

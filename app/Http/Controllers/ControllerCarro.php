@@ -86,6 +86,20 @@ class ControllerCarro extends Controller
 
         return view('jorgeViews.pago')->with('subtotal',$subtotal)->with('cliente',$cliente);
     }
+    function addtocartandroid(Request $r){
 
+        $id = $r->get('id');
+        $id_usuario = $r->get('id_usuario');
+        $talla = $r->get('talla');
+        $cantidad = $r->get('cantidad');
+        $costo_unitario = DB::table('productos')->select('productos.costo_unitario')->where('productos.id_producto','=',$id)->get();
+        $total = $cantidad*$costo_unitario[0]->costo_unitario;
+
+
+        $carrito_pivot = Carrito::find($id_usuario)->first();
+        $carrito_pivot->sub_total = 0;
+        $carrito_pivot->productos()->save($carrito_pivot, ['id_carrito' =>$id_usuario,'id_producto'=>$id, 'cantidad'=>$cantidad, 'total'=>$total,'talla'=>$talla]);
+
+    }
 
 }
