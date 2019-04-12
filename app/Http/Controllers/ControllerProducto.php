@@ -130,7 +130,8 @@ class ControllerProducto extends Controller
     function androidCatalogo(){
         $productos = DB::table('productos')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno"))
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
+            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria"))
             ->get();
         return $productos;
     }
