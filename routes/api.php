@@ -24,3 +24,5 @@ Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::get('/android.obtenercategoria','ControllerProducto@androidcategorias');
 
 Route::post('/android.obtenerproducto','ControllerProducto@obtenerproducto');
+
+Route::post('/android.obtenerproductodeseado','ControllerProducto@androidDeseados');
