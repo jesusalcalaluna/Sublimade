@@ -282,7 +282,7 @@ public function obtenerusuarioandroid(Request $r){
         $direccion = $request->get('direccion');
         $cp =  $request->get('cp');
 
-            $consulta=DB::table('personas')->where('id_persona',"=",$pers)
+            DB::table('personas')->where('id_persona',"=",$pers)
                 ->update(['tel_casa'=>$tel_casa,
                 'tel_celular'=>$tel_cel,
                     'direccion'=>$direccion,
