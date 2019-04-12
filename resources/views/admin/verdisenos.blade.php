@@ -126,7 +126,7 @@
             };
             $("#autocompletado").easyAutocomplete(options);
 
-            $("#recarga").click(function () {
+            $("#recarga, #enviardis").click(function () {
 
                 $.ajax({
                     url:"/vernombres",
