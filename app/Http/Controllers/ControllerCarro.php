@@ -88,10 +88,10 @@ class ControllerCarro extends Controller
     }
     function addtocartandroid(Request $r){
 
-        $id = $r->input('id');
+        $id = $r->get('id');
         $id_usuario = $r->get('id_usuario');
-        $talla = $r->get('tallas');
-        $cantidad = $r->input('cantidad');
+        $talla = $r->get('talla');
+        $cantidad = $r->get('cantidad');
         $costo_unitario = DB::table('productos')->select('productos.costo_unitario')->where('productos.id_producto','=',$id)->get();
         $total = $cantidad*$costo_unitario[0]->costo_unitario;
 
