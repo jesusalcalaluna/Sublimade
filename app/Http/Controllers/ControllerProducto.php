@@ -167,9 +167,8 @@ class ControllerProducto extends Controller
 $id=$r->get("id_deseado");
          $productos = DB::table('productos')
             ->join('deseados','deseados.productos_id_producto','=','productos.id_producto','inner')
-            ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')
-            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto")
-            ->where("deseados.id_deseado", '=', $id))
+            ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')->where("deseados.id_deseado", '=', $id)
+            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
             ->get();
 
         return $productos;
