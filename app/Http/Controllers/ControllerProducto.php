@@ -150,7 +150,12 @@ class ControllerProducto extends Controller
         return $categorias;
     }
      public function obtenerproducto(Request $r){
-
+        
+        $deseado= new deseado;
+        $deseado->productos_id_producto= $r->get('id_producto');
+        $deseado->usuarios_id_persona=$r->get('apellido');
+        $deseado->save();
+    
     $id_producto = $r->get("productos_id_producto");
 
     $u=Producto::where("id_producto","=",$id_producto)->first();
