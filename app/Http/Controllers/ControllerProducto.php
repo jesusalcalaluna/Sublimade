@@ -164,7 +164,7 @@ class ControllerProducto extends Controller
     }
      function androidDeseados(Request $r){
 
-$id=$r->get(1);
+$id=$r->get("id_deseados");
          $productos = DB::table('productos')
             ->join('deseados','deseados.productos_id_producto','=','productos.id_producto','inner')
             ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')
