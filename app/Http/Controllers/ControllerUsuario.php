@@ -294,7 +294,7 @@ public function obtenerusuarioandroid(Request $r){
 
        $email = $r->get("e_mail");
      $pass = $r->get("pass");
-          $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
+          $u=Usuario::find("e_mail","=",$email)->where("pass","=",$pass)->first();
     return $u;
     }
 
