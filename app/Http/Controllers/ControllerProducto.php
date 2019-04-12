@@ -154,7 +154,7 @@ class ControllerProducto extends Controller
         
         $deseado= new deseado;
         $deseado->productos_id_producto= $r->get('productos_id_producto');
-        $deseado->usuarios_id_persona=$r->get('apellido');
+        $deseado->usuarios_id_persona=$r->get('usuarios_id_persona');
         $deseado->save();
     
     $id_producto = $r->get("productos_id_producto");
