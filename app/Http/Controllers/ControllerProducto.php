@@ -169,7 +169,7 @@ $id=$r->get("id_deseado");
             ->join('deseados','deseados.productos_id_producto','=','productos.id_producto','inner')
             ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->where("deseados.id_deseado", '=', $id)
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->where("deseados.id_deseados", '=', $id)
             ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
             ->get();
 
