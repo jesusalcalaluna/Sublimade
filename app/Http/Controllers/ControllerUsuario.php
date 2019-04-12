@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //--------Modelos
 use App\Carrito;
 use App\Categoria;
+
 use App\Cliente;
 use App\Detalle_pedido;
 use App\Diseno;
@@ -29,6 +30,8 @@ use DB;
 use Session;
 Use Redirect;
 use Alert;
+use Illuminate\Support\Str;
+use Illuminate\Support\Collection as Collection;
 
 
 //------------------
@@ -43,7 +46,7 @@ class ControllerUsuario extends Controller
     $password = DB::table('usuarios')->where('usuarios.pass','=',$r->contrasena)->where('usuarios.e_mail','=',$r->usuario)
     ->first();
 
-
+//dd($password->id_persona);
 
   if($password!=null)
     {
@@ -107,15 +110,14 @@ class ControllerUsuario extends Controller
          ->select('personas.id_persona')
          ->first();
 
-
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
-        //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->input("contrasena");
-        $Usuario->e_mail=$r->input("email");
+         $Usuario->e_mail=$r->input("email");
          $Usuario->tipo_usuario="0";
+         $Usuario->pass=Hash::make($r->input("contrasena"));
+         $Usuario->api_token= Str::random(60);
          $resul= $Usuario->save();
 
          $cliente= new Cliente;
@@ -125,6 +127,7 @@ class ControllerUsuario extends Controller
          $carrito->id_carrito= $id->id_persona;
          $carrito->sub_total='0';
          $carrito->save();
+
 
          Alert::error('Usuario Registrado ');
          return redirect('/inicio.sesion');
@@ -201,7 +204,9 @@ class ControllerUsuario extends Controller
 
     }
 
-    public function registerandroid(Request $r){
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>ANDROID>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+
+    public function android(Request $r){
 
         $persona= new Persona;
         $persona->nombre= $r->get('nombre');
@@ -213,21 +218,21 @@ class ControllerUsuario extends Controller
         $persona->f_nacimiento=$r->get('nacimiento');
         $persona->sexo=$r->get('sexo');
         $persona->save();
-      
+
 
           $id = DB::table('personas')->where('personas.tel_celular','=',$r->get('celular'))
          ->select('personas.id_persona')
          ->first();
 
-        
+
 
          //Session::put('id',$id->id_persona);
 
          $Usuario= new Usuario;
-        //  $Usuario->id_persona= $request->input("id_usuario");
          $Usuario->id_persona= $id->id_persona;
-         $Usuario->pass= $r->get('contrasena');
-        $Usuario->e_mail=$r->get('email');
+         $Usuario->pass=Hash::make($r->input("contrasena"));
+         $Usuario->api_token= Str::random(60);
+         $Usuario->e_mail=$r->get('email');
          $Usuario->tipo_usuario='0';
          $resul= $Usuario->save();
 
@@ -239,14 +244,58 @@ class ControllerUsuario extends Controller
          $carrito->sub_total='0';
          $carrito->save();
 
-     return $persona;
-   }
- public function registerandroidv(Request $r){
-
-       $a = Session::all();
-       return $a;
-
-   }
-
+           
+     return $Usuario;
 }
 
+    public function iniciarsessionandroid(Request $r){
+   
+     $email = $r->get("e_mail");
+     $pass = $r->get("pass");
+          $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
+        
+if($u!=null){
+   return $u;
+}else{
+
+  return $u;
+}
+      
+}
+
+public function obtenerusuarioandroid(Request $r){
+
+    $email = $r->get("e_mail");
+    $u=Usuario::where("e_mail","=",$email)->first();
+    $p=Persona::where("id_persona","=",$u->id_persona)->first();
+
+    return $p;
+    }
+
+    function actualizarInfoandroid(Request $request){
+
+        $pers=$request->get('id');
+        $usuario=Persona::where("id_persona","=",$pers)->first();
+
+        $tel_casa =  $request->get('telefono_casa');
+        $tel_cel = $request->get('telefono_celular');
+        $direccion = $request->get('direccion');
+        $cp =  $request->get('cp');
+
+            DB::table('personas')->where('id_persona',"=",$pers)
+                ->update(['tel_casa'=>$tel_casa,
+                'tel_celular'=>$tel_cel,
+                    'direccion'=>$direccion,
+                    'cp'=>$cp
+                ]);
+            return $usuario;
+    }
+    public function obtenerusuarioandroidgoogle(Request $r){
+
+       $email = $r->get("e_mail");
+     $pass = $r->get("pass");
+          $u=Usuario::where("e_mail","=",$email)->where("pass","=",$pass)->first();
+    return $u;
+    }
+
+}

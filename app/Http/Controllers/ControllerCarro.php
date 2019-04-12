@@ -40,7 +40,8 @@ class ControllerCarro extends Controller
         $total = $cantidad*$costo_unitario[0]->costo_unitario;
 
 
-        $carrito_pivot = Carrito::find(Session::get('id'))->first();
+
+        $carrito_pivot = Carrito::find(Session::get('id'));
         $carrito_pivot->sub_total = 0;
         $carrito_pivot->productos()->save($carrito_pivot, ['id_carrito' =>Session::get('id'),'id_producto'=>$id, 'cantidad'=>$cantidad, 'total'=>$total,'talla'=>$talla]);
 

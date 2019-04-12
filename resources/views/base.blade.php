@@ -19,6 +19,13 @@
   <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href={{url('/css/dropzone/dropzone.css')}}>
 
+
+    <!---------------------------------------------LINKS ICONO LOCAL----------------------------------------->
+
+    <link rel="icon"
+          type="image/png"
+          href="{{url('/icono/Logo_Sublimade.ico')}}">
+
   <!---------------------------------------------- CDN CSS ------------------------------------>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <!---------------------------------------------- Sweetalert ------------------------------------>

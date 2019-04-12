@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/registro.android','ControllerUsuario@android');
+Route::post('/android.iniciarsession', 'ControllerUsuario@iniciarsessionandroid');
+Route::post('/android.iniciarsession.google', 'ControllerUsuario@obtenerusuarioandroidgoogle');
+
+//Rutas de editar perfil y filtros
+Route::post('/android.obtenerusuario','ControllerUsuario@obtenerusuarioandroid');
+Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid');
+
