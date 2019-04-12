@@ -145,7 +145,7 @@ class ControllerProducto extends Controller
     }
 
     function androidcategorias(){
-        $categorias=Categoria::all()->toJson();
+        $categorias=Categoria::all()->toArray();
         return $categorias;
     }
 
