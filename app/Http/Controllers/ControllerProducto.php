@@ -159,7 +159,7 @@ class ControllerProducto extends Controller
     
     $id_producto = $r->get("productos_id_producto");
 
-    $u=Deseado::where("id_producto","=",$id_producto)->first();
+    $u=Deseado::where("productos_id_producto","=",$id_producto)->first();
     return $u;
     }
      function androidDeseados(Request $r){
