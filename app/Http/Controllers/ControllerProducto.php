@@ -184,7 +184,7 @@ class ControllerProducto extends Controller
          ->get();
      
 
-      $d= Deseado::find("1");
+      $d= Deseado::find(1);
 
     return $d;
     
