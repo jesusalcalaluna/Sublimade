@@ -176,9 +176,10 @@ class ControllerProducto extends Controller
         return $productos;
     }
 
-     function borrardeseado(){
-
-    $u=Deseado::all();
+     function borrardeseado(Request $r){
+       
+    $id_producto = $r->get("id");
+    $u=Deseado::where("productos_id_producto","=",$id_producto)->get();
     return $u;
 
     }
