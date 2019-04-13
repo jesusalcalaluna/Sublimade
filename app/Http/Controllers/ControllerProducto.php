@@ -184,7 +184,7 @@ class ControllerProducto extends Controller
          ->get();
      
 
-      $d= Deseado::where("id_deseados","=",$id);
+      $d= Deseado::where("id_deseados","=","1");
 
     return $d;
     
