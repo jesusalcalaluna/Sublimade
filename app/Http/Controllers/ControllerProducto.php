@@ -183,7 +183,7 @@ class ControllerProducto extends Controller
          ->select('deseados.id_deseados')
          ->get();
        
-    return $u;
+    return $id;
     
 
     }
