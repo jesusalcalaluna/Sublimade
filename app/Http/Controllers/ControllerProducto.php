@@ -176,4 +176,15 @@ $id=$r->get(1);
         return $productos;
     }
 
+     function borrardeseado(Request $r){
+        $id= $r->get('id_producto');
+       
+
+        $Deseado = Deseado::where("productos_id_producto","=",$id)->get();
+       
+
+        return $Deseado;
+
+    }
+
 }
