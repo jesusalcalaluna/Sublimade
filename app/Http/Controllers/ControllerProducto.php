@@ -180,7 +180,7 @@ class ControllerProducto extends Controller
        
     $id_producto = $r->get("id");
     $u=Deseado::where("productos_id_producto","=",$id_producto)->get();
-    $u->delete();
+    $u->id_deseado->delete();
     return $u;
 
     }
