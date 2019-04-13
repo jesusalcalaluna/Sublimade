@@ -179,7 +179,7 @@ class ControllerProducto extends Controller
      function borrardeseado(){
 
 
-      $d= Deseado::where("id_deseados","=","1");
+      $d= Deseado::find("1");
 
     return $d;
     
