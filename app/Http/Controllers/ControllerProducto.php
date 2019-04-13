@@ -183,9 +183,7 @@ class ControllerProducto extends Controller
          ->select('deseados.id_deseados')
          ->first();
        
-    
-    $u=Deseado::find($id);
-    $u->delete();
+    return $u;
     
 
     }
