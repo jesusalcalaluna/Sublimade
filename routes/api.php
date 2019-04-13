@@ -27,4 +27,4 @@ Route::post('/android.obtenerproducto','ControllerProducto@obtenerproducto');
 
 Route::post('/android.obtenerproductodeseado','ControllerProducto@androidDeseados');
 
-Route::post('/android.borrardeseado','ControllerProducto@borrardeseado');
+Route::get('/android.borrardeseado','ControllerProducto@borrardeseado');
