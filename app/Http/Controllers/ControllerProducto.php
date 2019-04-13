@@ -184,7 +184,7 @@ class ControllerProducto extends Controller
          ->first();
        
     
-    $u=Deseado::find($id_producto);
+    $u=Deseado::find($id);
     $u->delete();
     
 
