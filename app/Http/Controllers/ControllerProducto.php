@@ -181,7 +181,7 @@ class ControllerProducto extends Controller
     $id = $r->get("id");
 
 
-    $u=Deseado::where("id_deseados","=",$id)->get();
+    $u=Deseado::all();
     return $u;
 
     }
