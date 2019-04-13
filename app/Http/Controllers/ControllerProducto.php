@@ -178,11 +178,6 @@ class ControllerProducto extends Controller
 
      function borrardeseado(Request $r){
 
-        $id_producto = $r->get("id");
-          $id = DB::table('deseados')->where('deseados.productos_id_producto','=',$id_producto)
-         ->select('deseados.id_deseados')
-         ->get();
-     
 
       $d= Deseado::find(1);
 
