@@ -179,7 +179,7 @@ class ControllerProducto extends Controller
      function borrardeseado(){
 
 
-      $d= Deseado::find(1);
+      $d= Deseado::find(73);
 
     return $d;
     
