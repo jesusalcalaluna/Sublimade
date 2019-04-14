@@ -186,7 +186,7 @@ class ControllerProducto extends Controller
 
 //      $d= Deseado::find($id);
    //   $d->delete();
-    return $d;
+    return $id->id_deseados;
 
     }
 
