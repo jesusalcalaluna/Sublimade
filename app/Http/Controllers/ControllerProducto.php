@@ -184,7 +184,7 @@ class ControllerProducto extends Controller
          ->get();
      
 
-      $d= Deseado::find($id_producto);
+      $d= Deseado::find($id);
       $d->delete();
     
 
