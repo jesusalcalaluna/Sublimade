@@ -182,11 +182,11 @@ class ControllerProducto extends Controller
           $id = DB::table('deseados')->where('deseados.productos_id_producto','=',$id_producto)
          ->select('deseados.id_deseados')
          ->get();
-     
+     $d= Deseado::where("id_deseados","=",$id_producto);
 
 //      $d= Deseado::find($id);
    //   $d->delete();
-    return $id;
+    return $d;
 
     }
 
