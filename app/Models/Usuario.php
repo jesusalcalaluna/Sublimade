@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Usuario extends Model
 {
    protected $table = 'usuarios';
@@ -21,5 +22,11 @@ class Usuario extends Model
     	
     	 	return $this->belongsTo(Persona::class ,'id_persona','id_persona');
 	    
+    }
+        public function deseados()
+    {
+      
+        return $this->belongsTo(Deseado::class ,'id_persona','id_deseados');
+      
     }
 }

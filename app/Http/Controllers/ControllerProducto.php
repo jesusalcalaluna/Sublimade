@@ -159,21 +159,32 @@ class ControllerProducto extends Controller
     
     $id_producto = $r->get("productos_id_producto");
 
-    $u=Producto::where("id_producto","=",$id_producto)->first();
+    $u=Deseado::where("productos_id_producto","=",$id_producto)->first();
     return $u;
     }
      function androidDeseados(Request $r){
 
-$id=$r->get("id_deseado");
+         $id=$r->get(1);
          $productos = DB::table('productos')
             ->join('deseados','deseados.productos_id_producto','=','productos.id_producto','inner')
             ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')
             ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->where("deseados.id_deseados", '=', $id)
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->where("deseados.usuarios_id_persona", '=', $id)
             ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
             ->get();
 
         return $productos;
+    }
+
+     function borrardeseado(Request $r){
+
+          $id = DB::table('deseados')->where('deseados.productos_id_producto','=',$r->get("id"))
+          ->first();
+          $d= Deseado::find($id->id_deseados);
+
+//      $d= Deseado::find($id);
+     $d->delete();
+   
     }
 
 }
