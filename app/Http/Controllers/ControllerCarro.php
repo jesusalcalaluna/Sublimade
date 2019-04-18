@@ -42,7 +42,7 @@ class ControllerCarro extends Controller
 
 
         $carrito_pivot = Carrito::find(Session::get('id'));
-        $carrito_pivot->sub_total = 0;
+        $carrito_pivot->sub_total += $total;
         $carrito_pivot->productos()->save($carrito_pivot, ['id_carrito' =>Session::get('id'),'id_producto'=>$id, 'cantidad'=>$cantidad, 'total'=>$total,'talla'=>$talla]);
 
 
