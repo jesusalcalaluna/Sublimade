@@ -100,6 +100,8 @@ class ControllerCarro extends Controller
         $carrito_pivot->sub_total += $total;
         $carrito_pivot->productos()->save($carrito_pivot, ['id_carrito' =>$id_usuario,'id_producto'=>$id, 'cantidad'=>$cantidad, 'total'=>$total,'talla'=>$talla]);
 
+        $sub_total = DB::table('carritos')->select('carritos.sub_total')->where('carritos.id_carrito', '=', $id_usuario)->get();
+        return $sub_total;
     }
     function vercarritoandroid(Request $r){
         $id = $r->get(1);
