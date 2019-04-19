@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Braintree\Configuration;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Test\Unit\GatewayTest;
@@ -11,7 +12,7 @@ class ControllerBraintree extends Controller
 {
     function client_token(){
 
-        $gateway = new Gateway([
+        $gateway = new \Braintree_Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'mxxfwff3fs9st5dr',
             'publicKey' => 'hmfpqy87s8nz6brx',
@@ -23,10 +24,10 @@ class ControllerBraintree extends Controller
 
     }
 
-    function payment_method_nonce(Request $r){
+    function checkout(Request $r){
         $nonceFromTheClient = $r->get('payment_method_nonce');
         $monto = $r->get('monto');
-        $gateway = new Gateway([
+        $gateway = new \Braintree_Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'mxxfwff3fs9st5dr',
             'publicKey' => 'hmfpqy87s8nz6brx',
