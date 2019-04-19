@@ -30,4 +30,4 @@ Route::post('/android.obtenerproductodeseado','ControllerProducto@androidDeseado
 Route::post('/android.borrardeseado','ControllerProducto@borrardeseado');
 
 Route::get('/client_token', 'ControllerBraintree@client_token');
-Route::post('/payment_method_nonce', 'ControllerBraintree@payment_method_nonce');
+Route::post('/checkout', 'ControllerBraintree@checkout');
