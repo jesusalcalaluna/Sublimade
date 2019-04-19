@@ -6,14 +6,16 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Braintree;
+
 
 class ControllerBraintree extends Controller
 {
     function client_token(){
 
 
-        $gateway = new Braintree\Gateway([
+
+
+        $gateway = new \Braintree_Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'mxxfwff3fs9st5dr',
             'publicKey' => 'hmfpqy87s8nz6brx',
