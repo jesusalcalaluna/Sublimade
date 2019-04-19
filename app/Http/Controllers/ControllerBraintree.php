@@ -15,7 +15,7 @@ class ControllerBraintree extends Controller
     function client_token(){
 
 
-        $gateway = new Braintree_Gateway([
+        $gateway = new \Braintree_Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'mxxfwff3fs9st5dr',
             'publicKey' => 'hmfpqy87s8nz6brx',
