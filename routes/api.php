@@ -28,3 +28,6 @@ Route::post('/android.obtenerproducto','ControllerProducto@obtenerproducto');
 Route::post('/android.obtenerproductodeseado','ControllerProducto@androidDeseados');
 
 Route::post('/android.borrardeseado','ControllerProducto@borrardeseado');
+
+Route::get('/client_token', 'ControllerBraintree@client_token');
+Route::post('/payment_method_nonce', 'ControllerBraintree@payment_method_nonce');
