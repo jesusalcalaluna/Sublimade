@@ -119,12 +119,11 @@ class ControllerCarro extends Controller
     function deleteprodandroid(Request $r){
 
 
-        $reg= $r->get('reg');
         $id_carrito=$r->get('id_carrito');
         $id_prod =$r->get('$id_prod');
 
         $carrito = Carrito::find($id_carrito);
-        $carrito->productos()->detach($id_prod, ['reg'=>$reg]);
+        $carrito->productos()->detach($id_prod);
 
     }
 
