@@ -109,7 +109,7 @@ class ControllerCarro extends Controller
             ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
             ->join('carritos_has_productos', 'carritos_has_productos.id_producto','=','productos.id_producto', 'inner')
             ->join('carritos','carritos.id_carrito','=','carritos_has_productos.id_carrito', 'inner')
-            ->select(DB::raw("carritos_has_productos as  'reg', carritos.sub_total as 'sub_total', carritos_has_productos.cantidad as 'cantidad', carritos_has_productos.total as 'total', carritos_has_productos.talla as 'talla', carritos.id_carrito as 'id_carrito', productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo_unitario', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+            ->select(DB::raw("carritos_has_productos.reg as  'reg', carritos.sub_total as 'sub_total', carritos_has_productos.cantidad as 'cantidad', carritos_has_productos.total as 'total', carritos_has_productos.talla as 'talla', carritos.id_carrito as 'id_carrito', productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo_unitario', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
             ->where('carritos_has_productos.id_carrito','=',$id)
             ->get();
 
@@ -123,8 +123,8 @@ class ControllerCarro extends Controller
         $id_carrito=$r->get('id_carrito');
         $id_prod =$r->get('$id_prod');
 
-        $carrito = Carrito::find($id_carrito);
-        $carrito->productos()->detach($id_prod, ['reg'=>$reg]);
+        $carrito = Carrito::find($reg);
+        $carrito->productos()->detach($id_prod, ['id_carrito'=>$id_carrito]);
 
     }
 
