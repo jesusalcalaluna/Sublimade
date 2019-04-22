@@ -124,7 +124,7 @@ class ControllerCarro extends Controller
         $id_prod =$r->get('$id_prod');
 
         $carrito = Carrito::find($id_carrito);
-        $carrito->productos()->detach($id_prod, ['reg'=>$reg]);
+        dd($carrito->productos()->detach($id_prod, ['reg'=>$reg]));
 
     }
 
