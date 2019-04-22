@@ -121,8 +121,11 @@ class ControllerCarro extends Controller
         $id_carr= $r->get('id_carr');
         $id_prod=$r->get('id_prod');
 
-        $carrito = Carrito::find($id_carr);
-        $carrito->productos()->detach($id_prod)->where('reg','=',$reg);
+        //$carrito = Carrito::find($id_carr);
+        //$carrito->productos()->detach($id_prod);
+
+        $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
+        DB::statement($sql, [$reg, $id_prod, $id_carr]);
 
     }
 
