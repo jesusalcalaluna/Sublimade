@@ -117,5 +117,5 @@ Route::get('/sesion','ControllerUsuario@iniciarsessionandroidv');
 Route::get('/android.obtenercategoria','ControllerProducto@androidcategorias');
 
 Route::post('/android/carrito', 'ControllerCarro@vercarritoandroid');
-
+Route::post('/android/eliminarcarrito');
 
