@@ -28,7 +28,8 @@
                         {{csrf_field()}}
 
                         <input id="id_prod" name="id_prod" class="hide" type="text" value="{{$item->id_producto}}">
-                        <input id="id_carr" name="id_carr" class="hide" type="text" value="{{$item->id_carrito}}"><br><br>
+                        <input id="id_carr" name="id_carr" class="hide" type="text" value="{{$item->id_carrito}}">
+                        <input type="text" name="reg" class="hide" value="{{$item->reg}}"><br><br>
                         <button type="submit" class="btn red"><i class="material-icons left">remove_shopping_cart</i>Eliminar del carrito</button>
                     </form>
                 </div>

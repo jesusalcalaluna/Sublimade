@@ -51,7 +51,7 @@ class ControllerCarro extends Controller
             ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
             ->join('carritos_has_productos', 'carritos_has_productos.id_producto','=','productos.id_producto', 'inner')
             ->join('carritos','carritos.id_carrito','=','carritos_has_productos.id_carrito', 'inner')
-            ->select(DB::raw("carritos.sub_total as 'subtotal', carritos_has_productos.cantidad as 'cantidad', carritos_has_productos.total as 'total', carritos_has_productos.talla as 'talla', carritos.id_carrito as 'id_carrito', productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto', carritos.id_carrito as 'id_carrito'"))
+            ->select(DB::raw("carritos_has_productos.reg as 'reg', carritos.sub_total as 'subtotal', carritos_has_productos.cantidad as 'cantidad', carritos_has_productos.total as 'total', carritos_has_productos.talla as 'talla', carritos.id_carrito as 'id_carrito', productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto', carritos.id_carrito as 'id_carrito'"))
             ->where('carritos_has_productos.id_carrito','=',Session::get('id'))
             ->get();
 
@@ -72,9 +72,13 @@ class ControllerCarro extends Controller
     function eliminarProducto(Request $r){
         $id_carr= $r->input('id_carr');
         $id_prod=$r->input('id_prod');
+        $reg = $r->input('reg');
 
-        $carrito = Carrito::find($id_carr);
-        $carrito->productos()->detach($id_prod);
+        //$carrito = Carrito::find($id_carr);
+        //$carrito->productos()->detach($id_prod);
+
+        $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
+        DB::statement($sql, [$reg, $id_prod, $id_carr]);
 
 
         return back();
