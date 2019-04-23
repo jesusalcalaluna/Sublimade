@@ -142,5 +142,16 @@ class ControllerCarro extends Controller
 
 
     }
+    function consulta(Request $r){
+        $reg = $r->get('reg');
+        $id_carr= $r->get('id_carr');
+        $id_prod=$r->get('id_prod');
+        
+        dd($total = DB::table('categorias_has_prodctos')
+            ->select('total')
+            ->where('reg', '=',$reg)
+            ->where('id_carrito','=', $id_carr)
+            ->where('id_producto', '=', $id_prod)->get());
+    }
 
 }
