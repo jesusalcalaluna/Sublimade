@@ -135,11 +135,10 @@ class ControllerCarro extends Controller
 
         $carrito_pivot = Carrito::find($id_carr);
         $carrito_pivot->sub_total -= $total[0]->total;
-        $carrito_pivot->productos()->save($carrito_pivot);
+        $carrito_pivot->productos()->save();
 
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
         DB::statement($sql, [$reg, $id_prod, $id_carr]);
-
 
     }
     function consulta(Request $r){
