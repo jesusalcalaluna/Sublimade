@@ -137,7 +137,7 @@ class ControllerCarro extends Controller
             ->where('id_producto', '=', $id_prod)->get();
 
         $carrito_pivot = Carrito::find($id_carr);
-        $carrito_pivot->sub_total -= $total;
+        $carrito_pivot->sub_total = $carrito_pivot->subtotal - $total;
         $carrito_pivot->productos()->save($carrito_pivot);
 
 
