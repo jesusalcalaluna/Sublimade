@@ -134,7 +134,7 @@ class ControllerCarro extends Controller
             ->where('id_producto', '=', $id_prod)->get();
 
         $carrito_pivot = Carrito::find($id_carr);
-        $carrito_pivot->sub_total = $carrito_pivot->subtotal - $total;
+        $carrito_pivot->sub_total = $carrito_pivot->subtotal - $total[0]->total;
         $carrito_pivot->productos()->save($carrito_pivot);
 
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
