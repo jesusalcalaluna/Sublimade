@@ -146,7 +146,7 @@ class ControllerCarro extends Controller
         $reg = $r->get('reg');
         $id_carr= $r->get('id_carr');
         $id_prod=$r->get('id_prod');
-        
+
         dd($total = DB::table('categorias_has_prodctos')
             ->select('total')
             ->where('reg', '=',$reg)

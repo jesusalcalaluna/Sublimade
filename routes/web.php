@@ -118,4 +118,5 @@ Route::get('/android.obtenercategoria','ControllerProducto@androidcategorias');
 
 Route::post('/android/carrito', 'ControllerCarro@vercarritoandroid');
 Route::post('/android/eliminarcarrito', 'ControllerCarro@deleteprodandroid');
+Route::post('/consulta', 'ControllerCarro@consulta');
 
