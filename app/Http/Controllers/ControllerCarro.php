@@ -82,7 +82,7 @@ class ControllerCarro extends Controller
 
         return back();
 
-    }s
+    }
     function finalizarcompra(Request $r){
         $subtotal = $r->input('subtotal');
         $cliente = $r->input('id_client');
