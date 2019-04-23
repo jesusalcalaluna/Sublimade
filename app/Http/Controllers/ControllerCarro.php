@@ -80,10 +80,9 @@ class ControllerCarro extends Controller
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
         DB::statement($sql, [$reg, $id_prod, $id_carr]);
 
-
         return back();
 
-    }
+    }s
     function finalizarcompra(Request $r){
         $subtotal = $r->input('subtotal');
         $cliente = $r->input('id_client');
@@ -130,6 +129,17 @@ class ControllerCarro extends Controller
 
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
         DB::statement($sql, [$reg, $id_prod, $id_carr]);
+
+        $total = DB::table('categorias_has_prodctos')
+            ->select('total')
+            ->where('reg', '=',$reg)
+            ->where('id_carrito','=', $id_carr)
+            ->where('id_producto', '=', $id_prod)->get();
+
+        $carrito_pivot = Carrito::find($id_carr);
+        $carrito_pivot->sub_total -= $total;
+        $carrito_pivot->productos()->save($carrito_pivot);
+
 
     }
 
