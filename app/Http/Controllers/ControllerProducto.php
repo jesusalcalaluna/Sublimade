@@ -189,7 +189,7 @@ class ControllerProducto extends Controller
      function corazon(Request $r){
 
           $id = DB::table('deseados') ->join('usuarios','usuarios.id_persona','=','deseados.usuarios_id_persona','inner')->where('deseados.productos_id_producto','=',$r->get("id"))->where('deseados.usuarios_id_persona','=',$r->get("id_persona"))
-          ->get();
+          ->first();
 
 //      $d= Deseado::find($id);
      return $id;
