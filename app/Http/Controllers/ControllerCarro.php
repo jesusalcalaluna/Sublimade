@@ -151,7 +151,7 @@ class ControllerCarro extends Controller
             ->select('total')
             ->where('reg', '=',$reg)
             ->where('id_carrito','=', $id_carr)
-            ->where('id_producto', '=', $id_prod)->get('total'));
+            ->where('id_producto', '=', $id_prod));
     }
 
 }
