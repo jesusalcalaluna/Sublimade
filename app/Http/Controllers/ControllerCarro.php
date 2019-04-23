@@ -153,7 +153,7 @@ class ControllerCarro extends Controller
             ->where('id_carrito','=', $id_carr)
             ->where('id_producto', '=', $id_prod)->get();
 
-        dd($total[0]);
+        dd($total[0]->total);
     }
 
 }
