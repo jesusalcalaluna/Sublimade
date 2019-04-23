@@ -127,7 +127,7 @@ class ControllerCarro extends Controller
         //$carrito = Carrito::find($id_carr);
         //$carrito->productos()->detach($id_prod);
 
-        $total = DB::table('carritos_has_prodctos')
+        $total = DB::table('carritos_has_productos')
             ->select('total')
             ->where('reg', '=',$reg)
             ->where('id_carrito','=', $id_carr)
@@ -147,7 +147,7 @@ class ControllerCarro extends Controller
         $id_carr= $r->get('id_carr');
         $id_prod=$r->get('id_prod');
 
-        dd($total = DB::table('carritos_has_prodctos')
+        dd($total = DB::table('carritos_has_productos')
             ->select('total')
             ->where('reg', '=',$reg)
             ->where('id_carrito','=', $id_carr)
