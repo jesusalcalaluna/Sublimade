@@ -147,11 +147,13 @@ class ControllerCarro extends Controller
         $id_carr= $r->get('id_carr');
         $id_prod=$r->get('id_prod');
 
-        dd($total = DB::table('carritos_has_productos')
+        $total = DB::table('carritos_has_productos')
             ->select('total')
             ->where('reg', '=',$reg)
             ->where('id_carrito','=', $id_carr)
-            ->where('id_producto', '=', $id_prod));
+            ->where('id_producto', '=', $id_prod)->get();
+
+        dd($total[0]);
     }
 
 }
