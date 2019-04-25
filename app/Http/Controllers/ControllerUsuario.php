@@ -290,6 +290,8 @@ public function obtenerusuarioandroid(Request $r){
                 ]);
             return $usuario;
     }
+
+
     public function obtenerusuarioandroidgoogle(Request $r){
 
        $email = $r->get("e_mail");
