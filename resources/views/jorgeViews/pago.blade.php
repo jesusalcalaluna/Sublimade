@@ -25,7 +25,7 @@
             // Specify the style of the button
             style: {
                 label: 'checkout',  // checkout | credit | pay | buynow | generic
-                size:  'small ', // small | medium | large | responsive
+                size:  'small', // small | medium | large | responsive
                 shape: 'rect',   // pill | rect
                 color: 'black'   // gold | blue | silver | black
             },
