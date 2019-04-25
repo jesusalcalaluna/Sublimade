@@ -77,6 +77,16 @@ class ControllerCarro extends Controller
         //$carrito = Carrito::find($id_carr);
         //$carrito->productos()->detach($id_prod);
 
+        $total = DB::table('carritos_has_productos')
+            ->select('total')
+            ->where('reg', '=',$reg)
+            ->where('id_carrito','=', $id_carr)
+            ->where('id_producto', '=', $id_prod)->get();
+
+        $carrito_pivot = Carrito::find($id_carr);
+        $carrito_pivot->sub_total -= $total[0]->total;
+        $carrito_pivot->save();
+
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
         DB::statement($sql, [$reg, $id_prod, $id_carr]);
 
@@ -134,12 +144,11 @@ class ControllerCarro extends Controller
             ->where('id_producto', '=', $id_prod)->get();
 
         $carrito_pivot = Carrito::find($id_carr);
-        $carrito_pivot->sub_total = $carrito_pivot->subtotal - $total;
-        $carrito_pivot->productos()->save($carrito_pivot);
+        $carrito_pivot->sub_total -= $total[0]->total;
+        $carrito_pivot->save();
 
         $sql= "delete from carritos_has_productos where reg = ? and id_producto = ? and id_carrito = ?";
         DB::statement($sql, [$reg, $id_prod, $id_carr]);
-
 
     }
     function consulta(Request $r){
@@ -147,11 +156,13 @@ class ControllerCarro extends Controller
         $id_carr= $r->get('id_carr');
         $id_prod=$r->get('id_prod');
 
-        dd($total = DB::table('carritos_has_productos')
+        $total = DB::table('carritos_has_productos')
             ->select('total')
             ->where('reg', '=',$reg)
             ->where('id_carrito','=', $id_carr)
-            ->where('id_producto', '=', $id_prod)->get());
+            ->where('id_producto', '=', $id_prod)->get();
+
+        dd($total[0]->total);
     }
 
 }
