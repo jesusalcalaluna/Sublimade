@@ -116,4 +116,5 @@ Route::get('/sesion','ControllerUsuario@iniciarsessionandroidv');
 
 Route::post('/android/carrito', 'ControllerCarro@vercarritoandroid');
 Route::post('/android/eliminarcarrito', 'ControllerCarro@deleteprodandroid');
+Route::post('/consulta', 'ControllerCarro@consulta');
 
