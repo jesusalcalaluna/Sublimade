@@ -2,7 +2,7 @@
 @section('content')
 
         <div class="row">
-            <div class="col m7 offset-m2">
+            <div class="col m7 s5 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
                     <p class="card-title">Ya casi!</p>
                     <p class="card-content">Estás a un paso de terminar con tu compra!</p><br>
@@ -25,7 +25,7 @@
             // Specify the style of the button
             style: {
                 label: 'checkout',  // checkout | credit | pay | buynow | generic
-                size:  'medium', // small | medium | large | responsive
+                size:  'small ', // small | medium | large | responsive
                 shape: 'rect',   // pill | rect
                 color: 'black'   // gold | blue | silver | black
             },
