@@ -205,7 +205,6 @@ class ControllerProducto extends Controller
 
     function filtroandroid(Request $r){
         $producto=$r;
-        $producto = collect($producto);
         if($producto->get('tipo_prododucto')=='all' && $producto->get('categoria')=='all' && $producto->get('sexo')=='all'){
             $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
