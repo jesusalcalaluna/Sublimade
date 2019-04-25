@@ -25,8 +25,8 @@
             // Specify the style of the button
             style: {
                 label: 'checkout',  // checkout | credit | pay | buynow | generic
-                size:  'responsive ', // small | medium | large | responsive
-                shape: 'rect',   // pill | rect
+                size:  'small ', // small | medium | large | responsive
+                shape: 'pill',   // pill | rect
                 color: 'black'   // gold | blue | silver | black
             },
             // PayPal Client IDs - replace with your own
