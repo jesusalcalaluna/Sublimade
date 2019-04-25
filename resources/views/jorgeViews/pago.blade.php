@@ -26,7 +26,7 @@
             style: {
                 label: 'checkout',  // checkout | credit | pay | buynow | generic
                 size:  'small ', // small | medium | large | responsive
-                shape: 'pill',   // pill | rect
+                shape: 'rect',   // pill | rect
                 color: 'black'   // gold | blue | silver | black
             },
             // PayPal Client IDs - replace with your own
