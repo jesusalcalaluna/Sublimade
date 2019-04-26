@@ -2,7 +2,7 @@
 @section('content')
 
         <div class="row">
-            <div class="col m7 s2 offset-m2 offset-s1">
+            <div class="col m7 s9 offset-m2">
                 <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
                     <p class="card-title">Ya casi!</p>
                     <p class="card-content">Estás a un paso de terminar con tu compra!</p><br>
