@@ -1,23 +1,22 @@
 @extends('base')
 @section('content')
-
-        <div class="row">
-            <div class="col m7 s12 offset-m2">
-                <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
-                    <p class="card-title">Ya casi!</p>
-                    <p class="card-content">Estás a un paso de terminar con tu compra!</p><br>
-                    <hr>
-                    <br>
-                    <p>Haz clic en el botón de PayPal para continuar con tu compra</p>
-                    <p class="lead">
-                    <div id="paypal-button-container"></div>
-                    </p>
-                </div>
+    <div class="row">
+        <div class="col m7 s12 offset-m2">
+            <div class="card grey lighten-3" style="color: black; margin-top: 10px" align="center">
+                <p class="card-title">Ya casi!</p>
+                <p class="card-content">Estás a un paso de terminar con tu compra!</p><br>
+                <hr>
+                <br>
+                <p>Haz clic en el botón de PayPal para continuar con tu compra</p>
+                <p class="lead">
+                <div id="paypal-button-container"></div>
+                </p>
             </div>
-        </div><br><br><br><br><br>
-    @endsection
+        </div>
+    </div><br><br><br><br><br>
+@endsection
 
-        @section('js')
+@section('js')
     <script>
         paypal.Button.render({
             // Set your environment
@@ -56,10 +55,9 @@
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
                     alert('Gracias por tus compra!');
-                    location.href = '{{url('generarPedido')}}';
+                    location.href = '{{route('generarPedidoAndroid',["id" => $cliente])}}';
                 });
             }
         }, '#paypal-button-container');
     </script>
-            @endsection
-
+@endsection

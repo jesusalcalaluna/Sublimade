@@ -164,5 +164,11 @@ class ControllerCarro extends Controller
 
         dd($total[0]->total);
     }
+    function pagoAndroid(Request $r){
+        $subtotal = $r->get('subtotal');
+        $cliente = $r->get('id_client');
+
+        return view('jorgeViews.pagoAndroid')->with('subtotal',$subtotal)->with('cliente',$cliente);
+    }
 
 }

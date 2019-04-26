@@ -173,4 +173,31 @@ function getgrafica(){
             ->get();
         return view('verPedidosUser')->with('pedidos', $pedidos);
     }
+    function generarPedidoAndroid(Request $r){
+        $id = $r->get('id');
+        $datos= DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
+            ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
+            ->join('carritos_has_productos', 'carritos_has_productos.id_producto','=','productos.id_producto', 'inner')
+            ->join('carritos','carritos.id_carrito','=','carritos_has_productos.id_carrito', 'inner')
+            ->select(DB::raw("carritos.sub_total as 'subtotal', carritos_has_productos.cantidad as 'cantidad', carritos_has_productos.total as 'total', carritos_has_productos.talla as 'talla', carritos.id_carrito as 'id_carrito', productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto', carritos.id_carrito as 'id_carrito'"))
+            ->where('carritos_has_productos.id_carrito','=',$id)
+            ->get();
+
+
+        $pedido = new Pedido();
+        $pedido->id_cliente = $datos[0]->id_carrito;
+        $pedido->fecha_pedido = substr(Carbon::today(),0,10);
+        $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
+        $pedido->detalles = 'Pedido realizado desde la web';
+        $pedido->estado = 'PENDIENTE';
+
+        $carrito= Carrito::find($id);
+        foreach ($datos as $prod){
+            $pedido->productos()->save($pedido, ['id_producto'=>$prod->id_producto,'total'=>$prod->total, 'cantidad'=>$prod->cantidad, 'talla'=>$prod->talla,]);
+            $carrito->productos()->detach($prod->id_producto);
+        }
+
+
+    }
 }
