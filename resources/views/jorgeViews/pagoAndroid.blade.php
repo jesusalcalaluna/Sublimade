@@ -55,7 +55,7 @@
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
                     alert('Gracias por tus compra!');
-                    location.href = '{{url('generarPedido')}}';
+                    location.href = '{{route('generarPedidoAndroid',["id" => $cliente])}}';
                 });
             }
         }, '#paypal-button-container');
