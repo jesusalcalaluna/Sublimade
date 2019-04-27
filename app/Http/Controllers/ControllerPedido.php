@@ -174,7 +174,7 @@ function getgrafica(){
         return view('verPedidosUser')->with('pedidos', $pedidos);
     }
     function generarPedidoAndroid(Request $r){
-        $id = $r->get(2);
+        $id = $_GET['id'];
         $datos= DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
             ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
