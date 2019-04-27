@@ -128,14 +128,7 @@ class ControllerProducto extends Controller
     }
 
     //Android
-    function androidCatalogo(){
-        $productos = DB::table('productos')
-            ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
-            ->get();
-        return $productos;
-    }
+
     function androidDetalles(Request $r){
         $id = $r->get(1);
         $productos = DB::table('productos')
@@ -203,82 +196,89 @@ class ControllerProducto extends Controller
     }
 
 
+
+    function androidCatalogo(){
+        $productos = DB::table('productos')
+            ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
+            ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
+            ->get();
+        return $productos;
+    }
     function filtroandroid(Request $r){
         $producto=$r;
         if($producto->get(1)=='all' && $producto->get(2)=='all' && $producto->get(0)=='all'){
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            $filtro =DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->get();
             return $filtro;
 
         }elseif ($producto->get(1)=='all' && $producto->get(2)=='all' && $producto->get(0)!='all') {
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            $filtro=DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('productos.sexo','=',$producto->get(0))
                 ->get();
             return $filtro;
 
         }elseif ($producto->get(1)=='all' && $producto->get(2)!='all' && $producto->get(0)=='all') {
-            $filtro = DB::table('productos')
+            $filtro=DB::table('productos')
                 ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('disenos.categoria','=',$producto->get(2))->get();
             return $filtro;
 
         }elseif ($producto->get(1)!='all' && $producto->get(2)=='all' && $producto->get(0)=='all') {
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            $filtro =DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('productos.id_tipo_producto','=',$producto->get(1))
                 ->get();
             return $filtro;
 
         }elseif ($producto->get(1)!='all' && $producto->get(2)=='all' && $producto->get(0)!='all') {
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            $filtro=DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('productos.id_tipo_producto','=',$producto->get(1))
                 ->where('productos.sexo','=',$producto->get(0))
                 ->get();
             return $filtro;
 
         }elseif ($producto->get(1)=='all' && $producto->get(2)!='all' && $producto->get(0)!='all') {
-            $filtro = DB::table('productos')
+            $filtro =DB::table('productos')
                 ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('productos.sexo','=',$producto->get(0))
                 ->where('disenos.categoria','=',$producto->get(2))->get();
             return $filtro;
 
         }elseif ($producto->get(1)!='all' && $producto->get(2)!='all' && $producto->get(0)=='all') {
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+            $filtro =DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
                 ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
-                ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('disenos.categoria','=',$producto->get(2))
                 ->where('productos.id_tipo_producto','=',$producto->get(1))
                 ->get();
             return $filtro;
 
         }else{
-            $filtro = DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
-                ->join('categorias','categorias.categoria','=','disenos.categoria','inner')->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto')
-                ->select(DB::raw("productos.sexo as 'sexo', productos.nombre as 'nombre', disenos.diseno as 'diseno', productos.costo_unitario as 'costo', tipos_producto.nombre as 'tipo', disenos.categoria as 'categoria', productos.id_producto as 'id_producto'"))
+            $filtro =DB::table('productos')
+                ->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
+                ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
+                ->select(DB::raw("productos.nombre, productos.costo_unitario, disenos.diseno, categorias.categoria, productos.id_producto"))
                 ->where('productos.sexo','=',$producto->get(0))
                 ->where('productos.id_tipo_producto','=',$producto->get(1))
                 ->where('disenos.categoria','=',$producto->get(2))->get();
-
-
+            
             return $filtro;
         }
 
