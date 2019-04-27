@@ -175,6 +175,8 @@ function getgrafica(){
     }
     function generarPedidoAndroid(Request $r){
         $id = $r->get('id');
+
+        $cliente = DB::table('clientes')->select('clientes.id_cliente')->where('id_persona', '=', $id)->get();
         $datos= DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
             ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
@@ -186,11 +188,10 @@ function getgrafica(){
 
 
         $pedido = new Pedido();
-        $pedido->id_cliente = $datos[0]->id_carrito;
+        $pedido->id_cliente = $cliente[0];
         $pedido->fecha_pedido = substr(Carbon::today(),0,10);
         $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
-        $pedido->detalles = 'Pedido realizado desde la web';
-        $pedido->estado = 'PENDIENTE';
+        $pedido->detalles = 'Pedido realizado desde la aplicacion movil';
 
         $carrito= Carrito::find($id);
         foreach ($datos as $prod){
