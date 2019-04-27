@@ -198,6 +198,7 @@ function getgrafica(){
             $pedido->productos()->save($pedido, ['id_producto'=>$prod->id_producto,'total'=>$prod->total, 'cantidad'=>$prod->cantidad, 'talla'=>$prod->talla,]);
             $carrito->productos()->detach($prod->id_producto);
         }
+        return redirect('/');
 
 
     }
