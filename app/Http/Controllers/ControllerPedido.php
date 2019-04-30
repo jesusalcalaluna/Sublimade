@@ -113,7 +113,6 @@ function getgrafica(){
         ->join('detalles_pedido','detalles_pedido.reg_pedido','=','pedidos.reg_pedido','inner')
         ->select(DB::raw("concat(personas.nombre,' ',personas.apellido) as 'Cliente', reportes_ventas.fecha as 'Fecha_de_venta', sum(total) as 'total_de_venta'"))
         ->groupBy('detalles_pedido.reg_pedido')
-        ->where('pedidos.estado','=','FINALIZADO')
         ->get();
 
     return $ventas;

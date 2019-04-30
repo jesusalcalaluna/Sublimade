@@ -124,7 +124,7 @@
 
   <nav>
     <div class="nav-wrapper blue-grey">
-      <a href="{{url('/')}}" style="font-size: 30px; font-family: Georgia">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 30px;  font-family:'Dancing Script'">Sublimade</a>
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
@@ -152,11 +152,7 @@
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
-    <li><a href="{{url('regadmin')}}">OTORGAR PERMISOS DE ADMINISTRADOR</a></li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
-    <br>
-    <li><a href="#">ADMINISTRADORES</a></li>
+    <li><a href="{{url('regadmin')}}">OTORGAR PERMISOS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
 
