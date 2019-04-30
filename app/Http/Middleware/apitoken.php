@@ -16,7 +16,7 @@ class apitoken
     public function handle($request, Closure $next)
     {
   
-     $token = $r->get("api_token");
+     $token = $request->get("api_token");
      $u=Usuario::where("api_token","=",$token)->first();
         
          if($u!=null)
