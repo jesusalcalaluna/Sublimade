@@ -54,8 +54,8 @@
             // Wait for the payment to be authorized by the customer
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
-                    alert('Gracias por tus compra!');
-                    location.href = '{{route('generarPedidoAndroid',["id" => $cliente])}}';
+                    alert('Gracias por tus compra, ya puedes seguir comprando desde nuestra aplicacion movil!');
+                    location.href = '{{url('generarPedidoAndroid/?id='.$cliente)}}';
                 });
             }
         }, '#paypal-button-container');
