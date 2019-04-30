@@ -152,6 +152,7 @@ function getgrafica(){
         $pedido = new Pedido();
         $pedido->id_cliente = $cliente[0]->id_cliente;
         $pedido->fecha_pedido = substr(Carbon::today(),0,10);
+        $pedido->fecha_real_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->detalles = 'Pedido realizado desde la web';
         $pedido->estado = 'PENDIENTE';
@@ -194,6 +195,7 @@ function getgrafica(){
         $pedido = new Pedido();
         $pedido->id_cliente = $cliente[0]->id_cliente;
         $pedido->fecha_pedido = substr(Carbon::today(),0,10);
+        $pedido->fecha_real_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->fecha_entrega = substr(Carbon::today()->addWeek(2),0,10);
         $pedido->detalles = 'Pedido realizado desde la aplicacion movil';
 
