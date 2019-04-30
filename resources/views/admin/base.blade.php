@@ -124,11 +124,10 @@
 
   <nav>
     <div class="nav-wrapper blue-grey">
-      <a href="{{url('/')}}" style="font-size: 30px;  font-family:'Dancing Script'">Sublimade</a>
+      <a href="{{url('/')}}" style="font-size: 50px;  font-family:'Dancing Script'">Sublimade</a>
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-   <br>
     <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
     <br>
     @if(Session()->get('tipo')=='1')
@@ -143,10 +142,6 @@
 
         </ul>
     </li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
-    <br>
-    <li class="divider" tabindex="-1"></li>
     <br>
     <li><a href="/ventas">VENTAS</a></li>
     <br>
