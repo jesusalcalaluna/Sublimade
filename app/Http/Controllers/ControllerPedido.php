@@ -213,4 +213,17 @@ function getgrafica(){
 
 
     }
+    function getPedidosAndroid(Request $r){
+        $id = $r->get(1);
+
+        $cliente = DB::table('clientes')->select(DB::raw("clientes.id_cliente as 'id_cliente'"))->where('id_persona', '=',$id)->get();
+        $id_cliente = $cliente[0]->id_cliente;
+        $pedidos=DB::table('personas')
+            ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
+            ->join('pedidos','clientes.id_cliente','=','pedidos.id_cliente','inner')
+            ->where('clientes.id_cliente','=', $id_cliente)
+            ->get();
+
+        return $pedidos;
+    }
 }
