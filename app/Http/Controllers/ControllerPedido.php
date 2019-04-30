@@ -168,7 +168,7 @@ function getgrafica(){
         return redirect('/');
     }
     function getPedidoUsuario(){
-        $cliente = DB::table('clientes')->select(DB::raw("clientes.id_cliente as 'id_cliente'"))->where('id_persona', '=', $id)->get();
+        $cliente = DB::table('clientes')->select(DB::raw("clientes.id_cliente as 'id_cliente'"))->where('id_persona', '=', Session::get('id'))->get();
         $id_cliente = $cliente[0]->id_cliente;
         $pedidos=DB::table('personas')
             ->join('clientes','personas.id_persona','=','clientes.id_persona','inner')
