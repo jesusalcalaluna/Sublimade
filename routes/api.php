@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use middleware;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Route::post('/android.iniciarsession.google', 'ControllerUsuario@obtenerusuarioa
 Route::post('/android.obtenerusuario','ControllerUsuario@obtenerusuarioandroid');
 
 
-Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid')->middleware('usuarioStandard');;
+Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid')->middleware('token');;
 
 
 
