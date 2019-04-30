@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,10 @@ Route::post('/android.iniciarsession.google', 'ControllerUsuario@obtenerusuarioa
 Route::post('/android.obtenerusuario','ControllerUsuario@obtenerusuarioandroid');
 
 
-Route::group(['middleware' => 'apitoken'], function () {
-
-Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid');
+Route::post('/android.modificarusuario','ControllerUsuario@actualizarInfoandroid')->middleware('usuarioStandard');;
 
 
-});
+
 
 Route::get('/android/catalogo','ControllerProducto@androidCatalogo');
 Route::get('/android.obtenercategoria','ControllerProducto@androidcategorias');
