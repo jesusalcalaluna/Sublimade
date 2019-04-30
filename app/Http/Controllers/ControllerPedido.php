@@ -138,7 +138,7 @@ function getgrafica(){
     }
     function generarPedido(){
 
-        $cliente = DB::table('clientes')->select(DB::raw("clientes.id_cliente as 'id_cliente'"))->where('id_persona', '=', Session::get('id'))->get();
+        dd($cliente = DB::table('clientes')->select(DB::raw("clientes.id_cliente as 'id_cliente'"))->where('id_persona', '=', Session::get('id'))->get());
         $datos= DB::table('productos')->join('disenos','disenos.id_diseno','=','productos.id_diseno','inner')
             ->join('categorias','categorias.categoria','=','disenos.categoria','inner')
             ->join('tipos_producto', 'tipos_producto.id_tipo_producto', '=','productos.id_tipo_producto', 'inner')
