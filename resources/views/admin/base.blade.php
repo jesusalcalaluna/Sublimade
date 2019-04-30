@@ -128,22 +128,22 @@
       <a href="#" data-dismis="mobile-de" class="sidenav-trigger sidenav-close show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-    <li><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
+    <li class="divider" tabindex="-1"><a href="{{url('/verdisenos')}}">DISEÑOS</a></li>
     <br>
     @if(Session()->get('tipo')=='1')
   <ul class="collapsible collapsible-accordion ">
     <br>
-    <li>
+    <li class="divider" tabindex="-1">
       <div class="collapsible-header">PEDIDOS</div>
         <ul class="collapsible-body">
-          <li><a href="{{url('/pedidospen')}}">Pendientes</a></li>
-          <li><a href="{{url('/pedidospro')}}">En proceso</a></li>
-          <li><a href="{{url('/pedidosfin')}}">Finalizados</a></li>
+          <li class="divider" tabindex="-1"><a href="{{url('/pedidospen')}}">Pendientes</a></li>
+          <li class="divider" tabindex="-1"><a href="{{url('/pedidospro')}}">En proceso</a></li>
+          <li class="divider" tabindex="-1"><a href="{{url('/pedidosfin')}}">Finalizados</a></li>
 
         </ul>
     </li>
     <br>
-    <li><a href="/ventas">VENTAS</a></li>
+    <li class="divider" tabindex="-1"><a href="/ventas">VENTAS</a></li>
     <br>
     <li class="divider" tabindex="-1"></li>
     <br>
