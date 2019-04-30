@@ -119,4 +119,4 @@ Route::post('/android/eliminarcarrito', 'ControllerCarro@deleteprodandroid');
 Route::post('/consulta', 'ControllerCarro@consulta');
 Route::get('/pagoAndroid','ControllerCarro@pagoAndroid');
 Route::get('/generarPedidoAndroid','ControllerPedido@generarPedidoAndroid');
-Route::post('/getPedidosAndroid','ControllerPedido@getPedidosAndroid');
+Route::get('/getPedidosAndroid','ControllerPedido@getPedidosAndroid');
